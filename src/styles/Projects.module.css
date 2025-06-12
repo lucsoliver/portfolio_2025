@@ -1,0 +1,259 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+  max-width: 56rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 2.25rem;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  animation: fade-in 0.5s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.loaderWrapper,
+.noResults,
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.error {
+  color: #ef4444;
+}
+
+.card {
+  color: currentColor;
+  /* background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1)); */
+  padding: 1.5rem;
+  transition: all 0.3s;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  box-shadow: none;
+  transform: none;
+}
+
+html.dark .card {
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity, 1));
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cardTitleLink {
+  color: currentColor;
+  transition: color 0.2s, text-decoration 0.2s;
+  text-decoration: none;
+}
+
+.cardTitleLink:hover {
+  text-decoration: underline;
+}
+
+.cardDesc {
+  margin-top: 0.5rem;
+}
+
+.cardStats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem; /*ver dps */
+  line-height: 1.25rem;
+}
+
+.iconSm {
+  width: 1rem !important;
+  height: 1rem !important;
+  font-size: 0.875rem; /*ver dps */
+}
+
+.iconMd {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cardTags,
+.cardLangs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  background: #f3f4f6;
+  color: #404040;
+  border-radius: 2rem;
+}
+
+.loaderIcon {
+  width: 2rem;
+  height: 2rem;
+  color: currentColor;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loaderText {
+  margin-top: 0.5rem;
+}
+
+.lang {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  color: currentColor;
+  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  font-weight: 500;
+}
+
+.cardFooter {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cardFooterLink {
+  font-size: 0.875rem;
+  color: currentColor;
+  transition: color 0.2s, text-decoration 0.2s;
+  text-decoration: none;
+}
+
+.cardFooterLink:hover {
+  color: currentColor;
+  text-decoration: underline;
+}
+
+.clearBtn {
+  padding: 0.75rem 1.5rem;
+  background: #f3f4f6;
+  color: #171717;
+  border-radius: 9999px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  background: #e5e7eb;
+  color: #171717;
+  transform: scale(1.05);
+}
+
+.emoji {
+  font-size: 3rem;
+}
+
+.animateFadeIn {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+article {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Melhora a acessibilidade do foco */
+:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Adiciona prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animateFadeIn,
+  article {
+    animation: none;
+    opacity: 1;
+  }
+}
