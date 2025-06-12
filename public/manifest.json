@@ -1,0 +1,10 @@
+{
+  "name": "Portfolio",
+  "short_name": "portfolio",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Descrição do seu app",
+  "icons": []
+}
+  

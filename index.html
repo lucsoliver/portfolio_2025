@@ -1,13 +1,51 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Lucas Oliveira - Frontend Developer</title>
+
+    <meta
+      name="description"
+      content="Portfolio de Lucas Oliveira, Desenvolvedor Frontend."
+    />
+    <meta name="author" content="Lucas Oliveira" />
+    <meta
+      name="keywords"
+      content="desenvolvimento frontend, portfolio, web developer, React"
+    />
+
+    <meta
+      property="og:description"
+      content="Portfolio de Lucas Oliveira, Desenvolvedor Frontend."
+    />
+
+    <link rel="modulepreload" href="/src/main.tsx" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#1a1a1a"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <script type="module" src="/src/main.tsx" async></script>
   </head>
+
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app"></div>
+    <noscript>
+      <div style="padding: 20px; text-align: center">
+        Para uma melhor experiência, por favor habilite o JavaScript no seu
+        navegador.
+      </div>
+    </noscript>
   </body>
 </html>
