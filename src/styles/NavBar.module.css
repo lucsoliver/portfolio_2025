@@ -71,6 +71,7 @@
 
 .toggles {
   display: flex;
+  align-items: flex-start;
   gap: 0.75rem;
   margin-left: auto;
   color-scheme: light dark;

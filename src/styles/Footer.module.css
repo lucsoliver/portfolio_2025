@@ -21,7 +21,7 @@ html.dark .footer {
 }
 
 :global(html.dark) .footerContent {
-  background-color: #171717;
+  background-color: #111111;
   border-top: 1px solid #fff;
 }
 

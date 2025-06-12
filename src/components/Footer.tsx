@@ -1,5 +1,5 @@
 import React,  { useState }  from 'react';
-import Links from './Links';
+import LinksFooter from './LinksFooter';
 import LinkImage from './LinkImage';
 import { useTranslation } from 'react-i18next';
 import styles from '../styles/Footer.module.css';
@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
    <footer className={styles.footer}>
     <LinkImage hoveredIndex={hoveredIndex} />
       <div className={styles.footerContent}>
-       <Links onHover={setHoveredIndex} />
+       <LinksFooter onHover={setHoveredIndex} />
         <p className={styles.textCenter}>
           © {currentYear} <span className={styles.rainbowText}>Lucas Oliveira</span>. {t('footer.rights')}
         </p>

@@ -1,0 +1,78 @@
+.linksNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.8rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .linksNav {
+    justify-content: flex-start;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: currentColor;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.linkIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.linkUnderline {
+  position: relative;
+}
+
+.linkUnderline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.linkUnderline:hover::after {
+  width: 100%;
+}
+
+.LinkImageContainer {
+  position: relative;
+  bottom: -80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: -1001;
+}
+
+.linkImage {
+  width: 6rem;
+  height: 6rem;
+}
+
+.imageTranslocated {
+  transform: translateY(-70px);
+}

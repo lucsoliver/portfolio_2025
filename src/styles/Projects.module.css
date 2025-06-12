@@ -22,10 +22,27 @@
 
 .title {
   font-size: 1.875rem;
-  line-height: 2.25rem;
+  /* line-height: 2.25rem; */
   font-weight: bold;
+  background-color: #f3f4f6;
   margin-bottom: 2rem;
   text-align: center;
+  color: #404040;
+  padding: 2.4rem 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+:global(html.dark) .title {
+  background-color: #161616;
+  color: #fff;
 }
 
 @media (min-width: 1024px) {
@@ -69,7 +86,7 @@
 
 .card {
   color: currentColor;
-  /* background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1)); */
+  background-color: #fff;
   padding: 1.5rem;
   transition: all 0.3s;
   border: 1px solid currentColor;
@@ -78,8 +95,8 @@
   transform: none;
 }
 
-html.dark .card {
-  background-color: rgb(38 38 38 / var(--tw-bg-opacity, 1));
+:global(html.dark) .card {
+  background-color: #262626;
 }
 
 .card:hover {

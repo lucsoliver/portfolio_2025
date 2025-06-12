@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Twitter, Github, Linkedin } from 'lucide-react';
-import styles from '../styles/Links.module.css';
+import styles from '../styles/LinksFooter.module.css';
 
 interface Link {
   href: string;

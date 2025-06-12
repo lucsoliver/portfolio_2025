@@ -3,8 +3,13 @@ body {
   color: #404040;
 }
 html.dark body {
-  background: #171717;
+  background: #111111;
   color: #d4d4d4;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 :root {
