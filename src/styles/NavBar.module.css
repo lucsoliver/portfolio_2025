@@ -1,0 +1,213 @@
+.stickyNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.menuButton {
+  display: block;
+  color-scheme: light dark;
+  color: currentColor;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+}
+
+.iconMd {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.iconSm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.menuButton:hover {
+  color: currentColor;
+}
+
+.desktopNav {
+  display: none;
+}
+
+.desktopLink {
+  cursor: pointer;
+  color-scheme: light dark;
+  color: currentColor;
+  font-weight: 500;
+  transition: color 0.2s, text-decoration 0.2s;
+  text-decoration: none;
+  position: relative;
+}
+
+.desktopLink:hover {
+  color-scheme: light dark;
+  color: currentColor;
+}
+
+.desktopLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.desktopLink:hover::after {
+  width: 100%;
+}
+
+.toggles {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+  color-scheme: light dark;
+  color: currentColor;
+}
+
+.langToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color-scheme: light dark;
+  color: currentColor;
+}
+
+.langBtn {
+  padding: 0.5rem 0.5rem;
+  transition: color 0.2s, font-weight 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline transparent;
+  color-scheme: light dark;
+  color: currentColor;
+}
+
+.langActive {
+  font-weight: bold;
+}
+
+.langInactive {
+  opacity: 0.5;
+}
+
+.themeBtn {
+  padding: 0.5rem;
+  background: none;
+  color-scheme: light dark;
+  color: currentColor;
+  border: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.themeBtn:hover {
+  color-scheme: light dark;
+  color: currentColor;
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  display: block;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 16rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 50;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mobileMenuOpen {
+  transform: translateX(0);
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  padding-top: 5rem;
+}
+
+.mobileLink {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.2s, text-decoration 0.2s;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.mobileLink:hover {
+  color-scheme: light dark;
+  color: currentColor;
+  text-decoration: underline;
+}
+
+.scrollTopBtn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.7;
+  transition: all 0.3s;
+  z-index: 50;
+  border: none;
+  cursor: pointer;
+}
+
+.scrollTopBtn:hover {
+  opacity: 1;
+  color: currentColor;
+}
+
+@media (min-width: 1024px) {
+  .menuButton {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobileOverlay {
+    display: none;
+  }
+  .mobileMenu {
+    display: none;
+  }
+}
