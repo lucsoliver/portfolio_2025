@@ -1,6 +1,6 @@
 .stickyNav {
   position: fixed;
-  top: 0;
+  /* top: 0; */
   left: 0;
   right: 0;
   padding: 0.75rem 1.5rem;
@@ -10,6 +10,43 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(8px);
   z-index: 50;
+}
+
+.sidebarNav {
+  position: fixed;
+  top: 27vh;
+  left: 3%;
+  width: 7rem;
+  height: auto;
+  background-color: #f3f4f6;
+  border-right: 1px solid #e5e5e5;
+  color: #404040;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  padding: 2rem 0;
+  border-radius: 1rem;
+  z-index: 100;
+}
+
+:global(html.dark) .sidebarNav {
+  background: #161616;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+@media (max-width: 1025px) {
+  .sidebarNav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 769px) {
+  .sidebarNav,
+  .desktopNav {
+    display: none !important;
+  }
 }
 
 .menuButton {
@@ -36,7 +73,11 @@
 }
 
 .desktopNav {
-  display: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  max-width: 50%;
+  box-shadow: none;
 }
 
 .desktopLink {
@@ -194,13 +235,6 @@
 @media (min-width: 1024px) {
   .menuButton {
     display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .desktopNav {
-    display: flex;
-    gap: 1.5rem;
   }
 }
 

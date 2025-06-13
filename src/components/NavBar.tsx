@@ -16,6 +16,8 @@ const NavBar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isSidebar, setIsSidebar] = useState(false);
+
 
   // Language initialization
   useEffect(() => {
@@ -25,8 +27,11 @@ const NavBar: React.FC = () => {
   }, [i18n]);
 
   // Scroll top
-  useEffect(() => {
-    const onScroll = () => setShowScrollTop(window.scrollY > 500);
+   useEffect(() => {
+    const onScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+      setIsSidebar(window.scrollY > 100); // Troca para sidebar após 100px de scroll
+    };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -47,6 +52,9 @@ const NavBar: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navClass = isSidebar ? styles.sidebarNav : styles.stickyNav;
+
+
   return (
     <>
       {isInitialized && (
@@ -63,7 +71,7 @@ const NavBar: React.FC = () => {
           </button>
 
           {/* Desktop nav */}
-          <div className={styles.desktopNav}>
+          <div className={`${navClass} ${styles.desktopNav}`}>
             {sections.map((section) => (
               <a
                 key={section.id}
