@@ -1,13 +1,6 @@
 .footer {
-  /* background-color: #fff; */
-  /* color: #404040;  */
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-html.dark .footer {
-  /* background-color: #171717; */
-  /* color: #fff;  */
 }
 
 .footerContent {
@@ -15,21 +8,21 @@ html.dark .footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid #404040;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dadce0;
   z-index: 1001;
-  background-color: #fff;
 }
 
 :global(html.dark) .footerContent {
-  background-color: #111111;
-  border-top: 1px solid #fff;
+  background-color: #202124;
+  border-top: 1px solid #404040;
 }
 
 .textCenter {
   text-align: center;
 }
 
-.rainbowText:hover {
+.stylizedText:hover {
   background: linear-gradient(
     to right,
     #0e2850 0%,
@@ -40,16 +33,15 @@ html.dark .footer {
     rgb(60, 60, 60) 83%,
     #0e2850 100%
   );
-
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   background-position: 0% center;
-  animation: rainbow-move 2s linear infinite;
+  animation: stylized-move 4s linear infinite;
 }
 
-@keyframes rainbow-move {
+@keyframes stylized-move {
   to {
     background-position: 200% center;
   }

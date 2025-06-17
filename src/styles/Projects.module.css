@@ -22,9 +22,8 @@
 
 .title {
   font-size: 1.875rem;
-  /* line-height: 2.25rem; */
   font-weight: bold;
-  background-color: #f3f4f6;
+  background-color: #f4f2ee;
   margin-bottom: 2rem;
   text-align: center;
   color: #404040;
@@ -86,17 +85,18 @@
 
 .card {
   color: currentColor;
-  background-color: #fff;
+  background-color: #f3f4f6;
   padding: 1.5rem;
   transition: all 0.3s;
-  border: 1px solid currentColor;
+  border: 1px solid #e5e7eb;
   border-radius: 0.4rem;
   box-shadow: none;
   transform: none;
 }
 
 :global(html.dark) .card {
-  background-color: #262626;
+  background-color: #303134;
+  border: 1px solid #5f6368;
 }
 
 .card:hover {
@@ -164,6 +164,13 @@
   background: #f3f4f6;
   color: #404040;
   border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+}
+
+:global(html.dark) .tag {
+  background: #2d2e31;
+  color: #f3f4f6;
+  border: 1px solid #5f5f5f;
 }
 
 .loaderIcon {
@@ -186,16 +193,27 @@
 .lang {
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
-  color: currentColor;
+  background-color: #f3f4f6;
+  color: #404040;
   border-radius: 2rem;
   border: 1px solid #e5e7eb;
   font-weight: 500;
+}
+
+:global(html.dark) .lang {
+  background-color: #2d2e31;
+  color: #f3f4f6;
+  border: 1px solid #5f5f5f;
 }
 
 .cardFooter {
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid #e5e7eb;
+}
+
+:global(html.dark) .cardFooter {
+  border-top: 1px solid #5f5f5f;
 }
 
 .cardFooterLink {
@@ -214,7 +232,7 @@
   padding: 0.75rem 1.5rem;
   background: #f3f4f6;
   color: #171717;
-  border-radius: 9999px;
+  border-radius: 50rem;
   border: 1px solid #e5e7eb;
   font-size: 1rem;
   transition: all 0.3s;

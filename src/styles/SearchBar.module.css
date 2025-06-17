@@ -17,21 +17,31 @@
   background: #f3f4f6;
   color: #171717;
   font-size: 1rem;
-  border: 1px solid #262626;
+  border: none;
   outline: none;
   transition: all 0.3s;
   box-sizing: border-box;
 }
+
 :global(html.dark) .input {
-  background-color: #262626;
+  background-color: #303134;
+  color: #e8e8e8;
 }
 
 .input::placeholder {
-  color: #a3a3a3;
+  color: #737373;
+}
+
+:global(html.dark) .input::placeholder {
+  color: #bfbfbf;
 }
 
 .input:focus {
-  outline: 2px solid #171717;
+  background-color: #ffffff;
+}
+
+:global(html.dark) .input:focus {
+  background-color: #5f6368;
 }
 
 .icon {
@@ -45,6 +55,6 @@
   pointer-events: none;
 }
 
-html.dark .icon {
-  color: #a3a3a3;
+:global(html.dark) .icon {
+  color: #bfbfbf;
 }

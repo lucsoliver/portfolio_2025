@@ -1,6 +1,6 @@
-import React from 'react';
-import { Mail, Twitter, Github, Linkedin } from 'lucide-react';
-import styles from '../styles/Links.module.css';
+import React from "react";
+import { Mail, Twitter, Github, Linkedin } from "lucide-react";
+import styles from "../styles/Links.module.css";
 
 interface Link {
   href: string;
@@ -11,36 +11,38 @@ interface Link {
 }
 const links: Link[] = [
   {
-    href: 'mailto:lucasop888@gmail.com',
+    href: "mailto:lucasop888@gmail.com",
     icon: Mail,
-    alt: 'Email',
-    title: 'E-mail',
-    rel: 'nofollow',
+    alt: "Email",
+    title: "E-mail",
+    rel: "nofollow",
   },
   {
-    href: 'https://twitter.com/lyunnee',
+    href: "https://twitter.com/lyunnee",
     icon: Twitter,
-    alt: 'Twitter',
-    title: 'Twitter',
-    rel: 'me noopener',
+    alt: "Twitter",
+    title: "Twitter",
+    rel: "me noopener",
   },
   {
-    href: 'https://github.com/lucsoliver',
+    href: "https://github.com/lucsoliver",
     icon: Github,
-    alt: 'GitHub',
-    title: 'GitHub',
-    rel: 'me noopener',
+    alt: "GitHub",
+    title: "GitHub",
+    rel: "me noopener",
   },
   {
-    href: 'https://www.linkedin.com/in/lucas-oliveira-paula/',
+    href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
     icon: Linkedin,
-    alt: 'LinkedIn',
-    title: 'LinkedIn',
-    rel: 'me noopener',
+    alt: "LinkedIn",
+    title: "LinkedIn",
+    rel: "me noopener",
   },
 ];
 
-const Links: React.FC<{ onHover?: (index: number | null) => void }> = ({ onHover }) => (
+const Links: React.FC<{ onHover?: (index: number | null) => void }> = ({
+  onHover,
+}) => (
   <nav className={styles.linksNav} aria-label="Links de redes sociais">
     {links.map((link, idx) => {
       const Icon = link.icon;

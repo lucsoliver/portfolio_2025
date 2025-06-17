@@ -1,6 +1,6 @@
-import React from 'react';
-import { Search } from 'lucide-react';
-import styles from '../styles/SearchBar.module.css';
+import React from "react";
+import { Search } from "lucide-react";
+import styles from "../styles/SearchBar.module.css";
 
 interface SearchBarProps {
   value: string;
@@ -8,12 +8,16 @@ interface SearchBarProps {
   placeholder: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, placeholder }) => (
-<div className={styles.wrapper}>
+const SearchBar: React.FC<SearchBarProps> = ({
+  value,
+  onChange,
+  placeholder,
+}) => (
+  <div className={styles.wrapper}>
     <div className={styles.inputWrapper}>
       <input
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         type="text"
         placeholder={placeholder}
         className={styles.input}

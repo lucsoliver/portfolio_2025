@@ -1,38 +1,33 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import Links from './Links';
-import styles from '../styles/About.module.css';
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import Links from "./Links";
+import styles from "../styles/About.module.css";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
-  const [firstName] = useState('Lucas');
-  const [lastName] = useState('Oliveira');
+  const [firstName] = useState("Lucas");
+  const [lastName] = useState("Oliveira");
 
   return (
-  <section id="about" className={styles.aboutSection}>
-  <div className={styles.aboutContainer}>
-    <div className={styles.aboutFlex}>
-      <div className={styles.aboutText}>
-        <h2
-          className={`${styles.aboutTitle} ${styles.glitchContainer}'}`}>
-          <div className={`${styles.aboutInline}`}>
-            <span aria-hidden="true">{firstName} {lastName}</span>            
+    <section id="about" className={styles.aboutSection}>
+      <div className={styles.aboutContainer}>
+        <div className={styles.aboutFlex}>
+          <div className={styles.aboutText}>
+            <h2 className={styles.aboutTitle}>
+              {firstName} {lastName}
+            </h2>
+            <p className={styles.aboutDescription}>{t("about.description")}</p>
+            <Links />
           </div>
-        </h2>
-        <p className={styles.aboutDescription}>
-          {t('about.description')}
-        </p>
-        <Links />
+          <div className={styles.aboutAvatar}>
+            <img
+              src="https://github.com/lucsoliver.png"
+              alt="Lucas Oliveira"
+              className={styles.aboutImg}
+            />
+          </div>
+        </div>
       </div>
-      <div className={styles.aboutAvatar}>
-        <img
-          src="https://github.com/lucsoliver.png"
-          alt="Lucas Oliveira"
-          className={styles.aboutImg}
-        />
-      </div>
-    </div>
-  </div>
     </section>
   );
 };
