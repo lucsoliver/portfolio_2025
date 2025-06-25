@@ -39,25 +39,6 @@
   border: 0;
 }
 
-.linkUnderline {
-  position: relative;
-}
-
-.linkUnderline::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: currentColor;
-  transition: width 0.3s ease-in-out;
-}
-
-.linkUnderline:hover::after {
-  width: 100%;
-}
-
 .LinkImageContainer {
   position: relative;
   bottom: -80px;

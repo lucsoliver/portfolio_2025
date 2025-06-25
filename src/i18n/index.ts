@@ -25,7 +25,7 @@ const resources = {
       projects: {
         projects: 'My projects',
         viewOnGithub: 'View on GitHub →',
-        searchPlaceholder: 'Search projects by name, description or language...',
+        searchPlaceholder: 'Search projects by name or language...',
         noResults: 'No projects found',
         noProjects: 'No projects available',
         tryAgain: 'Try again',
@@ -59,7 +59,7 @@ const resources = {
       projects: {
         projects: 'Meus projetos',
         viewOnGithub: 'Ver no GitHub →',
-        searchPlaceholder: 'Buscar projetos por nome, descrição ou linguagem...',
+        searchPlaceholder: 'Buscar projetos por nome ou linguagem...',
         noResults: 'Nenhum projeto encontrado',
         noProjects: 'Nenhum projeto disponível',
         tryAgain: 'Tentar novamente',

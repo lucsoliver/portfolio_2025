@@ -50,8 +50,10 @@
   }
 }
 
-.grid {
-  display: grid;
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   animation: fade-in 0.5s;
 }
@@ -84,6 +86,8 @@
 }
 
 .card {
+  width: 30vh;
+  min-width: 20rem;
   color: currentColor;
   background-color: #f3f4f6;
   padding: 1.5rem;
@@ -129,20 +133,6 @@
 
 .cardDesc {
   margin-top: 0.5rem;
-}
-
-.cardStats {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 0.875rem; /*ver dps */
-  line-height: 1.25rem;
-}
-
-.iconSm {
-  width: 1rem !important;
-  height: 1rem !important;
-  font-size: 0.875rem; /*ver dps */
 }
 
 .iconMd {

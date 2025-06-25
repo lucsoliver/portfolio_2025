@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* 0E2850 */
   border-top: 1px solid #dadce0;
   z-index: 1001;
 }

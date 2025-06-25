@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Star, GitFork, Loader2, RotateCcw } from "lucide-react";
+import { Loader2, RotateCcw } from "lucide-react";
 import { fetchPinnedRepos } from "../services/github";
 import type { Repository } from "../services/github";
 import SearchBar from "./SearchBar";
@@ -121,7 +121,7 @@ const Projects: React.FC = () => {
         )}
 
         {!isLoading && !error && filteredRepos.length > 0 && (
-          <div className={styles.grid}>
+          <div className={styles.cardContainer}>
             {filteredRepos.map((repo, index) => (
               <article
                 key={repo.url}
@@ -154,16 +154,6 @@ const Projects: React.FC = () => {
                           </a>
                         </div>
                       )}
-                    </div>
-                    <div className={styles.cardStats}>
-                      <span title={t("projects.stars")}>
-                        <Star className={styles.iconSm} />
-                        {repo.stars}
-                      </span>
-                      <span title={t("projects.forks")}>
-                        <GitFork className={styles.iconSm} />
-                        {repo.forks}
-                      </span>
                     </div>
                   </div>
                   <div className={styles.cardTags}>

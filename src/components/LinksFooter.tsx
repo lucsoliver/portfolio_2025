@@ -53,7 +53,7 @@ const Links: React.FC<{ onHover?: (index: number | null) => void }> = ({
           title={link.title}
           rel={link.rel}
           target="_blank"
-          className={`${styles.link} ${styles.linkUnderline}`}
+          className={styles.link}
           aria-label={link.alt}
           onMouseEnter={() => onHover && onHover(idx)}
           onMouseLeave={() => onHover && onHover(null)}
