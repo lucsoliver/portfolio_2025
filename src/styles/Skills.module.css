@@ -1,0 +1,99 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+  max-width: 56rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  background-color: #f4f2ee;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #404040;
+  padding: 2.4rem 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+:global(html.dark) .title {
+  background-color: #161616;
+  color: #fff;
+}
+
+.description {
+  font-size: 1.125rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 12rem;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+:global(html.dark) .skills {
+  background-color: #303134;
+  border: 1px solid #5f6368;
+}
+
+.skillIcon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.skillLabel {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #404040;
+}
+
+:global(html.dark) .skillLabel {
+  color: #e8e8e8;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 2.25rem;
+  }
+}
