@@ -52,7 +52,7 @@
   line-height: 1.5;
 }
 
-.aboutTitle:hover {
+.stylizedName:hover {
   background: linear-gradient(
     to right,
     #0e2850 0%,

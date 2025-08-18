@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
   useEffect(() => {
     const onScroll = () => {
       setShowScrollTop(window.scrollY > 500);
-      setIsSidebar(window.scrollY > 100); // Troca para sidebar após 100px de scroll
+      setIsSidebar(window.scrollY > 100);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

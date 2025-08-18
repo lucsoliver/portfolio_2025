@@ -52,8 +52,10 @@
 
 .cardContainer {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-content: center;
+  align-items: center;
   gap: 1.5rem;
   animation: fade-in 0.5s;
 }
@@ -87,7 +89,7 @@
 
 .card {
   width: 60vh;
-  min-width: 20rem;
+  min-width: 10rem;
   color: currentColor;
   background-color: #f3f4f6;
   padding: 1.5rem;
@@ -125,10 +127,22 @@
   color: currentColor;
   transition: color 0.2s, text-decoration 0.2s;
   text-decoration: none;
+  position: relative;
 }
 
-.cardTitleLink:hover {
-  text-decoration: underline;
+.cardTitleLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.cardTitleLink:hover::after {
+  width: 100%;
 }
 
 .cardDesc {
@@ -211,11 +225,22 @@
   color: currentColor;
   transition: color 0.2s, text-decoration 0.2s;
   text-decoration: none;
+  position: relative;
 }
 
-.cardFooterLink:hover {
-  color: currentColor;
-  text-decoration: underline;
+.cardFooterLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.cardFooterLink:hover::after {
+  width: 100%;
 }
 
 .clearBtn {
@@ -266,6 +291,19 @@ article {
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (max-width: 1370px) {
+  .card {
+    width: 80vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .card {
+    width: auto;
+    min-width: -webkit-fill-available;
+  }
 }
 
 /* Melhora a acessibilidade do foco */

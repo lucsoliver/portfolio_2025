@@ -14,7 +14,9 @@ const About: React.FC = () => {
         <div className={styles.aboutFlex}>
           <div className={styles.aboutText}>
             <h2 className={styles.aboutTitle}>
-              {firstName} {lastName}
+              <span className={styles.stylizedName}>
+                {firstName} {lastName}
+              </span>
             </h2>
             <p className={styles.aboutDescription}>{t("about.description")}</p>
             <Links />
