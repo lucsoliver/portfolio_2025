@@ -20,6 +20,9 @@ const About: React.FC = () => {
             </h2>
             <p className={styles.aboutDescription}>{t("about.description")}</p>
             <Links />
+            <a href="#" download className={styles.cvButton}>
+              {t("about.cv")}
+            </a>
           </div>
           <div className={styles.aboutAvatar}>
             <img

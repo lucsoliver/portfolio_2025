@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Sun, Moon, Menu, X, ArrowUp } from "lucide-react";
 import styles from "../styles/NavBar.module.css";
 import { useTheme } from "../components/ThemeContext";
+import LogoBlack from "../assets/logo-black.svg";
+import LogoWhite from "../assets/logo-white.svg";
 
 const sections = [
   { id: "home", label: "nav.home" },
@@ -72,6 +74,13 @@ const NavBar: React.FC = () => {
           </button>
 
           {/* Desktop nav */}
+          <div className={styles.logoContainer}>
+            {theme === "dark" ? (
+              <img src={LogoWhite} className={styles.logo} alt="Logo" />
+            ) : (
+              <img src={LogoBlack} className={styles.logo} alt="Logo" />
+            )}
+          </div>
           <div className={`${navClass} ${styles.desktopNav}`}>
             {sections.map((section) => (
               <a
@@ -138,6 +147,9 @@ const NavBar: React.FC = () => {
         ].join(" ")}
       >
         <div className={styles.mobileMenuContent}>
+          <div className={styles.logoContainerMobile}>
+            <img src={LogoWhite} className={styles.logo} alt="Logo" />
+          </div>
           {sections.map((section) => (
             <a
               key={section.id}

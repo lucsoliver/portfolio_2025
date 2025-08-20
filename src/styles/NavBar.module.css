@@ -32,6 +32,25 @@
   z-index: 100;
 }
 
+.logoContainer {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.25rem;
+  z-index: 51;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: filter 0.2s;
+  backdrop-filter: unset;
+  pointer-events: none;
+  user-select: none;
+}
+
 :global(html.dark) .sidebarNav {
   background: #161616;
   border: 1px solid #333;
@@ -48,7 +67,8 @@
 
 @media (max-width: 769px) {
   .sidebarNav,
-  .desktopNav {
+  .desktopNav,
+  .logoContainer {
     display: none !important;
   }
 }
@@ -74,8 +94,8 @@
 .desktopNav {
   display: flex;
   gap: 1.5rem;
-  justify-content: flex-start;
-  max-width: 50%;
+  justify-content: center;
+  max-width: 100%;
   box-shadow: none;
 }
 
@@ -116,6 +136,7 @@
   margin-left: auto;
   color-scheme: light dark;
   color: currentColor;
+  z-index: 1001;
 }
 
 .langToggle {
@@ -192,6 +213,11 @@
   gap: 1rem;
   padding: 1.5rem;
   padding-top: 5rem;
+}
+
+.mobileMenuContent .logoContainerMobile {
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .mobileLink {

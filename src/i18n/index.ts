@@ -20,6 +20,7 @@ const resources = {
           github: "Github",
           linkedin: "LinkedIn",
         },
+        cv: "Download CV",
       },
       projects: {
         projects: "My projects",
@@ -75,6 +76,7 @@ const resources = {
           github: "Github",
           linkedin: "LinkedIn",
         },
+        cv: "Baixar CV",
       },
       projects: {
         projects: "Meus projetos",
