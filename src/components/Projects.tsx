@@ -70,7 +70,9 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>{t("projects.projects")}</h2>
+        <h2 className={styles.title}>
+          <span className={styles.stylizedName}>{t("projects.projects")}</span>
+        </h2>
 
         {!isLoading && !error && (
           <SearchBar
@@ -123,65 +125,62 @@ const Projects: React.FC = () => {
         {!isLoading && !error && filteredRepos.length > 0 && (
           <div className={styles.cardContainer}>
             {filteredRepos.map((repo, index) => (
-              <article
-                key={repo.url}
-                className={styles.card}
-                style={{ animationDelay: `${index * 100}ms` }}
+              <a
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cardink}
               >
-                <div>
-                  <div className={styles.cardHeader}>
-                    <div>
-                      <h3 className={styles.cardTitle}>
-                        <a
-                          href={repo.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.cardTitleLink}
-                        >
-                          {repo.name}
-                        </a>
-                      </h3>
-                      <p className={styles.cardDesc}>{repo.description}</p>
-                      {repo.homepage && (
-                        <div>
+                <article
+                  key={repo.url}
+                  className={styles.card}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div>
+                    <div className={styles.cardHeader}>
+                      <div>
+                        <h3 className={styles.cardTitle}>
                           <a
-                            href={repo.homepage}
+                            href={repo.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={styles.cardFooterLink}
+                            className={styles.cardTitleLink}
                           >
-                            {getHostname(repo.homepage)}
+                            {repo.name}
                           </a>
-                        </div>
-                      )}
+                        </h3>
+                        <p className={styles.cardDesc}>{repo.description}</p>
+                        {repo.homepage && (
+                          <div>
+                            <a
+                              href={repo.homepage}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.cardFooterLink}
+                            >
+                              {getHostname(repo.homepage)}
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className={styles.cardTags}>
+                      {repo.tags?.map((tag) => (
+                        <span key={tag} className={styles.tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className={styles.cardLangs}>
+                      {repo.languages?.map((lang) => (
+                        <span key={lang} className={styles.lang}>
+                          {lang}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                  <div className={styles.cardTags}>
-                    {repo.tags?.map((tag) => (
-                      <span key={tag} className={styles.tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className={styles.cardLangs}>
-                    {repo.languages?.map((lang) => (
-                      <span key={lang} className={styles.lang}>
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
-                  <div className={styles.cardFooter}>
-                    <a
-                      href={repo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.cardFooterLink}
-                    >
-                      {t("projects.viewOnGithub")}
-                    </a>
-                  </div>
-                </div>
-              </article>
+                </article>
+              </a>
             ))}
           </div>
         )}

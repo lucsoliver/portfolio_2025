@@ -1,4 +1,4 @@
-.linksNav {
+.socialsNav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -7,12 +7,12 @@
 }
 
 @media (min-width: 1024px) {
-  .linksNav {
+  .socialsNav {
     justify-content: flex-start;
   }
 }
 
-.link {
+.social {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -23,7 +23,7 @@
   text-decoration: none;
 }
 
-.linkIcon {
+.socialIcon {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -39,11 +39,11 @@
   border: 0;
 }
 
-.linkUnderline {
+.socialUnderline {
   position: relative;
 }
 
-.linkUnderline::after {
+.socialUnderline::after {
   content: "";
   position: absolute;
   width: 0;
@@ -54,25 +54,6 @@
   transition: width 0.3s ease-in-out;
 }
 
-.linkUnderline:hover::after {
+.socialUnderline:hover::after {
   width: 100%;
-}
-
-.LinkImageContainer {
-  position: relative;
-  bottom: -80px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  z-index: -1001;
-}
-
-.linkImage {
-  width: 6rem;
-  height: 6rem;
-}
-
-.imageTranslocated {
-  transform: translateY(-70px);
 }

@@ -44,3 +44,23 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.linkImageContainer {
+  position: relative;
+  bottom: -80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: -1001;
+}
+
+.linkImage {
+  width: 6rem;
+  height: 6rem;
+}
+
+.imageTranslocated {
+  transform: translateY(-70px);
+  transition-duration: 1s;
+}

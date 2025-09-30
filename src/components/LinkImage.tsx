@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Links.module.css";
+import styles from "../styles/LinksFooter.module.css";
 
 const images = [
   "/images/follow-cat7.png",
@@ -11,12 +11,12 @@ const images = [
 const LinkImage: React.FC<{ hoveredIndex: number | null }> = ({
   hoveredIndex,
 }) => (
-  <div className={styles.LinkImageContainer}>
+  <div className={styles.linkImageContainer}>
     {images.map((src, idx) => (
       <img
         key={src}
         src={src}
-        alt="Gato Imagem"
+        alt="Gato fofinho"
         className={`${styles.linkImage} ${
           hoveredIndex === idx ? styles.imageTranslocated : ""
         }`}

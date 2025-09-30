@@ -1,15 +1,15 @@
 import React from "react";
 import { Mail, Twitter, Github, Linkedin } from "lucide-react";
-import styles from "../styles/Links.module.css";
+import styles from "../styles/Socials.module.css";
 
-interface Link {
+interface Social {
   href: string;
   icon: React.ElementType;
   alt: string;
   title: string;
   rel: string;
 }
-const links: Link[] = [
+const socials: Social[] = [
   {
     href: "mailto:lucasop888@gmail.com",
     icon: Mail,
@@ -40,30 +40,30 @@ const links: Link[] = [
   },
 ];
 
-const Links: React.FC<{ onHover?: (index: number | null) => void }> = ({
+const Socials: React.FC<{ onHover?: (index: number | null) => void }> = ({
   onHover,
 }) => (
-  <nav className={styles.linksNav} aria-label="Links de redes sociais">
-    {links.map((link, idx) => {
-      const Icon = link.icon;
+  <nav className={styles.socialsNav} aria-label="Links de redes sociais">
+    {socials.map((social, idx) => {
+      const Icon = social.icon;
       return (
         <a
-          key={link.href}
-          href={link.href}
-          title={link.title}
-          rel={link.rel}
+          key={social.href}
+          href={social.href}
+          title={social.title}
+          rel={social.rel}
           target="_blank"
-          className={`${styles.link} ${styles.linkUnderline}`}
-          aria-label={link.alt}
+          className={`${styles.social} ${styles.socialUnderline}`}
+          aria-label={social.alt}
           onMouseEnter={() => onHover && onHover(idx)}
           onMouseLeave={() => onHover && onHover(null)}
         >
-          <Icon className={styles.linkIcon} aria-hidden="true" />
-          <span className={styles.srOnly}>{link.alt}</span>
+          <Icon className={styles.socialIcon} aria-hidden="true" />
+          <span className={styles.srOnly}>{social.alt}</span>
         </a>
       );
     })}
   </nav>
 );
 
-export default Links;
+export default Socials;

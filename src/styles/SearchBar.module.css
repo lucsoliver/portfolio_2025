@@ -24,7 +24,7 @@
 }
 
 :global(html.dark) .input {
-  background-color: #303134;
+  background-color: rgb(60, 60, 60);
   color: #e8e8e8;
 }
 

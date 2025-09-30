@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Links from "./Links";
+import Socials from "./Socials";
 import styles from "../styles/About.module.css";
 
 const About: React.FC = () => {
@@ -19,10 +19,12 @@ const About: React.FC = () => {
               </span>
             </h2>
             <p className={styles.aboutDescription}>{t("about.description")}</p>
-            <Links />
-            <a href="#" download className={styles.cvButton}>
-              {t("about.cv")}
-            </a>
+            <div className={styles.aboutSocials}>
+              <Socials />
+              <a href="#" target="_blank" className={styles.linksButton}>
+                {t("about.links")}
+              </a>
+            </div>
           </div>
           <div className={styles.aboutAvatar}>
             <img

@@ -26,12 +26,6 @@
   align-items: center;
 }
 
-@media (min-width: 1024px) {
-  .aboutFlex {
-    flex-direction: row;
-  }
-}
-
 .aboutText {
   flex: 1;
   text-align: center;
@@ -39,9 +33,25 @@
 }
 
 @media (min-width: 1024px) {
+  .aboutFlex {
+    flex-direction: row;
+  }
+
   .aboutText {
     text-align: left;
     order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutFlex {
+    gap: 3rem; /* 0rem */
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutFlex {
+    gap: 0rem;
   }
 }
 
@@ -55,13 +65,13 @@
 .stylizedName:hover {
   background: linear-gradient(
     to right,
-    #0e2850 0%,
+    rgb(48, 123, 235) 0%,
     rgb(60, 60, 60) 17%,
-    #307beb 33%,
+    rgb(93, 157, 254) 33%,
     rgb(60, 60, 60) 50%,
-    rgb(48, 123, 235) 67%,
+    rgb(93, 157, 254) 67%,
     rgb(60, 60, 60) 83%,
-    #0e2850 100%
+    rgb(48, 123, 235) 100%
   );
   background-size: 200% auto;
   color: transparent;
@@ -88,6 +98,25 @@
   margin-bottom: 1rem;
 }
 
+.aboutSocials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.linksButton {
+  background-color: #007aff;
+  color: #fff;
+  border-radius: 50px;
+  border: 1px solid #f4f2ee;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+:global(html.dark) .linksButton {
+  border: 1px solid #161616;
+}
+
 .aboutAvatar {
   position: relative;
   width: 16rem;
@@ -102,6 +131,25 @@
     width: 20rem;
     height: 20rem;
     order: 2;
+  }
+}
+
+@media (max-width: 1020px) {
+  .aboutSocials {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutSocials {
+    display: block;
+  }
+
+  .linksButton {
+    display: none;
   }
 }
 

@@ -47,8 +47,16 @@
   object-fit: contain;
   transition: filter 0.2s;
   backdrop-filter: unset;
-  pointer-events: none;
+  object-fit: contain;
+  transition: filter 0.2s;
+  pointer-events: auto;
   user-select: none;
+}
+
+.logo:hover {
+  fill: rgb(93, 157, 254);
+  filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(747%)
+    hue-rotate(180deg) brightness(97%) contrast(101%);
 }
 
 :global(html.dark) .sidebarNav {
@@ -111,7 +119,7 @@
 
 .desktopLink:hover {
   color-scheme: light dark;
-  color: currentColor;
+  color: rgb(93, 157, 254);
 }
 
 .desktopLink::after {
@@ -162,8 +170,20 @@
   font-weight: bold;
 }
 
+.langActive:hover {
+  color: #161616;
+}
+
+:global(html.dark) .langActive:hover {
+  color: #f8faf5;
+}
+
 .langInactive {
   opacity: 0.5;
+}
+
+.langInactive:hover {
+  color: rgb(93, 157, 254);
 }
 
 .themeBtn {
@@ -177,8 +197,14 @@
 }
 
 .themeBtn:hover {
+  box-shadow: #161616 0 0 10px 0;
+  border-radius: 50%;
   color-scheme: light dark;
   color: currentColor;
+}
+
+:global(html.dark) .themeBtn:hover {
+  box-shadow: #f8faf5 0 0 10px 0;
 }
 
 .mobileOverlay {
@@ -265,7 +291,7 @@
 
 :global(html.dark) .scrollTopBtn:hover {
   opacity: 1;
-  background-color: #303134;
+  background-color: rgb(60, 60, 60);
 }
 
 .iconSm {
