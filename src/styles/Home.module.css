@@ -1,0 +1,162 @@
+.homeSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeContainer {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+  max-width: 64rem;
+}
+
+@media (min-width: 768px) {
+  .homeContainer {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.homeFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.homeText {
+  flex: 1;
+  text-align: center;
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .homeFlex {
+    flex-direction: row;
+  }
+
+  .homeText {
+    text-align: left;
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeFlex {
+    gap: 3rem; /* 0rem */
+  }
+}
+
+@media (max-width: 320px) {
+  .homeFlex {
+    gap: 0rem;
+  }
+}
+
+.homeTitle {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  max-width: fit-content;
+  text-align: center !important;
+}
+
+.stylizedName:hover {
+  background: linear-gradient(
+    to right,
+    rgb(48, 123, 235) 0%,
+    rgb(60, 60, 60) 17%,
+    rgb(93, 157, 254) 33%,
+    rgb(60, 60, 60) 50%,
+    rgb(93, 157, 254) 67%,
+    rgb(60, 60, 60) 83%,
+    rgb(48, 123, 235) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-position: 0% center;
+  animation: stylized-move 4s linear infinite;
+}
+
+@keyframes stylized-move {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.homeDescription {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.homeContact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.linksButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 6rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  background-color: transparent;
+  color: #3c4043;
+  border-radius: 9999px;
+  border: 1px solid #f4f2ee;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+:global(html.dark) .linksButton {
+  border: 1px solid #3c4043;
+  color: #fff;
+}
+
+.linksButton:hover {
+  background-color: #5d9dfe;
+  border: none;
+}
+
+.animatePulse {
+  width: 1rem;
+  height: 1rem;
+  background-color: #5d9dfe;
+  border-radius: 9999px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (max-width: 1020px) {
+  .homeContact {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeContact {
+    display: block;
+  }
+
+  .linksButton {
+    display: none;
+  }
+}

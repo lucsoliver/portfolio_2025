@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Loader2, RotateCcw } from "lucide-react";
 import { fetchPinnedRepos } from "../services/github";
@@ -14,7 +14,7 @@ const getHostname = (url: string): string => {
   }
 };
 
-const Projects: React.FC = () => {
+function Projects() {
   const { t } = useTranslation();
   const [pinnedRepos, setPinnedRepos] = useState<Repository[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -129,7 +129,7 @@ const Projects: React.FC = () => {
                 href={repo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.cardink}
+                className={styles.cardLink}
               >
                 <article
                   key={repo.url}
@@ -187,6 +187,6 @@ const Projects: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Projects;

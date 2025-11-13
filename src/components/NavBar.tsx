@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Sun, Moon, Menu, X, ArrowUp } from "lucide-react";
 import styles from "../styles/NavBar.module.css";
@@ -13,30 +13,29 @@ const sections = [
   { id: "skills", label: "nav.skills" },
 ];
 
-const NavBar: React.FC = () => {
+function NavBar() {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [isSidebar, setIsSidebar] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
 
-  // Language initialization
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem("language");
-    i18n.changeLanguage(savedLanguage ? savedLanguage : "en");
-    setIsInitialized(true);
-  }, [i18n]);
+  const activeRef = useRef(activeSection);
+  activeRef.current = activeSection;
 
-  // Scroll top
   useEffect(() => {
-    const onScroll = () => {
-      setShowScrollTop(window.scrollY > 500);
-      setIsSidebar(window.scrollY > 100);
+    const saved = localStorage.getItem("language") ?? "en";
+    let mounted = true;
+    (async () => {
+      await i18n.changeLanguage(saved);
+      if (mounted) setIsInitialized(true);
+    })();
+    return () => {
+      mounted = false;
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [i18n]);
 
   const setLanguage = (lang: "en" | "pt") => {
     if (!isInitialized) return;
@@ -44,16 +43,58 @@ const NavBar: React.FC = () => {
     localStorage.setItem("language", lang);
   };
 
+  useEffect(() => {
+    const ticking = { v: false };
+
+    const computeActive = () => {
+      let bestId = activeRef.current;
+      let bestRatio = 0;
+
+      for (const s of sections) {
+        const el = document.getElementById(s.id);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        const visibleTop = Math.max(r.top, 0);
+        const visibleBottom = Math.min(r.bottom, window.innerHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const ratio = r.height > 0 ? visibleHeight / r.height : 0;
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestId = s.id;
+        }
+      }
+
+      if (bestRatio >= 0.45 && bestId !== activeRef.current) {
+        setActiveSection(bestId);
+      }
+    };
+
+    const onScroll = () => {
+      if (!ticking.v) {
+        ticking.v = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          setShowScrollTop(y > 500);
+          setIsSidebar(y > 100);
+          computeActive();
+          ticking.v = false;
+        });
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    setActiveSection(id);
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
     setIsMenuOpen(false);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const navClass = isSidebar ? styles.sidebarNav : styles.stickyNav;
 
   return (
@@ -75,18 +116,23 @@ const NavBar: React.FC = () => {
 
           {/* Desktop nav */}
           <div className={styles.logoContainer}>
-            {theme === "dark" ? (
-              <img src={LogoWhite} className={styles.logo} alt="Logo" />
-            ) : (
-              <img src={LogoBlack} className={styles.logo} alt="Logo" />
-            )}
+            <a href="/" aria-label="Home">
+              {theme === "dark" ? (
+                <img src={LogoWhite} className={styles.logo} alt="Logo" />
+              ) : (
+                <img src={LogoBlack} className={styles.logo} alt="Logo" />
+              )}
+            </a>
           </div>
           <div className={`${navClass} ${styles.desktopNav}`}>
             {sections.map((section) => (
               <a
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={styles.desktopLink}
+                className={`${styles.desktopLink} ${
+                  activeSection === section.id ? styles.desktopActive : ""
+                }`}
+                aria-current={activeSection === section.id ? "true" : undefined}
               >
                 {t(section.label)}
               </a>
@@ -162,7 +208,6 @@ const NavBar: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll top  */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
@@ -174,6 +219,6 @@ const NavBar: React.FC = () => {
       )}
     </>
   );
-};
+}
 
 export default NavBar;

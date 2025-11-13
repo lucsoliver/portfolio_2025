@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Socials from "./Socials";
+import Contact from "./Contact";
 import styles from "../styles/About.module.css";
 
-const About: React.FC = () => {
+function About() {
   const { t } = useTranslation();
   const [firstName] = useState("Lucas");
   const [lastName] = useState("Oliveira");
@@ -13,30 +13,72 @@ const About: React.FC = () => {
       <div className={styles.aboutContainer}>
         <div className={styles.aboutFlex}>
           <div className={styles.aboutText}>
-            <h2 className={styles.aboutTitle}>
-              <span className={styles.stylizedName}>
-                {firstName} {lastName}
-              </span>
+            <h2 className={`${styles.aboutTitle} ${styles.stylizedName}`}>
+              {firstName} {lastName}
             </h2>
+            <span className={styles.aboutSubtitle}>{t("about.subtitle")}</span>
             <p className={styles.aboutDescription}>{t("about.description")}</p>
-            <div className={styles.aboutSocials}>
-              <Socials />
-              <a href="#" target="_blank" className={styles.linksButton}>
+            <div className={styles.aboutPresent}>
+              <h2>{t("about.present")}</h2>
+              <span>{t("about.pos")}</span>
+            </div>
+            {/* <div className={styles.aboutContact}>
+              <Contact />
+              <a href="/links" target="_blank" className={styles.linksButton}>
+                <div className={styles.animatePulse}></div>
                 {t("about.links")}
               </a>
-            </div>
+            </div> */}
           </div>
-          <div className={styles.aboutAvatar}>
-            <img
-              src="https://github.com/lucsoliver.png"
-              alt="Lucas Oliveira"
-              className={styles.aboutImg}
-            />
+          <div className={styles.aboutSide}>
+            <div className={styles.aboutAvatar}>
+              <img
+                src="https://github.com/lucsoliver.png"
+                alt="Lucas Oliveira"
+                className={styles.aboutImg}
+              />
+            </div>
+            <button>Ver CV</button>
+            <div className={styles.aboutInterests}>
+              <h3>Interesses</h3>
+              <div className={styles.interestsGrid}>
+                <div
+                  className={`${styles.interestsCard} ${styles.techCard}`}
+                  title="Tecnologia"
+                >
+                  Tecnologia
+                </div>
+                <div
+                  className={`${styles.interestsCard} ${styles.iaCard}`}
+                  title="Inteligência Artificial"
+                >
+                  Inteligência Artificial
+                </div>
+                <div
+                  className={`${styles.interestsCard} ${styles.gamesCard}`}
+                  title="Games"
+                >
+                  Games
+                </div>
+                <div
+                  className={`${styles.interestsCard} ${styles.innoCard}`}
+                  title="Inovação"
+                >
+                  Inovação
+                </div>
+                <div
+                  className={`${styles.interestsCard} ${styles.musicCard}`}
+                  title="Música"
+                >
+                  Música
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default About;

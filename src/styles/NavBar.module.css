@@ -54,7 +54,7 @@
 }
 
 .logo:hover {
-  fill: rgb(93, 157, 254);
+  fill: #5d9dfe;
   filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(747%)
     hue-rotate(180deg) brightness(97%) contrast(101%);
 }
@@ -119,7 +119,7 @@
 
 .desktopLink:hover {
   color-scheme: light dark;
-  color: rgb(93, 157, 254);
+  color: #5d9dfe;
 }
 
 .desktopLink::after {
@@ -135,6 +135,19 @@
 
 .desktopLink:hover::after {
   width: 100%;
+}
+
+.desktopActive {
+  color: #5d9dfe;
+}
+
+.desktopActive::after {
+  width: 100%;
+}
+
+.mobileActive {
+  color: #5d9dfe;
+  font-weight: 600;
 }
 
 .toggles {
@@ -183,7 +196,7 @@
 }
 
 .langInactive:hover {
-  color: rgb(93, 157, 254);
+  color: #5d9dfe;
 }
 
 .themeBtn {
@@ -197,14 +210,7 @@
 }
 
 .themeBtn:hover {
-  box-shadow: #161616 0 0 10px 0;
-  border-radius: 50%;
-  color-scheme: light dark;
-  color: currentColor;
-}
-
-:global(html.dark) .themeBtn:hover {
-  box-shadow: #f8faf5 0 0 10px 0;
+  color: #5d9dfe;
 }
 
 .mobileOverlay {

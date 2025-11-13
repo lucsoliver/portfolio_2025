@@ -37,7 +37,7 @@ const iconMap: Record<string, React.ReactNode> = {
   styledcomponents: <SiStyledcomponents size={40} color="#FF00FF" />,
 };
 
-const Skills: React.FC = () => {
+function Skills() {
   const { t } = useTranslation();
 
   const skills = t("skills.skillsList", { returnObjects: true }) as string[];
@@ -60,6 +60,6 @@ const Skills: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Skills;

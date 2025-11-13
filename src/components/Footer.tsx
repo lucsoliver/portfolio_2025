@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import LinksFooter from "./LinksFooter";
-import LinkImage from "./LinkImage";
+import { useState } from "react";
+import SocialsFooter from "./SocialsFooter";
+import SocialsImage from "./SocialsImage";
 import { useTranslation } from "react-i18next";
 import styles from "../styles/Footer.module.css";
 
-const Footer: React.FC = () => {
+function Footer() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
-      <LinkImage hoveredIndex={hoveredIndex} />
+      <SocialsImage hoveredIndex={hoveredIndex} />
       <div className={styles.footerContent}>
-        <LinksFooter onHover={setHoveredIndex} />
+        <SocialsFooter onHover={setHoveredIndex} />
         <p className={styles.textCenter}>
           © {currentYear}{" "}
           <span className={styles.stylizedText}>Lucas Oliveira</span>.{" "}
@@ -22,6 +22,6 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

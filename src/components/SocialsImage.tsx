@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/LinksFooter.module.css";
+import styles from "../styles/SocialsFooter.module.css";
 
 const images = [
   "/images/follow-cat7.png",
@@ -8,16 +8,16 @@ const images = [
   "/images/follow-cat5.png",
 ];
 
-const LinkImage: React.FC<{ hoveredIndex: number | null }> = ({
+const SocialsImage: React.FC<{ hoveredIndex: number | null }> = ({
   hoveredIndex,
 }) => (
-  <div className={styles.linkImageContainer}>
+  <div className={styles.socialImageContainer}>
     {images.map((src, idx) => (
       <img
         key={src}
         src={src}
         alt="Gato fofinho"
-        className={`${styles.linkImage} ${
+        className={`${styles.socialImage} ${
           hoveredIndex === idx ? styles.imageTranslocated : ""
         }`}
       />
@@ -25,4 +25,4 @@ const LinkImage: React.FC<{ hoveredIndex: number | null }> = ({
   </div>
 );
 
-export default LinkImage;
+export default SocialsImage;

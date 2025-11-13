@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Twitter, Github, Linkedin } from "lucide-react";
+import { Github, Mail, Twitter, Linkedin, Instagram } from "lucide-react";
 import styles from "../styles/Socials.module.css";
 
 interface Social {
@@ -11,20 +11,6 @@ interface Social {
 }
 const socials: Social[] = [
   {
-    href: "mailto:lucasop888@gmail.com",
-    icon: Mail,
-    alt: "Email",
-    title: "E-mail",
-    rel: "nofollow",
-  },
-  {
-    href: "https://twitter.com/lyunnee",
-    icon: Twitter,
-    alt: "Twitter",
-    title: "Twitter",
-    rel: "me noopener",
-  },
-  {
     href: "https://github.com/lucsoliver",
     icon: Github,
     alt: "GitHub",
@@ -32,10 +18,31 @@ const socials: Social[] = [
     rel: "me noopener",
   },
   {
+    href: "mailto:lucasop888@yahoo.com",
+    icon: Mail,
+    alt: "Email",
+    title: "E-mail",
+    rel: "nofollow",
+  },
+  {
+    href: "https://x.com/lyunnee",
+    icon: Twitter,
+    alt: "Twitter",
+    title: "Twitter",
+    rel: "me noopener",
+  },
+  {
     href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
     icon: Linkedin,
     alt: "LinkedIn",
     title: "LinkedIn",
+    rel: "me noopener",
+  },
+  {
+    href: "https://www.instagram.com/lucasolvp",
+    icon: Instagram,
+    alt: "Instagram",
+    title: "Instagram",
     rel: "me noopener",
   },
 ];

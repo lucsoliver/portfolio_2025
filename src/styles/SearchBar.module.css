@@ -12,9 +12,9 @@
 
 .input {
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 3rem;
+  padding: 1rem 1rem 1rem 3rem;
   border-radius: 0.75rem;
-  background: #f3f4f6;
+  background-color: #f3f4f6;
   color: #171717;
   font-size: 1rem;
   border: none;
@@ -38,10 +38,12 @@
 
 .input:focus {
   background-color: #ffffff;
+  border: 1px solid currentColor;
 }
 
 :global(html.dark) .input:focus {
   background-color: #5f6368;
+  border: 1px solid currentColor;
 }
 
 .icon {

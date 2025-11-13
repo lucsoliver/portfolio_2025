@@ -28,8 +28,7 @@
 
 .aboutText {
   flex: 1;
-  text-align: center;
-  order: 2;
+  /* order: 2; */
 }
 
 @media (min-width: 1024px) {
@@ -37,15 +36,19 @@
     flex-direction: row;
   }
 
-  .aboutText {
+  /* .aboutText {
     text-align: left;
     order: 1;
-  }
+  } */
 }
 
 @media (max-width: 480px) {
   .aboutFlex {
-    gap: 3rem; /* 0rem */
+    gap: 3rem;
+  }
+
+  .aboutText {
+    order: 2;
   }
 }
 
@@ -56,10 +59,18 @@
 }
 
 .aboutTitle {
-  font-size: 1.875rem;
+  font-size: 2.25rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+  max-width: fit-content;
+  text-align: start;
+}
+
+.aboutSubtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: start;
 }
 
 .stylizedName:hover {
@@ -89,7 +100,7 @@
 
 @media (min-width: 1024px) {
   .aboutTitle {
-    font-size: 2.25rem;
+    font-size: 2.65rem;
   }
 }
 
@@ -98,44 +109,111 @@
   margin-bottom: 1rem;
 }
 
-.aboutSocials {
+.aboutPresent {
+  padding: 1.5rem;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  text-align: start;
+}
+
+:global(html.dark) .aboutPresent {
+  background-color: rgb(60, 60, 60);
+  border: 1px solid #5f6368;
+}
+
+.aboutPresent:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.aboutPresent h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-bottom: 1px solid #e5e7eb;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.7rem;
+}
+
+:global(html.dark) .aboutPresent h2 {
+  border-bottom: 1px solid #5f6368;
+}
+
+.aboutPresent span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.aboutPresent span:hover {
+  color: #5d9dfe;
+}
+
+.aboutContact {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .linksButton {
-  background-color: #007aff;
-  color: #fff;
-  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 6rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  background-color: transparent;
+  color: #3c4043;
+  border-radius: 9999px;
   border: 1px solid #f4f2ee;
   padding: 1rem;
   text-decoration: none;
 }
 
 :global(html.dark) .linksButton {
-  border: 1px solid #161616;
+  border: 1px solid #3c4043;
+  color: #fff;
+}
+
+.linksButton:hover {
+  background-color: #5d9dfe;
+  border: none;
+}
+
+.animatePulse {
+  width: 1rem;
+  height: 1rem;
+  background-color: #5d9dfe;
+  border-radius: 9999px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.aboutSide button {
+  width: 100%;
+  margin: 1.8rem 0 1.5em 0;
 }
 
 .aboutAvatar {
   position: relative;
-  width: 16rem;
-  height: 16rem;
+  width: 14rem;
+  height: 14rem;
   border-radius: 50rem;
   overflow: hidden;
-  order: 1;
+  /* order: 1; */
 }
 
 @media (min-width: 1024px) {
   .aboutAvatar {
-    width: 20rem;
-    height: 20rem;
-    order: 2;
+    width: 16rem;
+    height: 16rem;
+    /* order: 2; */
   }
 }
 
 @media (max-width: 1020px) {
-  .aboutSocials {
+  .aboutContact {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -144,7 +222,7 @@
 }
 
 @media (max-width: 480px) {
-  .aboutSocials {
+  .aboutContact {
     display: block;
   }
 
@@ -166,6 +244,69 @@
   filter: grayscale(0);
 }
 
+.aboutInterests {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.aboutInterests h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+:global(html.dark) .aboutInterests {
+  background-color: rgb(60, 60, 60);
+  border: 1px solid #5f6368;
+}
+
+.interestsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.interestsCard {
+  background-color: rgb(240, 240, 244);
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  max-width: fit-content;
+  cursor: pointer;
+}
+
+:global(html.dark) .interestsCard {
+  background-color: rgb(58, 58, 58);
+}
+
+:global(html.dark) .interestsCard:hover {
+  color: #3c4043;
+}
+
+.techCard:hover {
+  background-color: #bfdbfe !important;
+}
+
+.iaCard:hover {
+  background-color: #fecaca !important;
+}
+
+.gamesCard:hover {
+  background-color: #65adfe !important;
+}
+
+.innoCard:hover {
+  background-color: #e9d5ff !important;
+}
+
+.musicCard:hover {
+  background-color: #bbf7d0 !important;
+}
+
 @media (min-width: 1024px) {
   .aboutImg {
     filter: grayscale(1);
@@ -182,5 +323,11 @@
 @media (max-width: 1024px) {
   img {
     filter: grayscale(0) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutTitle {
+    text-align: center;
   }
 }
