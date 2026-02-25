@@ -20,73 +20,33 @@
 }
 
 .homeFlex {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  justify-content: center;
   align-items: center;
-}
-
-.homeText {
-  flex: 1;
   text-align: center;
   order: 2;
 }
 
 @media (min-width: 1024px) {
   .homeFlex {
-    flex-direction: row;
-  }
-
-  .homeText {
     text-align: left;
     order: 1;
   }
 }
 
-@media (max-width: 480px) {
-  .homeFlex {
-    gap: 3rem; /* 0rem */
-  }
-}
-
-@media (max-width: 320px) {
-  .homeFlex {
-    gap: 0rem;
-  }
-}
-
 .homeTitle {
   font-size: 1.875rem;
-  font-weight: bold;
+  font-family: PoppinsRegular;
   margin-bottom: 0.5rem;
   line-height: 1.5;
   max-width: fit-content;
-  text-align: center !important;
 }
 
-.stylizedName:hover {
-  background: linear-gradient(
-    to right,
-    rgb(48, 123, 235) 0%,
-    rgb(60, 60, 60) 17%,
-    rgb(93, 157, 254) 33%,
-    rgb(60, 60, 60) 50%,
-    rgb(93, 157, 254) 67%,
-    rgb(60, 60, 60) 83%,
-    rgb(48, 123, 235) 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-position: 0% center;
-  animation: stylized-move 4s linear infinite;
-}
-
-@keyframes stylized-move {
-  to {
-    background-position: 200% center;
-  }
+.homeSubtitle {
+  font-size: 3rem;
+  font-family: PoppinsBold;
 }
 
 @media (min-width: 1024px) {
@@ -121,6 +81,7 @@
   border-radius: 9999px;
   border: 1px solid #f4f2ee;
   padding: 1rem;
+  margin-left: 5rem;
   text-decoration: none;
 }
 

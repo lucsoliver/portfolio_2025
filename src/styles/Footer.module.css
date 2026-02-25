@@ -21,28 +21,3 @@
 .textCenter {
   text-align: center;
 }
-
-.stylizedText:hover {
-  background: linear-gradient(
-    to right,
-    #0e2850 0%,
-    rgb(60, 60, 60) 17%,
-    rgb(93, 157, 254) 33%,
-    rgb(60, 60, 60) 50%,
-    rgb(93, 157, 254) 67%,
-    rgb(60, 60, 60) 83%,
-    #0e2850 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-position: 0% center;
-  animation: stylized-move 4s linear infinite;
-}
-
-@keyframes stylized-move {
-  to {
-    background-position: 200% center;
-  }
-}

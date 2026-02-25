@@ -1,25 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Contact from "./Contact";
 import styles from "../styles/About.module.css";
 
 function About() {
   const { t } = useTranslation();
   const [firstName] = useState("Lucas");
   const [lastName] = useState("Oliveira");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setIsModalOpen(false);
+    }
+    if (isModalOpen) document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isModalOpen]);
 
   return (
-    <section id="about" className={styles.aboutSection}>
-      <div className={styles.aboutContainer}>
+    <section id="about" className={styles.section}>
+      <div className={styles.container}>
+        <h2 className="title">
+          <span className="stylizedTitle">{t("about.about")}</span>
+        </h2>
         <div className={styles.aboutFlex}>
           <div className={styles.aboutText}>
-            <h2 className={`${styles.aboutTitle} ${styles.stylizedName}`}>
+            <h2 className={`${styles.aboutTitle} stylizedName`}>
               {firstName} {lastName}
             </h2>
             <span className={styles.aboutSubtitle}>{t("about.subtitle")}</span>
             <p className={styles.aboutDescription}>{t("about.description")}</p>
             <div className={styles.aboutPresent}>
               <h2>{t("about.present")}</h2>
+              <span>{t("about.job")}</span>
               <span>{t("about.pos")}</span>
             </div>
             {/* <div className={styles.aboutContact}>
@@ -38,39 +50,80 @@ function About() {
                 className={styles.aboutImg}
               />
             </div>
-            <button>Ver CV</button>
+            <button
+              className={styles.aboutCV}
+              onClick={() => setIsModalOpen(true)}
+            >
+              {t("about.curriculum")}
+            </button>
+
+            {isModalOpen && (
+              <div
+                className={styles.modalOverlay}
+                onClick={() => setIsModalOpen(false)}
+                aria-hidden={false}
+              >
+                <div
+                  className={styles.modalContent}
+                  role="dialog"
+                  aria-modal="true"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    className={styles.modalBtnClose}
+                    onClick={() => setIsModalOpen(false)}
+                  >
+                    {t("about.close")}
+                  </button>
+                  <h3>{t("about.cvTitle")}</h3>
+                  <div className={styles.modalButtons}>
+                    <a
+                      className={styles.modalButton}
+                      href="/cv.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t("about.cvPTBR")}
+                    </a>
+                    <a
+                      className={styles.modalButton}
+                      href="/cv.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t("about.cvEN")}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className={styles.aboutInterests}>
-              <h3>Interesses</h3>
+              <h3>{t("about.interests")}</h3>
               <div className={styles.interestsGrid}>
-                <div
-                  className={`${styles.interestsCard} ${styles.techCard}`}
-                  title="Tecnologia"
-                >
-                  Tecnologia
+                <div className={`${styles.interestsCard} ${styles.techCard}`}>
+                  {t("about.interestsDescription.tech")}
                 </div>
-                <div
-                  className={`${styles.interestsCard} ${styles.iaCard}`}
-                  title="Inteligência Artificial"
-                >
-                  Inteligência Artificial
+                <div className={`${styles.interestsCard} ${styles.iaCard}`}>
+                  {t("about.interestsDescription.ia")}
                 </div>
-                <div
-                  className={`${styles.interestsCard} ${styles.gamesCard}`}
-                  title="Games"
-                >
-                  Games
+                <div className={`${styles.interestsCard} ${styles.filmCard}`}>
+                  {t("about.interestsDescription.film")}
                 </div>
-                <div
-                  className={`${styles.interestsCard} ${styles.innoCard}`}
-                  title="Inovação"
-                >
-                  Inovação
+                <div className={`${styles.interestsCard} ${styles.gamesCard}`}>
+                  {t("about.interestsDescription.games")}
                 </div>
-                <div
-                  className={`${styles.interestsCard} ${styles.musicCard}`}
-                  title="Música"
-                >
-                  Música
+                <div className={`${styles.interestsCard} ${styles.innoCard}`}>
+                  {t("about.interestsDescription.innovation")}
+                </div>
+                <div className={`${styles.interestsCard} ${styles.animeCard}`}>
+                  {t("about.interestsDescription.anime")}
+                </div>
+                <div className={`${styles.interestsCard} ${styles.musicCard}`}>
+                  {t("about.interestsDescription.music")}
+                </div>
+                <div className={`${styles.interestsCard} ${styles.doramaCard}`}>
+                  {t("about.interestsDescription.dorama")}
                 </div>
               </div>
             </div>

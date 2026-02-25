@@ -55,7 +55,7 @@ function Links() {
         className={styles.linkAvatar}
       />
       <h2 className={styles.linksTitle}>
-        <span className={styles.stylizedName}>
+        <span className="stylizedName">
           {firstName} {lastName}
         </span>
       </h2>
@@ -92,7 +92,7 @@ function Links() {
           </div>
         </a>
         <a
-          href="#"
+          href="https://github.com/lucsoliver/clima-tempo"
           target="_blank"
           rel="me noopener"
           className={styles.linkItem}
@@ -122,9 +122,9 @@ function Links() {
           </div>
         </a>
         <a
-          href="#"
+          href="mailto:lucasop888@yahoo.com"
           target="_blank"
-          rel="me noopener"
+          rel="nofollow"
           className={styles.linkItem}
         >
           <div className={styles.linkBox}>

@@ -15,8 +15,7 @@ function Footer() {
       <div className={styles.footerContent}>
         <SocialsFooter onHover={setHoveredIndex} />
         <p className={styles.textCenter}>
-          © {currentYear}{" "}
-          <span className={styles.stylizedText}>Lucas Oliveira</span>.{" "}
+          © {currentYear} <span className="stylizedName">Lucas Oliveira</span>.{" "}
           {t("footer.rights")}
         </p>
       </div>

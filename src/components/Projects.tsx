@@ -70,8 +70,8 @@ function Projects() {
   return (
     <section id="projects" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>
-          <span className={styles.stylizedName}>{t("projects.projects")}</span>
+        <h2 className="title">
+          <span className="stylizedTitle">{t("projects.projects")}</span>
         </h2>
 
         {!isLoading && !error && (

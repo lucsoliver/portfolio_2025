@@ -7,53 +7,44 @@
 }
 
 .linkAvatar {
-  width: 16rem;
-  height: 16rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 50rem;
+  background-color: #eae5e3;
   overflow: hidden;
   object-fit: cover;
+  padding: 0.3rem;
+}
+
+.linkAvatar:hover {
+  background-color: #dcdddd;
+}
+
+:global(html.dark) .linkAvatar {
+  background-color: #1d2f59;
+}
+
+:global(html.dark) .linkAvatar:hover {
+  background-color: #1c3d61;
 }
 
 .linksTitle {
   font-size: 1.875rem;
-  font-weight: bold;
+  font-family: PoppinsBold;
   margin: 0;
-  line-height: 1.5;
+  margin: 0.5rem 0 0 0;
 }
 
-.stylizedName:hover {
-  background: linear-gradient(
-    to right,
-    rgb(48, 123, 235) 0%,
-    rgb(60, 60, 60) 17%,
-    rgb(93, 157, 254) 33%,
-    rgb(60, 60, 60) 50%,
-    rgb(93, 157, 254) 67%,
-    rgb(60, 60, 60) 83%,
-    rgb(48, 123, 235) 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-position: 0% center;
-  animation: stylized-move 4s linear infinite;
-}
-
-@keyframes stylized-move {
-  to {
-    background-position: 200% center;
-  }
-}
 .linkDev {
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-family: PoppinsSemiBold;
+  margin: 0;
 }
 
 .linkStack {
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 0.5rem 0;
 }
 
 .socialsContainer {

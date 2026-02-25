@@ -45,8 +45,8 @@ function Skills() {
   return (
     <section id="skills" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>
-          <span className={styles.stylizedName}>{t("skills.title")} </span>
+        <h2 className="title">
+          <span className="stylizedTitle">{t("skills.title")} </span>
         </h2>
         <p className={styles.description}>{t("skills.description")} </p>
         <div className={styles.skillsList}>

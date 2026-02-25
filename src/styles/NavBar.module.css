@@ -111,8 +111,10 @@
   cursor: pointer;
   color-scheme: light dark;
   color: currentColor;
-  font-weight: 500;
-  transition: color 0.2s, text-decoration 0.2s;
+  font-family: PoppinsMedium;
+  transition:
+    color 0.2s,
+    text-decoration 0.2s;
   text-decoration: none;
   position: relative;
 }
@@ -147,7 +149,7 @@
 
 .mobileActive {
   color: #5d9dfe;
-  font-weight: 600;
+  font-family: PoppinsSemiBold;
 }
 
 .toggles {
@@ -170,7 +172,9 @@
 
 .langBtn {
   padding: 0.5rem 0.5rem;
-  transition: color 0.2s, font-weight 0.2s;
+  transition:
+    color 0.2s,
+    font-weight 0.2s;
   background: none;
   border: none;
   cursor: pointer;
@@ -180,7 +184,7 @@
 }
 
 .langActive {
-  font-weight: bold;
+  font-family: PoppinsBold;
 }
 
 .langActive:hover {
@@ -255,11 +259,13 @@
 .mobileLink {
   cursor: pointer;
   color: #fff;
-  font-weight: 500;
-  transition: color 0.2s, text-decoration 0.2s;
+  font-family: PoppinsMedium;
+  transition:
+    color 0.2s,
+    text-decoration 0.2s;
   text-decoration: none;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-family: PoppinsMedium;
 }
 
 .mobileLink:hover {
