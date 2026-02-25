@@ -113,13 +113,11 @@
 
 .aboutPresent:hover {
   border: 1px solid #5d9dfe;
-  box-shadow: 0 8px 24px #f3f4f6;
   transform: translateY(-4px);
 }
 
 :global(html.dark) .aboutPresent:hover {
   border: 1px solid #5d9dfe;
-  box-shadow: 0 8px 24px rgb(60, 60, 60);
   transform: translateY(-4px);
 }
 
@@ -284,7 +282,6 @@
   width: 90%;
   height: 10rem;
   max-width: 28rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 :global(html.dark) .modalContent {
