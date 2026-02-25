@@ -43,6 +43,7 @@ const Contact: React.FC<{ onHover?: (index: number | null) => void }> = ({
           aria-label={contact.alt}
           onMouseEnter={() => onHover && onHover(idx)}
           onMouseLeave={() => onHover && onHover(null)}
+          draggable="false"
         >
           <Icon className={styles.contactIcon} aria-hidden="true" />
           <span className={styles.srOnly}>{contact.alt}</span>

@@ -20,7 +20,7 @@ const projects: Project[] = [
     rel: "nofollow",
   },
   {
-    href: "https://x.com/lyunnee",
+    href: "https://x.com/lyunekou",
     icon: Twitter,
     alt: "Twitter",
     title: "Twitter",
@@ -53,6 +53,7 @@ function Links() {
         src="https://github.com/lucsoliver.png"
         alt="Lucas Oliveira"
         className={styles.linkAvatar}
+        draggable="false"
       />
       <h2 className={styles.linksTitle}>
         <span className="stylizedName">
@@ -73,6 +74,7 @@ function Links() {
               target="_blank"
               className={styles.projectLink}
               aria-label={project.alt}
+              draggable="false"
             >
               <Icon className={styles.projectIcon} aria-hidden="true" />
               <span className={styles.projectSpan}>{project.alt}</span>
@@ -86,6 +88,7 @@ function Links() {
           target="_blank"
           rel="me noopener"
           className={styles.linkItem}
+          draggable="false"
         >
           <div className={styles.linkBox}>
             <span className={styles.linkTitle}>{t("links.website")}</span>
@@ -96,6 +99,7 @@ function Links() {
           target="_blank"
           rel="me noopener"
           className={styles.linkItem}
+          draggable="false"
         >
           <div className={styles.linkBox}>
             <span className={styles.linkTitle}>{t("links.climatempo")}</span>
@@ -106,6 +110,7 @@ function Links() {
           target="_blank"
           rel="me noopener"
           className={styles.linkItem}
+          draggable="false"
         >
           <div className={styles.linkBox}>
             <span className={styles.linkTitle}>{t("links.cvpt")}</span>
@@ -116,6 +121,7 @@ function Links() {
           target="_blank"
           rel="me noopener"
           className={styles.linkItem}
+          draggable="false"
         >
           <div className={styles.linkBox}>
             <span className={styles.linkTitle}>{t("links.cven")}</span>
@@ -126,6 +132,7 @@ function Links() {
           target="_blank"
           rel="nofollow"
           className={styles.linkItem}
+          draggable="false"
         >
           <div className={styles.linkBox}>
             <span className={styles.linkTitle}>{t("links.email")}</span>

@@ -20,6 +20,7 @@ const SocialsImage: React.FC<{ hoveredIndex: number | null }> = ({
         className={`${styles.socialImage} ${
           hoveredIndex === idx ? styles.imageTranslocated : ""
         }`}
+        draggable="false"
       />
     ))}
   </div>

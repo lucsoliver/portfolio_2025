@@ -12,15 +12,19 @@
 
 .input {
   width: 100%;
-  padding: 1rem 1rem 1rem 3rem;
-  border-radius: 0.75rem;
-  background-color: #f3f4f6;
+  height: 10vh;
   color: #171717;
   font-size: 1rem;
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
   border: none;
+  padding-left: 3rem;
   outline: none;
-  transition: all 0.3s;
   box-sizing: border-box;
+}
+
+.input::placeholder {
+  text-align: center;
 }
 
 :global(html.dark) .input {
@@ -36,14 +40,18 @@
   color: #bfbfbf;
 }
 
+.input:hover {
+  border: 2px solid currentColor;
+}
+
 .input:focus {
   background-color: #ffffff;
-  border: 1px solid currentColor;
+  border: 2px solid currentColor;
 }
 
 :global(html.dark) .input:focus {
   background-color: #5f6368;
-  border: 1px solid currentColor;
+  border: 2px solid currentColor;
 }
 
 .icon {

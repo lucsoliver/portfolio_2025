@@ -19,7 +19,12 @@ function Home() {
           <p className={styles.homeDescription}>{t("home.description")}</p>
           <div className={styles.homeContact}>
             <Contact />
-            <a href="/links" target="_blank" className={styles.linksButton}>
+            <a
+              href="/links"
+              target="_blank"
+              className={styles.linksButton}
+              draggable="false"
+            >
               <div className={styles.animatePulse}></div>
               {t("home.links")}
             </a>

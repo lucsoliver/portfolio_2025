@@ -130,6 +130,7 @@ function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.cardLink}
+                draggable="false"
               >
                 <article
                   key={repo.url}
@@ -145,6 +146,7 @@ function Projects() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.cardTitleLink}
+                            draggable="false"
                           >
                             {repo.name}
                           </a>
@@ -157,6 +159,7 @@ function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className={styles.cardFooterLink}
+                              draggable="false"
                             >
                               {getHostname(repo.homepage)}
                             </a>

@@ -214,29 +214,35 @@
 }
 
 .themeBtn:hover {
+  transform: scale(1.1);
   color: #5d9dfe;
 }
 
 .mobileOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   z-index: 40;
   display: block;
 }
 
 .mobileMenu {
+  display: block;
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
   width: 16rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 100%;
+  background-color: #f8fbf8;
+  border-left: 2px solid #202124;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 50;
-  display: block;
-  background-color: rgba(0, 0, 0, 0.5);
+}
+
+:global(html.dark) .mobileMenu {
+  background-color: #202124;
+  border-left: 2px solid #f8fbf8;
 }
 
 .mobileMenuOpen {
@@ -258,14 +264,18 @@
 
 .mobileLink {
   cursor: pointer;
-  color: #fff;
   font-family: PoppinsMedium;
+  font-size: 1.5rem;
+  font-family: PoppinsMedium;
+  color: #3c4043;
   transition:
     color 0.2s,
     text-decoration 0.2s;
   text-decoration: none;
-  font-size: 1.5rem;
-  font-family: PoppinsMedium;
+}
+
+:global(html.dark) .mobileLink {
+  color: #e8e8e8;
 }
 
 .mobileLink:hover {

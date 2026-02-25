@@ -48,6 +48,7 @@ function About() {
                 src="https://github.com/lucsoliver.png"
                 alt="Lucas Oliveira"
                 className={styles.aboutImg}
+                draggable="false"
               />
             </div>
             <button
@@ -82,6 +83,7 @@ function About() {
                       href="/cv.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
+                      draggable="false"
                     >
                       {t("about.cvPTBR")}
                     </a>
@@ -90,6 +92,7 @@ function About() {
                       href="/cv.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
+                      draggable="false"
                     >
                       {t("about.cvEN")}
                     </a>

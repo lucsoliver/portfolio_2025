@@ -116,11 +116,21 @@ function NavBar() {
 
           {/* Desktop nav */}
           <div className={styles.logoContainer}>
-            <a href="/" aria-label="Home">
+            <a href="/" aria-label="Home" draggable="false">
               {theme === "dark" ? (
-                <img src={LogoWhite} className={styles.logo} alt="Logo" />
+                <img
+                  src={LogoWhite}
+                  className={styles.logo}
+                  alt="Logo"
+                  draggable="false"
+                />
               ) : (
-                <img src={LogoBlack} className={styles.logo} alt="Logo" />
+                <img
+                  src={LogoBlack}
+                  className={styles.logo}
+                  alt="Logo"
+                  draggable="false"
+                />
               )}
             </a>
           </div>
@@ -133,6 +143,7 @@ function NavBar() {
                   activeSection === section.id ? styles.desktopActive : ""
                 }`}
                 aria-current={activeSection === section.id ? "true" : undefined}
+                draggable="false"
               >
                 {t(section.label)}
               </a>
@@ -194,13 +205,28 @@ function NavBar() {
       >
         <div className={styles.mobileMenuContent}>
           <div className={styles.logoContainerMobile}>
-            <img src={LogoWhite} className={styles.logo} alt="Logo" />
+            {theme === "dark" ? (
+              <img
+                src={LogoWhite}
+                className={styles.logo}
+                alt="Logo"
+                draggable="false"
+              />
+            ) : (
+              <img
+                src={LogoBlack}
+                className={styles.logo}
+                alt="Logo"
+                draggable="false"
+              />
+            )}
           </div>
           {sections.map((section) => (
             <a
               key={section.id}
               onClick={() => scrollToSection(section.id)}
               className={styles.mobileLink}
+              draggable="false"
             >
               {t(section.label)}
             </a>

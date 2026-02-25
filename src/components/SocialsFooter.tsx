@@ -25,7 +25,7 @@ const socials: Social[] = [
     rel: "me noopener",
   },
   {
-    href: "https://twitter.com/lyunnee",
+    href: "https://x.com/lyunekou",
     icon: Twitter,
     alt: "Twitter",
     title: "Twitter",
@@ -57,6 +57,7 @@ const SocialsFooter: React.FC<{ onHover?: (index: number | null) => void }> = ({
           aria-label={social.alt}
           onMouseEnter={() => onHover && onHover(idx)}
           onMouseLeave={() => onHover && onHover(null)}
+          draggable="false"
         >
           <Icon className={styles.socialIcon} aria-hidden="true" />
           <span className={styles.srOnly}>{social.alt}</span>
