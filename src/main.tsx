@@ -1,9 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "./components/ThemeContext";
+
 import "./index.css";
+import "../public/colors/colors.css";
 import i18n from "./i18n";
 import App from "./App";
-import { ThemeProvider } from "./components/ThemeContext";
 
 const root = createRoot(document.getElementById("app")!);
 
@@ -17,5 +19,5 @@ root.render(
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );

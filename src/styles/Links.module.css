@@ -75,7 +75,7 @@
 
 .projectLink:hover {
   background-color: #f7fcfe;
-  color: #5d9dfe;
+  color: var(--base-color);
 }
 
 :global(html.dark) .projectLink:hover {

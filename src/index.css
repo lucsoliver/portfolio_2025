@@ -4,13 +4,13 @@
 }
 
 body {
-  background: #f8f9fb;
-  color: #3c4043;
+  background: var(--color-white-bg);
+  color: var(--color-black-text);
 }
 
 html.dark body {
-  background: #202124;
-  color: #e8e8e8;
+  background: var(--color-black-bg);
+  color: var(--color-white-text);
 }
 
 html,
@@ -86,7 +86,7 @@ button {
   font-size: 1.875rem;
   font-family: Evanescent;
   width: 100vw;
-  background-color: #f4f2ee;
+  background-color: var(--color-white-bg-title);
   color: #404040;
   text-align: center;
   position: relative;
@@ -102,7 +102,7 @@ button {
 }
 
 html.dark .title {
-  background-color: #161616;
+  background-color: var(--color-black-bg-title);
   color: #fff;
 }
 

@@ -13,17 +13,28 @@ const sections = [
   { id: "skills", label: "nav.skills" },
 ];
 
+const highlightColors = [
+  { id: "green", value: "#5dfeb6", label: "Green" },
+  { id: "purple", value: "#9b5dfe", label: "Purple" },
+  { id: "pink", value: "#fe5dcc", label: "Pink" },
+  { id: "yellow", value: "#fed65d", label: "Yellow" },
+  { id: "blue", value: "#5d9dfe", label: "Blue" },
+];
+
 function NavBar() {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isColorMenuOpen, setIsColorMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [isSidebar, setIsSidebar] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
+  const [highlightColor, setHighlightColor] = useState<string>("#5d9dfe");
 
   const activeRef = useRef(activeSection);
   activeRef.current = activeSection;
+  const colorMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("language") ?? "en";
@@ -37,11 +48,46 @@ function NavBar() {
     };
   }, [i18n]);
 
+  useEffect(() => {
+    const saved = localStorage.getItem("highlightColor") ?? "#5d9dfe";
+    setHighlightColor(saved);
+    document.documentElement.style.setProperty("--base-color", saved);
+  }, []);
+
+  const setHighlight = (color: string) => {
+    setHighlightColor(color);
+    document.documentElement.style.setProperty("--base-color", color);
+    localStorage.setItem("highlightColor", color);
+  };
+
+  const toggleColorMenu = () => {
+    setIsColorMenuOpen((current) => !current);
+  };
+
+  const closeColorMenu = () => {
+    setIsColorMenuOpen(false);
+  };
+
   const setLanguage = (lang: "en" | "pt") => {
     if (!isInitialized) return;
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
   };
+
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      if (
+        isColorMenuOpen &&
+        colorMenuRef.current &&
+        !colorMenuRef.current.contains(event.target as Node)
+      ) {
+        closeColorMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleDocumentClick);
+    return () => document.removeEventListener("mousedown", handleDocumentClick);
+  }, [isColorMenuOpen]);
 
   useEffect(() => {
     const ticking = { v: false };
@@ -150,8 +196,8 @@ function NavBar() {
             ))}
           </div>
 
-          {/* Language/theme toggles */}
           <div className={styles.toggles}>
+            {/* language toggle */}
             <div className={styles.langToggle}>
               <button
                 onClick={() => setLanguage("pt")}
@@ -163,7 +209,7 @@ function NavBar() {
               >
                 PT
               </button>
-              <span className={styles.langInactive}>/</span>
+              <span className={styles.langDivisor}>/</span>
               <button
                 onClick={() => setLanguage("en")}
                 className={`${styles.langBtn} ${
@@ -175,6 +221,45 @@ function NavBar() {
                 EN
               </button>
             </div>
+
+            {/* color toggle  */}
+            <div ref={colorMenuRef} className={styles.colorDropdown}>
+              <button
+                type="button"
+                className={styles.colorDropdownButton}
+                aria-haspopup="true"
+                aria-expanded={isColorMenuOpen}
+                aria-label="Abrir seletor de destaque"
+                onClick={toggleColorMenu}
+              >
+                <span
+                  className={styles.colorPreview}
+                  style={{ backgroundColor: highlightColor }}
+                />
+              </button>
+              {isColorMenuOpen && (
+                <div className={styles.colorDropdownMenu} role="menu">
+                  {highlightColors.map((color) => (
+                    <button
+                      key={color.id}
+                      type="button"
+                      className={`${styles.colorOption} ${
+                        highlightColor === color.value
+                          ? styles.colorOptionActive
+                          : ""
+                      }`}
+                      style={{ backgroundColor: color.value }}
+                      aria-label={`Selecionar ${color.label}`}
+                      onClick={() => {
+                        setHighlight(color.value);
+                        closeColorMenu();
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+            {/* theme toggle */}
             <button
               onClick={toggleTheme}
               className={styles.themeBtn}

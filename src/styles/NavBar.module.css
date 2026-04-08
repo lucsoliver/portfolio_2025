@@ -54,7 +54,7 @@
 }
 
 .logo:hover {
-  fill: #5d9dfe;
+  fill: var(--base-color);
   filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(747%)
     hue-rotate(180deg) brightness(97%) contrast(101%);
 }
@@ -121,7 +121,7 @@
 
 .desktopLink:hover {
   color-scheme: light dark;
-  color: #5d9dfe;
+  color: var(--base-color);
 }
 
 .desktopLink::after {
@@ -140,7 +140,7 @@
 }
 
 .desktopActive {
-  color: #5d9dfe;
+  color: var(--base-color);
 }
 
 .desktopActive::after {
@@ -148,7 +148,7 @@
 }
 
 .mobileActive {
-  color: #5d9dfe;
+  color: var(--base-color);
   font-family: PoppinsSemiBold;
 }
 
@@ -195,12 +195,17 @@
   color: #f8faf5;
 }
 
-.langInactive {
+.langInactive,
+.langDivisor {
   opacity: 0.5;
 }
 
 .langInactive:hover {
-  color: #5d9dfe;
+  color: var(--base-color);
+}
+
+.langDivisor {
+  cursor: default;
 }
 
 .themeBtn {
@@ -209,13 +214,97 @@
   color-scheme: light dark;
   color: currentColor;
   border: none;
-  transition: color 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
   cursor: pointer;
 }
 
 .themeBtn:hover {
   transform: scale(1.1);
-  color: #5d9dfe;
+  color: var(--base-color);
+}
+
+.colorDropdown {
+  position: relative;
+  --color-dot-size: 1rem;
+}
+
+.colorDropdownButton {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 0.4rem;
+  background: none;
+  color: currentColor;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+  padding: 0.6rem 0.7rem;
+}
+
+.colorDropdownButton:hover,
+.colorDropdownButton:focus-visible {
+  border-color: var(--base-color);
+  transform: scale(1.1);
+}
+
+.colorPreview {
+  display: inline-block;
+  width: var(--color-dot-size);
+  height: var(--color-dot-size);
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.colorDropdownMenu {
+  position: absolute;
+  right: calc(0% + -0.5rem);
+  top: calc(100% + 0.5rem);
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  justify-content: center;
+  gap: 0;
+  padding: 0.6rem 0.7rem;
+  background-color: var(--color-white-bg-title);
+  border: 1px solid var(--color-white-text);
+  border-radius: 0.4rem;
+  z-index: 1002;
+  min-width: 2rem;
+}
+
+:global(html.dark) .colorDropdownMenu {
+  background-color: var(--color-black-bg-title);
+  border-color: var(--color-black-text);
+}
+
+.colorOption {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--color-dot-size);
+  height: var(--color-dot-size);
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0.6rem 0;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.colorOption:hover {
+  transform: scale(1.08);
+}
+
+.colorOptionActive {
+  box-shadow: 0 0 0 4px var(--base-color);
 }
 
 .mobileOverlay {

@@ -1,9 +1,14 @@
 :root {
+  --base-color: #5d9dfe;
+
   --color-white-pure: #ffffff;
 
   --color-white-bg: #f8f9fb;
   --color-white-text: #e8e8e8;
 
-  --color-black-bg: #3c4043;
-  --color-black-text: #202124;
+  --color-black-bg: #202124;
+  --color-black-text: #3c4043;
+
+  --color-black-bg-title: #161616;
+  --color-white-bg-title: #f4f2ee;
 }
