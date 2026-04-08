@@ -55,8 +55,9 @@
 
 .logo:hover {
   fill: var(--base-color);
-  filter: brightness(0) saturate(100%) invert(32%) sepia(99%) saturate(747%)
-    hue-rotate(180deg) brightness(97%) contrast(101%);
+  filter: invert(50%) sepia(99%) saturate(747%)
+    hue-rotate(calc(180deg + var(--logo-hue) - 216deg)) brightness(80%)
+    contrast(100%);
 }
 
 :global(html.dark) .sidebarNav {
@@ -209,7 +210,7 @@
 }
 
 .themeBtn {
-  padding: 0.5rem;
+  padding: 0.6rem 0.5rem;
   background: none;
   color-scheme: light dark;
   color: currentColor;
