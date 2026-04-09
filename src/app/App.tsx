@@ -5,7 +5,7 @@ import Home from "../components/Sections/HomeSection/Home";
 import About from "../components/Sections/AboutSection/About";
 import Skills from "../components/Sections/SkillsSection/Skills";
 import Footer from "../components/Footer/Footer";
-import Links from "../components/Linkbio/Linkbio";
+import Links from "../pages/Linkbio/Linkbio";
 import { ThemeProvider } from "../components/ThemeContext/ThemeContext";
 
 const Projects = lazy(
