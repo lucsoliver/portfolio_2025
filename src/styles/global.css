@@ -109,13 +109,13 @@ html.dark .title {
 .stylizedTitle:hover {
   background: linear-gradient(
     to right,
-    #0e2850 0%,
-    #f4f2ee 17%,
+    #f4f2ee 0%,
+    var(--base-color) 17%,
     var(--base-color) 33%,
     #f4f2ee 50%,
     var(--base-color) 67%,
     #f4f2ee 83%,
-    #0e2850 100%
+    var(--base-color) 100%
   );
   background-size: 200% auto;
   color: transparent;
@@ -128,13 +128,13 @@ html.dark .title {
 html.dark .stylizedTitle:hover {
   background: linear-gradient(
     to right,
-    #0e2850 0%,
-    rgb(60, 60, 60) 17%,
+    rgb(60, 60, 60) 0%,
+    var(--base-color) 17%,
     var(--base-color) 33%,
     rgb(60, 60, 60) 50%,
     var(--base-color) 67%,
     rgb(60, 60, 60) 83%,
-    #0e2850 100%
+    var(--base-color) 100%
   );
   background-size: 200% auto;
   color: transparent;
@@ -147,11 +147,11 @@ html.dark .stylizedTitle:hover {
 .stylizedName:hover {
   background: linear-gradient(
     to right,
-    var(--base-color) 0%,
-    #f4f2ee 17%,
-    rgb(93, 157, 254) 33%,
+    #f4f2ee 0%,
+    var(--base-color) 17%,
+    var(--base-color) 33%,
     #f4f2ee 50%,
-    rgb(93, 157, 254) 67%,
+    var(--base-color) 67%,
     #f4f2ee 83%,
     var(--base-color) 100%
   );
@@ -166,11 +166,11 @@ html.dark .stylizedTitle:hover {
 html.dark .stylizedName:hover {
   background: linear-gradient(
     to right,
-    var(--base-color) 0%,
-    rgb(60, 60, 60) 17%,
-    rgb(93, 157, 254) 33%,
+    rgb(60, 60, 60) 0%,
+    var(--base-color) 17%,
+    var(--base-color) 33%,
     rgb(60, 60, 60) 50%,
-    rgb(93, 157, 254) 67%,
+    var(--base-color) 67%,
     rgb(60, 60, 60) 83%,
     var(--base-color) 100%
   );

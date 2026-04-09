@@ -40,18 +40,14 @@
   color: #bfbfbf;
 }
 
-.input:hover {
-  border: 2px solid currentColor;
-}
-
 .input:focus {
   background-color: #ffffff;
-  border: 2px solid currentColor;
+  border: 2px solid var(--base-color);
 }
 
 :global(html.dark) .input:focus {
   background-color: #5f6368;
-  border: 2px solid currentColor;
+  border: 2px solid var(--base-color);
 }
 
 .icon {

@@ -182,7 +182,7 @@ function NavBar() {
     <>
       {isInitialized && (
         <nav className={styles.stickyNav}>
-          {/* Mobile menu button */}
+          {/* mobile menu button */}
           <button
             onClick={() => setIsMenuOpen((v) => !v)}
             className={styles.menuButton}
@@ -195,7 +195,7 @@ function NavBar() {
             )}
           </button>
 
-          {/* Desktop nav */}
+          {/* desktop nav */}
           <div className={styles.logoContainer}>
             <a href="/" aria-label="Home" draggable="false">
               {theme === "dark" ? (
@@ -310,7 +310,7 @@ function NavBar() {
         </nav>
       )}
 
-      {/* Mobile menu */}
+      {/* mobile menu */}
       {isMenuOpen && (
         <div
           className={styles.mobileOverlay}

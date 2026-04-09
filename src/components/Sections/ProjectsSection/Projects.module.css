@@ -210,10 +210,9 @@
   gap: 0.75rem;
   font-size: 1rem;
   font-family: PoppinsSemiBold;
-  font-family: sans-serif;
   background-color: var(--base-color);
-  color: #171717;
-  border: 1px solid #0e2850;
+  color: var(--color-black-bg-title);
+  border: 1px solid var(--color-black-bg-title);
   border-radius: 50rem;
   transition: all 0.3s;
   padding: 0.75rem 1.5rem;
@@ -221,8 +220,6 @@
 }
 
 .clearBtn:hover {
-  background-color: rgba(93, 157, 254, 0.8);
-  color: #171717;
   transform: scale(1.05);
 }
 
@@ -269,13 +266,11 @@ html {
   }
 }
 
-/* Melhora a acessibilidade do foco */
 :focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-/* Adiciona prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .animateFadeIn,
   article {

@@ -44,6 +44,7 @@
 
 .linkStack {
   font-size: 1rem;
+  text-align: center;
   margin: 1rem 0 0.5rem 0;
 }
 
@@ -106,6 +107,7 @@
   width: 20vw;
   gap: 14px;
 }
+
 .linkItem {
   text-decoration: none;
   color: inherit;
@@ -127,7 +129,6 @@
   padding: 0.5rem 2rem;
   background-color: #f3f3f2;
   border: 1px solid #e1e1e1;
-  border: 1px solid 141414;
   border-radius: 0.4rem;
 }
 
@@ -139,6 +140,19 @@
 .linkTitle:hover {
   background-color: #f7fcfe;
 }
+
 :global(html.dark) .linkTitle:hover {
   background-color: #161616;
+}
+
+@media (max-width: 1024px) {
+  .linksList {
+    width: 35%;
+  }
+}
+
+@media (max-width: 450px) {
+  .linksList {
+    width: 80%;
+  }
 }
