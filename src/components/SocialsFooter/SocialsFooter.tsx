@@ -1,8 +1,9 @@
 import React from "react";
 import { Mail, createLucideIcon, Github, Linkedin } from "lucide-react";
-import styles from "../styles/SocialsFooter.module.css";
+import styles from "./SocialsFooter.module.css";
 
 interface Social {
+  id: string;
   href: string;
   icon: React.ElementType;
   alt: string;
@@ -23,6 +24,7 @@ const XIcon = createLucideIcon("X", [
 
 const socials: Social[] = [
   {
+    id: "email",
     href: "mailto:lucasop888@yahoo.com",
     icon: Mail,
     alt: "Email",
@@ -30,6 +32,7 @@ const socials: Social[] = [
     rel: "nofollow",
   },
   {
+    id: "github",
     href: "https://github.com/lucsoliver",
     icon: Github,
     alt: "GitHub",
@@ -37,6 +40,7 @@ const socials: Social[] = [
     rel: "me noopener",
   },
   {
+    id: "twitter",
     href: "https://x.com/lyunekou",
     icon: XIcon,
     alt: "Twitter",
@@ -44,6 +48,7 @@ const socials: Social[] = [
     rel: "me noopener",
   },
   {
+    id: "linkedin",
     href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
     icon: Linkedin,
     alt: "Linkedin",
@@ -60,7 +65,7 @@ const SocialsFooter: React.FC<{ onHover?: (index: number | null) => void }> = ({
       const Icon = social.icon;
       return (
         <a
-          key={social.href}
+          key={social.id}
           href={social.href}
           title={social.title}
           rel={social.rel}

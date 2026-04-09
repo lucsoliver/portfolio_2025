@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Loader2, RotateCcw } from "lucide-react";
-import { fetchPinnedRepos } from "../services/github";
-import type { Repository } from "../services/github";
-import SearchBar from "./SearchBar";
-import styles from "../styles/Projects.module.css";
+import { fetchPinnedRepos } from "../../../services/github";
+import type { Repository } from "../../../services/github";
+import SearchBar from "../../SearchBar/SearchBar";
+import styles from "./Projects.module.css";
 
 const getHostname = (url: string): string => {
   try {
@@ -126,6 +126,7 @@ function Projects() {
           <div className={styles.cardContainer}>
             {filteredRepos.map((repo, index) => (
               <a
+                key={repo.url}
                 href={repo.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -133,24 +134,13 @@ function Projects() {
                 draggable="false"
               >
                 <article
-                  key={repo.url}
                   className={styles.card}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div>
                     <div className={styles.cardHeader}>
                       <div>
-                        <h3 className={styles.cardTitle}>
-                          <a
-                            href={repo.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.cardTitleLink}
-                            draggable="false"
-                          >
-                            {repo.name}
-                          </a>
-                        </h3>
+                        <h3 className={styles.cardTitle}>{repo.name}</h3>
                         <p className={styles.cardDesc}>{repo.description}</p>
                         {repo.homepage && (
                           <div>

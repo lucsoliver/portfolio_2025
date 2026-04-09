@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Sun, Moon, Menu, X, ArrowUp } from "lucide-react";
-import styles from "../styles/NavBar.module.css";
-import { useTheme } from "../components/ThemeContext";
-import LogoBlack from "../assets/logo-black.svg";
-import LogoWhite from "../assets/logo-white.svg";
+import { useTheme } from "../ThemeContext/ThemeContext";
+import styles from "./NavBar.module.css";
+import LogoBlack from "../../assets/images/logo/logo-black.svg";
+import LogoWhite from "../../assets//images/logo/logo-white.svg";
 
 const sections = [
   { id: "home", label: "nav.home" },

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SocialsFooter from "./SocialsFooter";
-import SocialsImage from "./SocialsImage";
 import { useTranslation } from "react-i18next";
-import styles from "../styles/Footer.module.css";
+import SocialsFooter from "../SocialsFooter/SocialsFooter";
+import SocialsImage from "../SocialsFooter/SocialsImage";
+import styles from "./Footer.module.css";
 
 function Footer() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

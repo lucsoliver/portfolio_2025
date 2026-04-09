@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Twitter } from "lucide-react";
-import styles from "../styles/Contact.module.css";
+import styles from "./Contact.module.css";
 
 interface Contact {
   href: string;

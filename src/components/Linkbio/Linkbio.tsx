@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Github, createLucideIcon, Linkedin, Instagram } from "lucide-react";
-import styles from "../styles/Links.module.css";
+import styles from "./Linkbio.module.css";
 
 interface Project {
   href: string;

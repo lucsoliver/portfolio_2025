@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import styles from "../styles/About.module.css";
+import styles from "./About.module.css";
 
 function About() {
   const { t } = useTranslation();

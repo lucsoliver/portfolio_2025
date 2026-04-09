@@ -6,7 +6,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import styles from "../styles/Socials.module.css";
+import styles from "./Socials.module.css";
 
 interface Social {
   href: string;

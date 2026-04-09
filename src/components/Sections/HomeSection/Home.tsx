@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Contact from "./Contact";
-import styles from "../styles/Home.module.css";
+import Contact from "../../Contact/Contact";
+import styles from "./Home.module.css";
 
 function Home() {
   const { t } = useTranslation();

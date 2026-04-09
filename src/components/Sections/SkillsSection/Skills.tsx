@@ -17,7 +17,7 @@ import {
   SiStyledcomponents,
 } from "react-icons/si";
 
-import styles from "../styles/Skills.module.css";
+import styles from "./Skills.module.css";
 
 const iconMap: Record<string, React.ReactNode> = {
   html5: <SiHtml5 size={40} color="#E34F26" />,

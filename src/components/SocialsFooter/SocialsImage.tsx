@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "../styles/SocialsFooter.module.css";
+import styles from "./SocialsFooter.module.css";
 
-const images = [
-  "/images/follow-cat7.png",
-  "/images/follow-cat6.png",
-  "/images/follow-cat4.png",
-  "/images/follow-cat5.png",
-];
+import cat1 from "../../assets/images/white-cat.png";
+import cat6 from "../../assets/images/black-cat.png";
+import cat4 from "../../assets/images/orange-cat.png";
+import cat5 from "../../assets/images/siamese-cat.png";
+
+const images = [cat1, cat6, cat4, cat5];
 
 const SocialsImage: React.FC<{ hoveredIndex: number | null }> = ({
   hoveredIndex,
@@ -14,7 +14,7 @@ const SocialsImage: React.FC<{ hoveredIndex: number | null }> = ({
   <div className={styles.socialImageContainer}>
     {images.map((src, idx) => (
       <img
-        key={src}
+        key={`image-${idx}`}
         src={src}
         alt="Gato fofinho"
         className={`${styles.socialImage} ${
