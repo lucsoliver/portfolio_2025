@@ -25,7 +25,7 @@
 }
 
 :global(html.dark) .linkAvatar:hover {
-  background-color: #1c3d61;
+  background-color: var(--color-ado-light);
 }
 
 .linksTitle {
@@ -80,7 +80,7 @@
 }
 
 :global(html.dark) .projectLink:hover {
-  background-color: #161616;
+  background-color: var(--color-black-bg-title);
 }
 
 .projectIcon {

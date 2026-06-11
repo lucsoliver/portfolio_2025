@@ -218,3 +218,5 @@ i18n.use(initReactI18next).init({
 });
 
 export default i18n;
+
+// o import do t e o outro pode ser global para evitar de importar em cada componente, basta usar o useTranslation do react-i18next e acessar o t diretamente, ou seja, const { t } = useTranslation(); e depois usar o t('key') para acessar as traduções.

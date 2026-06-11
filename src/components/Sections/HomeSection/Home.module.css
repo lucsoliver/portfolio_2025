@@ -77,17 +77,17 @@
   font-size: 1rem;
   line-height: 1.5rem;
   background-color: transparent;
-  color: #3c4043;
+  color: var(--color-black-text);
   border-radius: 9999px;
-  border: 1px solid #f4f2ee;
+  border: 1px solid var(--color-white-bg-title);
   padding: 1rem;
   margin-left: 5rem;
   text-decoration: none;
 }
 
 :global(html.dark) .linksButton {
-  border: 1px solid #3c4043;
-  color: #fff;
+  border: 1px solid var(--color-black-text);
+  color: var(--color-white-pure);
 }
 
 .linksButton:hover {

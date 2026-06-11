@@ -72,5 +72,5 @@
 }
 
 :global(html.dark) .skillLabel {
-  color: #e8e8e8;
+  color: var(--color-white-text);
 }

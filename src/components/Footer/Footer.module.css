@@ -8,13 +8,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fb; /* fdfdfd */
-  border-top: 1px solid #dadce0;
+  background-color: var(--color-white-bg);
+  border-top: 1px solid var(--color-white-100);
   z-index: 1001;
 }
 
 :global(html.dark) .footerContent {
-  background-color: #202124;
+  background-color: var(--color-black-bg);
   border-top: 1px solid #404040;
 }
 

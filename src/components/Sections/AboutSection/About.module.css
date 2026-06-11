@@ -160,16 +160,16 @@
   font-size: 1rem;
   line-height: 1.5rem;
   background-color: transparent;
-  color: #3c4043;
+  color: var(--color-black-text);
   border-radius: 9999px;
-  border: 1px solid #f4f2ee;
+  border: 1px solid var(--color-white-bg-title);
   padding: 1rem;
   text-decoration: none;
 }
 
 :global(html.dark) .linksButton {
-  border: 1px solid #3c4043;
-  color: #fff;
+  border: 1px solid var(--color-black-text);
+  color: var(--color-white-pure);
 }
 
 .linksButton:hover {
@@ -195,15 +195,15 @@
 
 .aboutCV {
   width: 100%;
-  background-color: #f4f2ee;
+  background-color: var(--color-white-bg-title);
   color: #404040;
   transition: background-color 0.3s ease;
   margin: 1.8rem 0 1.5em 0;
 }
 
 :global(html.dark) .aboutCV {
-  background-color: #161616;
-  color: #fff;
+  background-color: var(--color-black-bg-title);
+  color: var(--color-white-pure);
 }
 
 .aboutCV:hover {
@@ -276,7 +276,7 @@
 }
 
 .modalContent {
-  background: #fff;
+  background: var(--color-white-pure);
   padding: 0.5rem 1.25rem 1.25rem 1.25rem;
   border-radius: 0.5rem;
   width: 90%;
@@ -286,7 +286,7 @@
 
 :global(html.dark) .modalContent {
   background: #2b2b2b;
-  color: #fff;
+  color: var(--color-white-pure);
 }
 
 .modalContent h3 {
@@ -324,25 +324,25 @@
   margin: 0 0.5rem;
   padding: 0.6rem 0.8rem;
   border-radius: 0.8rem;
-  background: #8ab4f8;
-  border: 1px solid #1c3d61;
-  color: #fff;
+  background-color: #8ab4f8;
+  border: 1px solid var(--base-color);
+  color: var(--color-white-pure);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
 
-.modalButton:hover {
-  border: 2px solid #1c3d61;
+:global(html.dark) .modalButton {
+  background-color: var(--color-ado-dark);
+  border: 1px solid var(--color-ado-light);
 }
 
-:global(html.dark) .modalButton {
-  background: #1e2339;
-  border: 1px solid #1c3d61;
+.modalButton:hover {
+  background-color: var(--base-color);
 }
 
 :global(html.dark) .modalButton:hover {
-  border: 2px solid #1c3d61;
+  background-color: var(--color-ado-light);
 }
 
 .aboutInterests {
@@ -386,7 +386,7 @@
 }
 
 :global(html.dark) .interestsCard:hover {
-  color: #3c4043;
+  color: var(--color-black-text);
 }
 
 .techCard:hover {
