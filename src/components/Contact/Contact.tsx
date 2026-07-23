@@ -1,56 +1,54 @@
-import React from "react";
-import { Mail, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import styles from "./Contact.module.css";
 
-interface Contact {
-  href: string;
-  icon: React.ElementType;
-  alt: string;
-  title: string;
-  rel: string;
-}
-const contacts: Contact[] = [
+const contacts = [
   {
-    href: "mailto:lucasop888@yahoo.com",
+    href: "mailto:lucasolv.dev@gmail.com",
     icon: Mail,
-    alt: "Email",
-    title: "E-mail",
+    labelKey: "home.socials.email" as const,
     rel: "nofollow",
   },
   {
-    href: "#",
-    icon: Twitter,
-    alt: "CV",
-    title: "CV",
-    rel: "me noopener",
+    href: "https://github.com/lucsoliver",
+    icon: Github,
+    labelKey: "home.socials.github" as const,
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
+    icon: Linkedin,
+    labelKey: "home.socials.linkedin" as const,
+    rel: "noopener noreferrer",
   },
 ];
 
-const Contact: React.FC<{ onHover?: (index: number | null) => void }> = ({
-  onHover,
-}) => (
-  <nav className={styles.contactNav} aria-label="Contato">
-    {contacts.map((contact, idx) => {
-      const Icon = contact.icon;
-      return (
-        <a
-          key={contact.href}
-          href={contact.href}
-          title={contact.title}
-          rel={contact.rel}
-          target="_blank"
-          className={`${styles.contact} ${styles.contactUnderline}`}
-          aria-label={contact.alt}
-          onMouseEnter={() => onHover && onHover(idx)}
-          onMouseLeave={() => onHover && onHover(null)}
-          draggable="false"
-        >
-          <Icon className={styles.contactIcon} aria-hidden="true" />
-          <span className={styles.srOnly}>{contact.alt}</span>
-        </a>
-      );
-    })}
-  </nav>
-);
+function Contact() {
+  const { t } = useTranslation();
+
+  return (
+    <nav className={styles.contactNav} aria-label="Social links">
+      {contacts.map((contact) => {
+        const Icon = contact.icon;
+        const label = t(contact.labelKey);
+        return (
+          <a
+            key={contact.href}
+            href={contact.href}
+            title={label}
+            rel={contact.rel}
+            target="_blank"
+            className={`${styles.contact} ${styles.contactUnderline}`}
+            aria-label={label}
+            draggable="false"
+          >
+            <Icon className={styles.contactIcon} aria-hidden="true" />
+            <span className={styles.srOnly}>{label}</span>
+          </a>
+        );
+      })}
+    </nav>
+  );
+}
 
 export default Contact;

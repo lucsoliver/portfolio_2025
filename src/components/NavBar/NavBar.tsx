@@ -5,12 +5,18 @@ import { useTheme } from "../ThemeContext/ThemeContext";
 import styles from "./NavBar.module.css";
 import LogoBlack from "../../assets/images/logo/logo-black.svg";
 import LogoWhite from "../../assets//images/logo/logo-white.svg";
+import {
+  applyHighlightColor,
+  initHighlightColor,
+  DEFAULT_HIGHLIGHT_COLOR,
+} from "../../utils/highlightColor";
 
 const sections = [
   { id: "home", label: "nav.home" },
   { id: "about", label: "nav.about" },
   { id: "projects", label: "nav.projects" },
   { id: "skills", label: "nav.skills" },
+  { id: "contact", label: "nav.contact" },
 ];
 
 const highlightColors = [
@@ -21,37 +27,6 @@ const highlightColors = [
   { id: "blue", value: "#5d9dfe", label: "Blue" },
 ];
 
-function hexToHsl(hex: string) {
-  const r = parseInt(hex.slice(1, 3), 16) / 255;
-  const g = parseInt(hex.slice(3, 5), 16) / 255;
-  const b = parseInt(hex.slice(5, 7), 16) / 255;
-
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  let h = 0;
-  let s = 0;
-  const l = (max + min) / 2;
-
-  if (max !== min) {
-    const d = max - min;
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    switch (max) {
-      case r:
-        h = (g - b) / d + (g < b ? 6 : 0);
-        break;
-      case g:
-        h = (b - r) / d + 2;
-        break;
-      case b:
-        h = (r - g) / d + 4;
-        break;
-    }
-    h /= 6;
-  }
-
-  return { h: h * 360, s, l };
-}
-
 function NavBar() {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
@@ -61,14 +36,16 @@ function NavBar() {
   const [isInitialized, setIsInitialized] = useState(false);
   const [isSidebar, setIsSidebar] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
-  const [highlightColor, setHighlightColor] = useState<string>("#5d9dfe");
+  const [highlightColor, setHighlightColor] = useState<string>(
+    DEFAULT_HIGHLIGHT_COLOR,
+  );
 
   const activeRef = useRef(activeSection);
   activeRef.current = activeSection;
   const colorMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("language") ?? "en";
+    const saved = localStorage.getItem("language") ?? "pt";
     let mounted = true;
     (async () => {
       await i18n.changeLanguage(saved);
@@ -80,18 +57,13 @@ function NavBar() {
   }, [i18n]);
 
   useEffect(() => {
-    const saved = localStorage.getItem("highlightColor") ?? "#5d9dfe";
+    const saved = initHighlightColor();
     setHighlightColor(saved);
-    document.documentElement.style.setProperty("--base-color", saved);
-    const { h } = hexToHsl(saved);
-    document.documentElement.style.setProperty("--logo-hue", `${h}deg`);
   }, []);
 
   const setHighlight = (color: string) => {
     setHighlightColor(color);
-    document.documentElement.style.setProperty("--base-color", color);
-    const { h } = hexToHsl(color);
-    document.documentElement.style.setProperty("--logo-hue", `${h}deg`);
+    applyHighlightColor(color);
     localStorage.setItem("highlightColor", color);
   };
 
@@ -181,7 +153,7 @@ function NavBar() {
   return (
     <>
       {isInitialized && (
-        <nav className={styles.stickyNav}>
+        <nav className={styles.stickyNav} aria-label="Main navigation">
           {/* mobile menu button */}
           <button
             onClick={() => setIsMenuOpen((v) => !v)}
@@ -219,11 +191,15 @@ function NavBar() {
             {sections.map((section) => (
               <a
                 key={section.id}
-                onClick={() => scrollToSection(section.id)}
+                href={`#${section.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(section.id);
+                }}
                 className={`${styles.desktopLink} ${
                   activeSection === section.id ? styles.desktopActive : ""
                 }`}
-                aria-current={activeSection === section.id ? "true" : undefined}
+                aria-current={activeSection === section.id ? "page" : undefined}
                 draggable="false"
               >
                 {t(section.label)}
@@ -344,7 +320,11 @@ function NavBar() {
           {sections.map((section) => (
             <a
               key={section.id}
-              onClick={() => scrollToSection(section.id)}
+              href={`#${section.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(section.id);
+              }}
               className={styles.mobileLink}
               draggable="false"
             >

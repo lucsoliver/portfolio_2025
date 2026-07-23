@@ -1,33 +1,54 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import NavBar from "../components/NavBar/NavBar";
 import Home from "../components/Sections/HomeSection/Home";
 import About from "../components/Sections/AboutSection/About";
 import Skills from "../components/Sections/SkillsSection/Skills";
+import Contact from "../components/Sections/ContactSection/Contact";
 import Footer from "../components/Footer/Footer";
 import Links from "../pages/Linkbio/Linkbio";
+import CardPage from "../pages/Card/Card";
 import { ThemeProvider } from "../components/ThemeContext/ThemeContext";
 
 const Projects = lazy(
   () => import("../components/Sections/ProjectsSection/Projects"),
 );
 
-function HomeWebsite() {
+function ProjectsFallback() {
+  const { t } = useTranslation();
   return (
-    <main>
-      <Home />
-      <About />
-      <Suspense fallback={<div>Carregando projetos...</div>}>
-        <Projects />
-      </Suspense>
-      <Skills />
-    </main>
+    <section id="projects" aria-busy="true" aria-live="polite">
+      <p className="sr-only">{t("projects.loading")}</p>
+    </section>
+  );
+}
+
+function HomeWebsite() {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <a href="#main-content" className="skip-link">
+        {t("nav.skipToContent")}
+      </a>
+      <main id="main-content">
+        <Home />
+        <About />
+        <Suspense fallback={<ProjectsFallback />}>
+          <Projects />
+        </Suspense>
+        <Skills />
+        <Contact />
+      </main>
+    </>
   );
 }
 
 function AppContent() {
   const location = useLocation();
-  const hideNavAndFooter = location.pathname === "/links";
+  const hideNavAndFooter =
+    location.pathname === "/links" || location.pathname === "/card";
 
   return (
     <>
@@ -35,6 +56,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomeWebsite />} />
         <Route path="/links" element={<Links />} />
+        <Route path="/card" element={<CardPage />} />
         <Route path="/cv-ptbr" />
         <Route path="/cv-en" />
       </Routes>

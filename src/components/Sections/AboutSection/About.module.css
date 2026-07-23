@@ -44,13 +44,28 @@
   } */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .aboutFlex {
     align-items: center;
+    gap: 3rem;
+  }
+
+  .aboutText {
+    text-align: center;
+  }
+
+  .aboutSubtitle,
+  .aboutDescription {
+    text-align: center;
+  }
+
+  .aboutPresent {
+    text-align: center;
   }
 
   .aboutSide {
-    width: fit-content !important;
+    width: 100% !important;
+    max-width: 24rem;
   }
 }
 

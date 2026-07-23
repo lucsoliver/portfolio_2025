@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
+  width: calc(50% - 0.75rem);
   max-width: 10rem;
   background-color: #f3f4f6;
   border: 1px solid #e5e7eb;
@@ -63,9 +63,22 @@
   margin-bottom: 0.5rem;
 }
 
+@media (min-width: 480px) {
+  .skills {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .skills {
+    width: auto;
+    min-width: 8rem;
+  }
+}
+
 .skillLabel {
   margin: 0.5rem 0 0 0;
-  font-size: 1rem;
+  font-size: 0.875rem;
   text-align: center;
   color: #404040;
   pointer-events: none;

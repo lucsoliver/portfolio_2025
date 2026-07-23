@@ -48,12 +48,18 @@ function About() {
                 src="https://github.com/lucsoliver.png"
                 alt="Lucas Oliveira"
                 className={styles.aboutImg}
+                width={256}
+                height={256}
+                loading="lazy"
+                decoding="async"
                 draggable="false"
               />
             </div>
             <button
+              type="button"
               className={styles.aboutCV}
               onClick={() => setIsModalOpen(true)}
+              aria-haspopup="dialog"
             >
               {t("about.curriculum")}
             </button>
@@ -71,8 +77,10 @@ function About() {
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
+                    type="button"
                     className={styles.modalBtnClose}
                     onClick={() => setIsModalOpen(false)}
+                    aria-label={t("about.close")}
                   >
                     {t("about.close")}
                   </button>

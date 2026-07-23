@@ -1,11 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ThemeProvider } from "../components/ThemeContext/ThemeContext";
 
 import "../styles/global.css";
 import "../styles/colors/colors.css";
 import i18n from "../i18n/index";
+import { initHighlightColor } from "../utils/highlightColor";
 import App from "./App";
+
+initHighlightColor();
 
 const root = createRoot(document.getElementById("app")!);
 
@@ -16,8 +18,6 @@ i18n
 
 root.render(
   <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <App />
   </StrictMode>,
 );
