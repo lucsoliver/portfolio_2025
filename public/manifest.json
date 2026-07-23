@@ -1,10 +1,17 @@
 {
-  "name": "Portfolio",
-  "short_name": "portfolio",
-  "start_url": ".",
+  "name": "Lucas Oliveira - Portfólio",
+  "short_name": "Lucas Oliveira",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
   "description": "Meu portfólio pessoal.",
-  "icons": []
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
 }
-  

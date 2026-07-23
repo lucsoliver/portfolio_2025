@@ -2,29 +2,39 @@
 <html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lucas Oliveira - Frontend Developer</title>
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta
       name="description"
-      content="Portfolio de Lucas Oliveira, Desenvolvedor Frontend."
+      content="Portfólio de Lucas Oliveira, Desenvolvedor Front-end."
     />
     <meta name="author" content="Lucas Oliveira" />
     <meta
       name="keywords"
-      content="desenvolvimento frontend, portfolio, web developer, software developer, desenvolvedor frontend, React, Mobile"
+      content="desenvolvimento front-end, portfolio, web developer, React, TypeScript, Vue.js, React Native, Laravel, software developer, mobile developer"
     />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="#myPortfolioLink" />
 
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lucas Oliveira - Desenvolvedor Front-end" />
     <meta
       property="og:description"
-      content="Portfolio de Lucas Oliveira, Desenvolvedor Frontend."
+      content="Portfólio de Lucas Oliveira, Desenvolvedor Front-end."
+    />
+    <meta property="og:url" content="#myPortfolioLink" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Lucas Oliveira - Desenvolvedor Front-end" />
+    <meta
+      name="twitter:description"
+      content="Portfólio de Lucas Oliveira, Desenvolvedor Front-end."
     />
 
-    <link rel="modulepreload" href="./src/app/main.tsx" />
-
-    <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
     <meta
       name="theme-color"
@@ -37,7 +47,30 @@
       media="(prefers-color-scheme: dark)"
     />
 
-    <script type="module" src="./src/app/main.tsx" async></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucas Oliveira",
+        "jobTitle": "Front-end Developer",
+        "url": "#myPortfolioLink",
+        "sameAs": [
+          "https://github.com/lucsoliver",
+          "https://www.linkedin.com/in/lucas-oliveira-paula/"
+        ],
+        "knowsAbout": [
+          "TypeScript",
+          "Vue.js",
+          "React",
+          "React Native",
+          "JavaScript",
+          "PHP",
+          "Laravel"
+        ]
+      }
+    </script>
+
+    <script type="module" src="./src/app/main.tsx"></script>
   </head>
 
   <body>
