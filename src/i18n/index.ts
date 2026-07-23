@@ -101,9 +101,8 @@ const resources = {
         ],
       },
       contact: {
-        title: "Contact",
-        description:
-          "Feel free to reach out to me through any of the following channels:",
+        title: "Contact me",
+        subtitle: "Get in touch",
         email: "Email",
         linkedin: "LinkedIn",
       },
@@ -233,9 +232,8 @@ const resources = {
         ],
       },
       contact: {
-        title: "Contato",
-        description:
-          "Sinta-se à vontade para entrar em contato comigo através de qualquer um dos seguintes canais:",
+        title: "Contate-me",
+        subtitle: "Entre em contato",
         email: "E-mail",
         linkedin: "LinkedIn",
       },

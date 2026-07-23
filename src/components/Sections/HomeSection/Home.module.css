@@ -108,6 +108,7 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
+  align-content: center;
   margin-bottom: 1.25rem;
 }
 
@@ -175,6 +176,12 @@
   }
 }
 
+@media (max-width: 480px) {
+  .homeContact {
+    align-items: flex-end;
+  }
+}
+
 .linksButton {
   display: inline-flex;
   align-items: center;
@@ -236,6 +243,10 @@
 }
 
 @media (max-width: 600px) {
+  .scrollHint {
+    bottom: auto;
+  }
+
   .ctaGroup {
     flex-direction: column;
     width: 100%;

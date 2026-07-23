@@ -7,7 +7,6 @@ const contactMethods = [
   {
     href: "mailto:lucasolv.dev@gmail.com",
     icon: Mail,
-    labelKey: "home.socials.email" as const,
     value: "lucasolv.dev@gmail.com",
     rel: "nofollow",
   },
@@ -15,7 +14,7 @@ const contactMethods = [
     href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
     icon: Linkedin,
     labelKey: "home.socials.linkedin" as const,
-    value: "linkedin.com/in/lucas-oliveira-paula",
+    value: "LinkedIn",
     rel: "noopener noreferrer",
   },
 ];
@@ -26,28 +25,22 @@ function Contact() {
   return (
     <section id="contact" className={styles.section}>
       <div className={styles.container}>
-        <h2 className="title">
-          <span className="stylizedTitle">{t("contact.title")}</span>
-        </h2>
-        <p className={styles.overline}>{t("contact.description")}</p>
-
-        <div className={styles.contactGroup}>
-          {contactMethods.map(({ href, icon: Icon, labelKey, value, rel }) => (
+        <span className={styles.subtitle}>{t("contact.subtitle")}</span>
+        <h2 className={styles.title}>{t("contact.title")}</h2>
+        <div className={styles.contactBar}>
+          {contactMethods.map(({ href, icon: Icon, value, rel }) => (
             <a
               key={href}
               href={href}
               rel={rel}
               target="_blank"
-              className={styles.contactCard}
+              className={styles.contactItem}
               draggable="false"
             >
               <span className={styles.iconWrapper}>
                 <Icon className={styles.icon} aria-hidden="true" />
               </span>
-              <div className={styles.textGroup}>
-                <span className={styles.contactLabel}>{t(labelKey)}</span>
-                <span className={styles.contactValue}>{value}</span>
-              </div>
+              <span className={styles.contactValue}>{value}</span>
             </a>
           ))}
         </div>

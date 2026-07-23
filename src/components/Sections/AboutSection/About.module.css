@@ -487,6 +487,7 @@
 
 @media (max-width: 480px) {
   .aboutTitle {
+    max-width: none;
     text-align: center;
   }
 }

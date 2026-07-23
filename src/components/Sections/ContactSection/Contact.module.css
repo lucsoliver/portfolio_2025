@@ -11,20 +11,93 @@
   text-align: center;
 }
 
-.overline {
-  margin: 0 auto 0.75rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(100, 116, 139, 0.92);
-}
-
 .title {
-  margin: 0;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: 2.5rem;
+  font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.04em;
-  color: var(--color-black-bg-title);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black-text);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.contactBar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2rem auto 0;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: transparent;
+  color: currentColor;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.contactItem:hover {
+  background: var(--color-white-bg-title);
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--base-color);
+}
+
+.contactValue {
+  font-size: 0.95rem;
+  color: rgba(15, 23, 42, 0.96);
+  white-space: nowrap;
+}
+
+:global(html.dark) .contactBar {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(15, 23, 42, 0.88);
+}
+
+:global(html.dark) .contactItem {
+  background: transparent;
+}
+
+:global(html.dark) .contactItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+:global(html.dark) .contactValue {
+  color: rgba(226, 232, 240, 0.96);
+}
+
+@media (max-width: 520px) {
+  .contactBar {
+    flex-direction: column;
+    padding: 0.75rem;
+  }
+
+  .contactItem {
+    width: auto;
+  }
+
+  .contactValue {
+    white-space: normal;
+  }
 }
 
 .description {
@@ -61,7 +134,6 @@
 }
 
 .contactCard:hover {
-  transform: translateY(-2px);
   border-color: rgba(93, 144, 254, 0.36);
 }
 
@@ -70,8 +142,6 @@
   place-items: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 50%;
-  background: rgba(93, 157, 254, 0.14);
 }
 
 .icon {
