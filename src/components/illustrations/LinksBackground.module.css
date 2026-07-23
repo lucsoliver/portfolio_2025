@@ -1,0 +1,37 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+}
+
+.base {
+  fill: var(--color-white-bg);
+}
+
+:global(html.dark) .base {
+  fill: var(--color-black-bg);
+}
+
+.dot {
+  fill: var(--base-color);
+  opacity: 0.15;
+}
+
+:global(html.dark) .dot {
+  opacity: 0.12;
+}
+
+.wave {
+  fill: color-mix(in srgb, var(--base-color) 8%, transparent);
+}
+
+:global(html.dark) .wave {
+  fill: color-mix(in srgb, var(--base-color) 12%, transparent);
+}

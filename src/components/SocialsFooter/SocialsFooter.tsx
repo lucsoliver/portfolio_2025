@@ -25,7 +25,7 @@ const XIcon = createLucideIcon("X", [
 const socials: Social[] = [
   {
     id: "email",
-    href: "mailto:lucasop888@yahoo.com",
+    href: "mailto:lucasolv.dev@gmail.com",
     icon: Mail,
     alt: "Email",
     title: "E-mail",

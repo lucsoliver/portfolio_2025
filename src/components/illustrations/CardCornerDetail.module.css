@@ -1,0 +1,72 @@
+.detail {
+  position: absolute;
+  pointer-events: none;
+}
+
+.md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.sm {
+  width: 1.25rem;
+  height: 1.25rem;
+  opacity: 0.7;
+}
+
+.top-left {
+  top: 0.75rem;
+  left: 0.75rem;
+}
+
+.top-right {
+  top: 0.75rem;
+  right: 0.75rem;
+  transform: scaleX(-1);
+}
+
+.bottom-left {
+  bottom: 0.75rem;
+  left: 0.75rem;
+  transform: scaleY(-1);
+}
+
+.bottom-right {
+  bottom: 0.75rem;
+  right: 0.75rem;
+  transform: scale(-1);
+}
+
+.sm.top-left {
+  top: 0.35rem;
+  left: 0.35rem;
+}
+
+.sm.top-right {
+  top: 0.35rem;
+  right: 0.35rem;
+}
+
+.sm.bottom-left {
+  bottom: 0.35rem;
+  left: 0.35rem;
+}
+
+.sm.bottom-right {
+  bottom: 0.35rem;
+  right: 0.35rem;
+}
+
+.line {
+  stroke: var(--base-color);
+  opacity: 0.5;
+}
+
+.dot {
+  fill: var(--base-color);
+}
+
+.tick {
+  stroke: var(--base-color);
+  opacity: 0.35;
+}

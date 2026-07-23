@@ -1,51 +1,53 @@
+.page {
+  min-height: 100vh;
+  position: relative;
+}
+
 .linksSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
   padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .linkAvatar {
   width: 12rem;
   height: 12rem;
   border-radius: 50rem;
-  background-color: #eae5e3;
+  background-color: color-mix(in srgb, var(--base-color) 15%, transparent);
   overflow: hidden;
   object-fit: cover;
   padding: 0.3rem;
+  border: 2px solid color-mix(in srgb, var(--base-color) 40%, transparent);
+  transition: border-color 0.2s;
 }
 
 .linkAvatar:hover {
-  background-color: #dcdddd;
-}
-
-:global(html.dark) .linkAvatar {
-  background-color: #1d2f59;
-}
-
-:global(html.dark) .linkAvatar:hover {
-  background-color: var(--color-ado-light);
+  border-color: var(--base-color);
 }
 
 .linksTitle {
   font-size: 1.875rem;
   font-family: PoppinsBold;
-  margin: 0;
   margin: 0.5rem 0 0 0;
 }
 
 .linkDev {
   font-size: 1.125rem;
-  margin-bottom: 0.5rem;
   font-family: PoppinsSemiBold;
   margin: 0;
+  color: var(--base-color);
 }
 
 .linkStack {
   font-size: 1rem;
   text-align: center;
   margin: 1rem 0 0.5rem 0;
+  opacity: 0.85;
 }
 
 .socialsContainer {
@@ -60,27 +62,25 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #f3f3f2;
-  border: 1px solid #e1e1e1;
+  background: color-mix(in srgb, var(--color-white-pure) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--base-color) 20%, transparent);
   border-radius: 0.5rem;
   color: currentColor;
   padding: 0.8rem;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
   text-decoration: none;
+  backdrop-filter: blur(8px);
 }
 
 :global(html.dark) .projectLink {
-  background-color: #141414;
-  border: 1px solid #1e1e1e;
+  background: color-mix(in srgb, var(--color-black-bg-title) 80%, transparent);
+  border-color: color-mix(in srgb, var(--base-color) 25%, transparent);
 }
 
 .projectLink:hover {
-  background-color: #f7fcfe;
+  background: color-mix(in srgb, var(--base-color) 12%, transparent);
   color: var(--base-color);
-}
-
-:global(html.dark) .projectLink:hover {
-  background-color: var(--color-black-bg-title);
+  border-color: var(--base-color);
 }
 
 .projectIcon {
@@ -113,7 +113,9 @@
   color: inherit;
   width: 100%;
 }
+
 .linkBox {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,22 +129,22 @@
   height: 3rem;
   gap: 1px;
   padding: 0.5rem 2rem;
-  background-color: #f3f3f2;
-  border: 1px solid #e1e1e1;
+  background: color-mix(in srgb, var(--color-white-pure) 85%, transparent);
+  border: 1px solid color-mix(in srgb, var(--base-color) 20%, transparent);
   border-radius: 0.4rem;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 :global(html.dark) .linkTitle {
-  background-color: #141414;
-  border: 1px solid #1e1e1e;
+  background: color-mix(in srgb, var(--color-black-bg-title) 85%, transparent);
+  border-color: color-mix(in srgb, var(--base-color) 25%, transparent);
 }
 
 .linkTitle:hover {
-  background-color: #f7fcfe;
-}
-
-:global(html.dark) .linkTitle:hover {
-  background-color: #161616;
+  background: color-mix(in srgb, var(--base-color) 12%, transparent);
+  border-color: var(--base-color);
+  color: var(--base-color);
 }
 
 @media (max-width: 1024px) {

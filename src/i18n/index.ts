@@ -9,19 +9,29 @@ const resources = {
         about: "About",
         projects: "Projects",
         skills: "Skills",
+        contact: "Contact",
+        skipToContent: "Skip to content",
       },
       home: {
         title: "Lucas Oliveira",
         subtitle: "Front-end Developer",
         description:
-          "Graduated in Information Systems, I work as a Front-End Developer with the most diverse technologies on the current market such as React, React Native, Laravel and JavaScript. Also in the area of ​​game development with the Unity graphics engine in Interface development.",
+          "Graduated in Information Systems with a post-graduation in Software Engineering. I build modern, accessible web and mobile interfaces with React, TypeScript, Vue.js and React Native - focused on performance and great user experience.",
+        highlights: [
+          "React",
+          "TypeScript",
+          "Vue.js",
+          "React Native",
+          "Laravel",
+        ],
+        ctaCv: "Download CV",
+        links: "Links",
         socials: {
           email: "Email",
           twitter: "Twitter",
-          github: "Github",
+          github: "GitHub",
           linkedin: "LinkedIn",
         },
-        links: "/links",
       },
       about: {
         about: "About",
@@ -90,6 +100,13 @@ const resources = {
           // "Code Design/Architecture",
         ],
       },
+      contact: {
+        title: "Contact",
+        description:
+          "Feel free to reach out to me through any of the following channels:",
+        email: "Email",
+        linkedin: "LinkedIn",
+      },
       links: {
         dev: "Front-end Developer",
         stack: "Vue.js, TypeScript, React Native, PHP and more!",
@@ -98,7 +115,19 @@ const resources = {
         climatempo: "Clima Tempo",
         cvpt: "CV (PT) br",
         cven: "CV (ENG) us",
+        card: "Digital Card",
         email: "E-mail",
+      },
+      card: {
+        title: "Lucas Oliveira",
+        subtitle: "Front-end Developer",
+        description:
+          "Graduated in Information Systems with a post-graduation in Software Engineering. I build modern, accessible web and mobile interfaces with React, TypeScript, Vue.js and React Native.",
+        present: "Currently",
+        job: "Working at ALFA Software AutoPeças",
+        education: "Post-graduation in Software Engineering",
+        visitSite: "Visit website",
+        contact: "Contact",
       },
       footer: {
         rights: "All rights reserved.",
@@ -112,19 +141,29 @@ const resources = {
         about: "Sobre",
         projects: "Projetos",
         skills: "Habilidades",
+        contact: "Contato",
+        skipToContent: "Ir para o conteúdo",
       },
       home: {
         title: "Lucas Oliveira",
         subtitle: "Desenvolvedor Front-end",
         description:
-          "Formado em Sistemas de Informação e cursando pós-graduação",
+          "Formado em Sistemas de Informação e pós-graduado em Engenharia de Software. Desenvolvo interfaces web e mobile modernas e acessíveis com React, TypeScript, Vue.js e React Native - com foco em performance e experiência do usuário.",
+        highlights: [
+          "React",
+          "TypeScript",
+          "Vue.js",
+          "React Native",
+          "Laravel",
+        ],
+        ctaCv: "Baixar CV",
+        links: "Links",
         socials: {
           email: "E-mail",
           twitter: "Twitter",
-          github: "Github",
+          github: "GitHub",
           linkedin: "LinkedIn",
         },
-        links: "/links",
       },
       about: {
         about: "Sobre",
@@ -193,13 +232,33 @@ const resources = {
           // "Code Design/Architecture",
         ],
       },
+      contact: {
+        title: "Contato",
+        description:
+          "Sinta-se à vontade para entrar em contato comigo através de qualquer um dos seguintes canais:",
+        email: "E-mail",
+        linkedin: "LinkedIn",
+      },
       links: {
         dev: "Desenvolvedor Front-end ",
         stack: "Vue.js, TypeScript, React Native, PHP e mais!",
         website: "Site Pessoal",
+        climatempo: "Clima Tempo",
+        card: "Cartão Digital",
         cvpt: "CV (PT) br",
         cven: "CV (ENG) us",
         email: "E-mail",
+      },
+      card: {
+        title: "Lucas Oliveira",
+        subtitle: "Desenvolvedor Front-end",
+        description:
+          "Formado em Sistemas de Informação e pós-graduado em Engenharia de Software. Desenvolvo interfaces web e mobile modernas e acessíveis com React, TypeScript, Vue.js e React Native.",
+        present: "Atualmente",
+        job: "Trabalhando na ALFA Software AutoPeças",
+        education: "Pós-graduação em Engenharia de Software",
+        visitSite: "Visitar site",
+        contact: "Contato",
       },
       footer: {
         rights: "Todos os direitos reservados.",

@@ -36,7 +36,7 @@ const socials: Social[] = [
     rel: "me noopener",
   },
   {
-    href: "mailto:lucasop888@yahoo.com",
+    href: "mailto:lucasolv.dev@gmail.com",
     icon: Mail,
     alt: "Email",
     title: "E-mail",
