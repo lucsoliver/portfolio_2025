@@ -46,9 +46,9 @@ const resources = {
         interestsDescription: {
           tech: "Technology",
           ia: "Artificial Intelligence",
-          film: "Sci-fi Films",
+          leitura: "Reading",
           games: "Games",
-          innovation: "Innovation",
+          film: "Sci-fi Films",
           anime: "Anime",
           music: "Music",
           dorama: "Asian Dramas",
@@ -177,9 +177,9 @@ const resources = {
         interestsDescription: {
           tech: "Tecnologia",
           ia: "Inteligência Artificial",
-          film: "Filmes Sci-fi",
+          leitura: "Leitura",
           games: "Games",
-          innovation: "Inovação",
+          film: "Filmes Sci-fi",
           anime: "Anime",
           music: "Música",
           dorama: "Dorama",

@@ -118,14 +118,14 @@ function About() {
                 <div className={`${styles.interestsCard} ${styles.iaCard}`}>
                   {t("about.interestsDescription.ia")}
                 </div>
-                <div className={`${styles.interestsCard} ${styles.filmCard}`}>
-                  {t("about.interestsDescription.film")}
+                <div className={`${styles.interestsCard} ${styles.innoCard}`}>
+                  {t("about.interestsDescription.leitura")}
                 </div>
                 <div className={`${styles.interestsCard} ${styles.gamesCard}`}>
                   {t("about.interestsDescription.games")}
                 </div>
-                <div className={`${styles.interestsCard} ${styles.innoCard}`}>
-                  {t("about.interestsDescription.innovation")}
+                <div className={`${styles.interestsCard} ${styles.filmCard}`}>
+                  {t("about.interestsDescription.film")}
                 </div>
                 <div className={`${styles.interestsCard} ${styles.animeCard}`}>
                   {t("about.interestsDescription.anime")}
