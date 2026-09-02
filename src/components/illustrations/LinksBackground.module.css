@@ -27,11 +27,3 @@
 :global(html.dark) .dot {
   opacity: 0.12;
 }
-
-.wave {
-  fill: color-mix(in srgb, var(--base-color) 8%, transparent);
-}
-
-:global(html.dark) .wave {
-  fill: color-mix(in srgb, var(--base-color) 12%, transparent);
-}

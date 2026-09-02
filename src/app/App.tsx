@@ -8,7 +8,6 @@ import Skills from "../components/Sections/SkillsSection/Skills";
 import Contact from "../components/Sections/ContactSection/Contact";
 import Footer from "../components/Footer/Footer";
 import Links from "../pages/Linkbio/Linkbio";
-import CardPage from "../pages/Card/Card";
 import { ThemeProvider } from "../components/ThemeContext/ThemeContext";
 
 const Projects = lazy(
@@ -47,8 +46,7 @@ function HomeWebsite() {
 
 function AppContent() {
   const location = useLocation();
-  const hideNavAndFooter =
-    location.pathname === "/links" || location.pathname === "/card";
+  const hideNavAndFooter = location.pathname === "/links";
 
   return (
     <>
@@ -56,7 +54,6 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomeWebsite />} />
         <Route path="/links" element={<Links />} />
-        <Route path="/card" element={<CardPage />} />
         <Route path="/cv-ptbr" />
         <Route path="/cv-en" />
       </Routes>

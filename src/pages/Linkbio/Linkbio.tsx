@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import LinksBackground from "../../components/illustrations/LinksBackground";
-import CardCornerDetail from "../../components/illustrations/CardCornerDetail";
 import { socialLinks } from "../../data/socials";
 import styles from "./Linkbio.module.css";
 
@@ -53,8 +52,6 @@ function Links() {
             draggable="false"
           >
             <div className={styles.linkBox}>
-              <CardCornerDetail position="top-left" size="sm" />
-              <CardCornerDetail position="top-right" size="sm" />
               <span className={styles.linkTitle}>{t("links.website")}</span>
             </div>
           </a>
@@ -66,8 +63,6 @@ function Links() {
             draggable="false"
           >
             <div className={styles.linkBox}>
-              <CardCornerDetail position="top-left" size="sm" />
-              <CardCornerDetail position="top-right" size="sm" />
               <span className={styles.linkTitle}>{t("links.cvpt")}</span>
             </div>
           </a>
@@ -79,16 +74,7 @@ function Links() {
             draggable="false"
           >
             <div className={styles.linkBox}>
-              <CardCornerDetail position="top-left" size="sm" />
-              <CardCornerDetail position="top-right" size="sm" />
               <span className={styles.linkTitle}>{t("links.cven")}</span>
-            </div>
-          </a>
-          <a href="/card" className={styles.linkItem} draggable="false">
-            <div className={styles.linkBox}>
-              <CardCornerDetail position="top-left" size="sm" />
-              <CardCornerDetail position="top-right" size="sm" />
-              <span className={styles.linkTitle}>{t("links.card")}</span>
             </div>
           </a>
           <a
@@ -98,8 +84,6 @@ function Links() {
             draggable="false"
           >
             <div className={styles.linkBox}>
-              <CardCornerDetail position="top-left" size="sm" />
-              <CardCornerDetail position="top-right" size="sm" />
               <span className={styles.linkTitle}>{t("links.email")}</span>
             </div>
           </a>

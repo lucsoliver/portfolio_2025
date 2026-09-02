@@ -114,19 +114,7 @@ const resources = {
         climatempo: "Clima Tempo",
         cvpt: "CV (PT) br",
         cven: "CV (ENG) us",
-        card: "Digital Card",
         email: "E-mail",
-      },
-      card: {
-        title: "Lucas Oliveira",
-        subtitle: "Front-end Developer",
-        description:
-          "Graduated in Information Systems with a post-graduation in Software Engineering. I build modern, accessible web and mobile interfaces with React, TypeScript, Vue.js and React Native.",
-        present: "Currently",
-        job: "Working at ALFA Software AutoPeças",
-        education: "Post-graduation in Software Engineering",
-        visitSite: "Visit website",
-        contact: "Contact",
       },
       footer: {
         rights: "All rights reserved.",
@@ -242,21 +230,9 @@ const resources = {
         stack: "Vue.js, TypeScript, React Native, PHP e mais!",
         website: "Site Pessoal",
         climatempo: "Clima Tempo",
-        card: "Cartão Digital",
         cvpt: "CV (PT) br",
         cven: "CV (ENG) us",
         email: "E-mail",
-      },
-      card: {
-        title: "Lucas Oliveira",
-        subtitle: "Desenvolvedor Front-end",
-        description:
-          "Formado em Sistemas de Informação e pós-graduado em Engenharia de Software. Desenvolvo interfaces web e mobile modernas e acessíveis com React, TypeScript, Vue.js e React Native.",
-        present: "Atualmente",
-        job: "Trabalhando na ALFA Software AutoPeças",
-        education: "Pós-graduação em Engenharia de Software",
-        visitSite: "Visitar site",
-        contact: "Contato",
       },
       footer: {
         rights: "Todos os direitos reservados.",
