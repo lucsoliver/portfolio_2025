@@ -67,13 +67,16 @@
   border-radius: 0.5rem;
   color: currentColor;
   padding: 0.8rem;
-  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s,
+    border-color 0.2s;
   text-decoration: none;
   backdrop-filter: blur(8px);
 }
 
 :global(html.dark) .projectLink {
-  background: color-mix(in srgb, var(--color-black-bg-title) 80%, transparent);
+  background: color-mix(in srgb, var(--color-black-title) 80%, transparent);
   border-color: color-mix(in srgb, var(--base-color) 25%, transparent);
 }
 
@@ -133,11 +136,14 @@
   border: 1px solid color-mix(in srgb, var(--base-color) 20%, transparent);
   border-radius: 0.4rem;
   backdrop-filter: blur(8px);
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
 
 :global(html.dark) .linkTitle {
-  background: color-mix(in srgb, var(--color-black-bg-title) 85%, transparent);
+  background: color-mix(in srgb, var(--color-black-title) 85%, transparent);
   border-color: color-mix(in srgb, var(--base-color) 25%, transparent);
 }
 

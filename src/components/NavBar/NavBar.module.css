@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(8px);
   z-index: 50;
 }
@@ -18,7 +17,7 @@
   left: 3%;
   width: 7rem;
   height: auto;
-  background-color: var(--color-white-bg-title);
+  background-color: var(--color-white-title);
   border: 1px solid #e5e5e5;
   border-right: 2px solid #e5e5e5;
   border-bottom: 2px solid #e5e5e5;
@@ -61,7 +60,7 @@
 }
 
 :global(html.dark) .sidebarNav {
-  background: var(--color-black-bg-title);
+  background: var(--color-black-title);
   border: 1px solid #333;
   border-right: 2px solid #333;
   border-bottom: 2px solid #333;
@@ -105,39 +104,6 @@
   gap: 1.5rem;
   justify-content: center;
   max-width: 100%;
-  box-shadow: none;
-}
-
-.desktopLink {
-  cursor: pointer;
-  color-scheme: light dark;
-  color: currentColor;
-  font-family: PoppinsMedium;
-  transition:
-    color 0.2s,
-    text-decoration 0.2s;
-  text-decoration: none;
-  position: relative;
-}
-
-.desktopLink:hover {
-  color-scheme: light dark;
-  color: var(--base-color);
-}
-
-.desktopLink::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: currentColor;
-  transition: width 0.3s ease-in-out;
-}
-
-.desktopLink:hover::after {
-  width: 100%;
 }
 
 .desktopActive {
@@ -189,7 +155,7 @@
 }
 
 .langActive:hover {
-  color: var(--color-black-bg-title);
+  color: var(--color-black-title);
 }
 
 :global(html.dark) .langActive:hover {
@@ -268,7 +234,7 @@
   justify-content: center;
   gap: 0;
   padding: 0.6rem 0.7rem;
-  background-color: var(--color-white-bg-title);
+  background-color: var(--color-white-title);
   border: 1px solid var(--color-white-text);
   border-radius: 0.4rem;
   z-index: 1002;
@@ -276,7 +242,7 @@
 }
 
 :global(html.dark) .colorDropdownMenu {
-  background-color: var(--color-black-bg-title);
+  background-color: var(--color-black-title);
   border-color: var(--color-black-text);
 }
 
@@ -296,8 +262,7 @@
   cursor: pointer;
   transition:
     transform 0.2s,
-    border-color 0.2s,
-    box-shadow 0.2s;
+    border-color 0.2s;
 }
 
 .colorOption:hover {
@@ -380,7 +345,7 @@
   right: 1.5rem;
   padding: 0.5rem;
   font-size: 0.5rem;
-  background: var(--color-white-bg-title);
+  background: var(--color-white-title);
   color: #404040;
   border-radius: 2rem;
   opacity: 0.7;
@@ -391,7 +356,7 @@
 }
 
 :global(html.dark) .scrollTopBtn {
-  background-color: var(--color-black-bg-title);
+  background-color: var(--color-black-title);
   color: var(--color-white-pure);
 }
 
@@ -402,7 +367,7 @@
 
 :global(html.dark) .scrollTopBtn:hover {
   opacity: 1;
-  background-color: rgb(60, 60, 60);
+  background-color: var(--color-black-card);
 }
 
 .iconSm {

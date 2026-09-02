@@ -11,7 +11,7 @@ const contactMethods = [
     rel: "nofollow",
   },
   {
-    href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
+    href: "https://www.linkedin.com/in/lucas-oliveira-paula",
     icon: Linkedin,
     labelKey: "home.socials.linkedin" as const,
     value: "LinkedIn",
@@ -37,10 +37,11 @@ function Contact() {
               className={styles.contactItem}
               draggable="false"
             >
-              <span className={styles.iconWrapper}>
-                <Icon className={styles.icon} aria-hidden="true" />
+              <Icon className={styles.icon} aria-hidden="true" />
+
+              <span className={`${styles.contactValue} desktopLink`}>
+                {value}
               </span>
-              <span className={styles.contactValue}>{value}</span>
             </a>
           ))}
         </div>

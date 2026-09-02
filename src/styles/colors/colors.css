@@ -4,13 +4,17 @@
   --color-white-pure: #ffffff;
 
   --color-white-bg: #f8f9fb;
+  --color-white-bg2: #f2f2f2;
   --color-white-text: #e8e8e8;
 
   --color-black-bg: #202124;
   --color-black-text: #3c4043;
 
-  --color-black-bg-title: #161616;
-  --color-white-bg-title: #f4f2ee;
+  --color-black-title: #161616;
+  --color-white-title: #f4f2ee;
+
+  --color-black-card: #3c3c3c;
+  --color-white-card: #f3f4f6;
 
   --color-ado-dark: #1e2339;
   --color-ado-light: #1c3d61;

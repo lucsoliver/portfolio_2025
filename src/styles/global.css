@@ -146,7 +146,7 @@ button {
   font-size: 1.875rem;
   font-family: Evanescent;
   width: 100vw;
-  background-color: var(--color-white-bg-title);
+  background-color: var(--color-white-title);
   color: #404040;
   text-align: center;
   position: relative;
@@ -162,7 +162,7 @@ button {
 }
 
 html.dark .title {
-  background-color: var(--color-black-bg-title);
+  background-color: var(--color-black-title);
   color: #fff;
 }
 
@@ -188,12 +188,12 @@ html.dark .title {
 html.dark .stylizedTitle:hover {
   background: linear-gradient(
     to right,
-    rgb(60, 60, 60) 0%,
+    var(--color-black-card) 0%,
     var(--base-color) 17%,
     var(--base-color) 33%,
-    rgb(60, 60, 60) 50%,
+    var(--color-black-card) 50%,
     var(--base-color) 67%,
-    rgb(60, 60, 60) 83%,
+    var(--color-black-card) 83%,
     var(--base-color) 100%
   );
   background-size: 200% auto;
@@ -226,12 +226,12 @@ html.dark .stylizedTitle:hover {
 html.dark .stylizedName:hover {
   background: linear-gradient(
     to right,
-    rgb(60, 60, 60) 0%,
+    var(--color-black-card) 0%,
     var(--base-color) 17%,
     var(--base-color) 33%,
-    rgb(60, 60, 60) 50%,
+    var(--color-black-card) 50%,
     var(--base-color) 67%,
-    rgb(60, 60, 60) 83%,
+    var(--color-black-card) 83%,
     var(--base-color) 100%
   );
   background-size: 200% auto;
@@ -252,4 +252,36 @@ html.dark .stylizedName:hover {
   .title {
     font-size: 2.25rem;
   }
+}
+
+.desktopLink {
+  cursor: pointer;
+  color-scheme: light dark;
+  color: currentColor;
+  font-family: PoppinsMedium;
+  transition:
+    color 0.2s,
+    text-decoration 0.2s;
+  text-decoration: none;
+  position: relative;
+}
+
+.desktopLink:hover {
+  color-scheme: light dark;
+  color: var(--base-color);
+}
+
+.desktopLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.desktopLink:hover::after {
+  width: 100%;
 }

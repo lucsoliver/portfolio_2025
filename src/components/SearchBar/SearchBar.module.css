@@ -28,7 +28,7 @@
 }
 
 :global(html.dark) .input {
-  background-color: rgb(60, 60, 60);
+  background-color: var(--color-black-card);
   color: var(--color-white-text);
 }
 

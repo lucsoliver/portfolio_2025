@@ -122,7 +122,7 @@
 }
 
 :global(html.dark) .aboutPresent {
-  background-color: rgb(60, 60, 60);
+  background-color: var(--color-black-card);
   border: 1px solid #5f6368;
 }
 
@@ -177,7 +177,7 @@
   background-color: transparent;
   color: var(--color-black-text);
   border-radius: 9999px;
-  border: 1px solid var(--color-white-bg-title);
+  border: 1px solid var(--color-white-title);
   padding: 1rem;
   text-decoration: none;
 }
@@ -210,14 +210,14 @@
 
 .aboutCV {
   width: 100%;
-  background-color: var(--color-white-bg-title);
+  background-color: var(--color-white-title);
   color: #404040;
   transition: background-color 0.3s ease;
   margin: 1.8rem 0 1.5em 0;
 }
 
 :global(html.dark) .aboutCV {
-  background-color: var(--color-black-bg-title);
+  background-color: var(--color-black-title);
   color: var(--color-white-pure);
 }
 
@@ -317,7 +317,7 @@
   font-family: Evanescent;
   border: none;
   background-color: transparent;
-  color: rgb(60, 60, 60);
+  color: var(--color-black-card);
   cursor: pointer;
   padding: 0;
 }
@@ -374,7 +374,7 @@
 }
 
 :global(html.dark) .aboutInterests {
-  background-color: rgb(60, 60, 60);
+  background-color: var(--color-black-card);
   border: 1px solid #5f6368;
 }
 
