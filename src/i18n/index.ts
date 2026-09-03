@@ -15,20 +15,10 @@ const resources = {
       home: {
         title: "Lucas Oliveira",
         subtitle: "Front-end Developer",
-        description:
-          "Graduated in Information Systems with a post-graduation in Software Engineering. I build modern, accessible web and mobile interfaces with React, TypeScript, Vue.js and React Native - focused on performance and great user experience.",
-        highlights: [
-          "React",
-          "TypeScript",
-          "Vue.js",
-          "React Native",
-          "Laravel",
-        ],
         ctaCv: "Download CV",
         links: "Links",
+        contact: "Contact",
         socials: {
-          email: "Email",
-          twitter: "Twitter",
           github: "GitHub",
           linkedin: "LinkedIn",
         },
@@ -134,20 +124,10 @@ const resources = {
       home: {
         title: "Lucas Oliveira",
         subtitle: "Desenvolvedor Front-end",
-        description:
-          "Formado em Sistemas de Informação e pós-graduado em Engenharia de Software. Desenvolvo interfaces web e mobile modernas e acessíveis com React, TypeScript, Vue.js e React Native - com foco em performance e experiência do usuário.",
-        highlights: [
-          "React",
-          "TypeScript",
-          "Vue.js",
-          "React Native",
-          "Laravel",
-        ],
         ctaCv: "Baixar CV",
+        contact: "Contate-me",
         links: "Links",
         socials: {
-          email: "E-mail",
-          twitter: "Twitter",
           github: "GitHub",
           linkedin: "LinkedIn",
         },

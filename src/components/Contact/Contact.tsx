@@ -1,14 +1,8 @@
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import styles from "./Contact.module.css";
 
 const contacts = [
-  {
-    href: "mailto:lucasolv.dev@gmail.com",
-    icon: Mail,
-    labelKey: "home.socials.email" as const,
-    rel: "nofollow",
-  },
   {
     href: "https://github.com/lucsoliver",
     icon: Github,

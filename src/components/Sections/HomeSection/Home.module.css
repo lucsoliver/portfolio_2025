@@ -1,19 +1,17 @@
 .homeSection {
   min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0 3rem;
-  position: relative;
 }
 
 .homeContainer {
+  display: flex;
+  justify-content: center;
   margin-left: 1rem;
   margin-right: 1rem;
   width: 100%;
   max-width: 72rem;
-  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -23,32 +21,11 @@
   }
 }
 
-.homeGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-@media (min-width: 900px) {
-  .homeGrid {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
-  }
-}
-
 .homeContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
-}
-
-@media (min-width: 900px) {
-  .homeContent {
-    align-items: flex-start;
-    text-align: left;
-  }
+  align-items: center;
 }
 
 .homeTitle {
@@ -64,43 +41,6 @@
   font-family: PoppinsSemiBold;
   margin-bottom: 1rem;
   opacity: 0.9;
-}
-
-.homeDescription {
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  max-width: 36rem;
-  margin-bottom: 1.25rem;
-}
-
-.highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
-  margin: 0 0 1.5rem;
-  padding: 0;
-  justify-content: center;
-}
-
-@media (min-width: 900px) {
-  .highlights {
-    justify-content: flex-start;
-  }
-}
-
-.highlightTag {
-  font-size: 0.8125rem;
-  font-family: PoppinsMedium;
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.375rem;
-  background-color: var(--color-white-title);
-  border: 1px solid #e5e7eb;
-}
-
-:global(html.dark) .highlightTag {
-  background-color: var(--color-black-title);
-  border-color: #5f6368;
 }
 
 .ctaGroup {
@@ -165,20 +105,22 @@
 .homeContact {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
+  align-items: flex-end;
+  gap: 3.5rem;
+  width: 100%;
 }
 
 @media (min-width: 900px) {
   .homeContact {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 }
 
 @media (max-width: 480px) {
   .homeContact {
     align-items: flex-end;
+    justify-content: center;
   }
 }
 
@@ -218,35 +160,7 @@
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.scrollHint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: none;
-  border: none;
-  color: currentColor;
-  opacity: 0.5;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition:
-    opacity 0.2s,
-    color 0.2s;
-}
-
-.scrollHint:hover {
-  opacity: 1;
-  color: var(--base-color);
-}
-
 @media (max-width: 600px) {
-  .scrollHint {
-    bottom: auto;
-  }
-
   .ctaGroup {
     flex-direction: column;
     width: 100%;
