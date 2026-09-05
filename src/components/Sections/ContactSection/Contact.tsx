@@ -1,15 +1,12 @@
-import { Mail, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Copy, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import styles from "./Contact.module.css";
 
+const emailAddress = "lucasolv.dev@gmail.com";
+
 const contactMethods = [
-  {
-    href: "mailto:lucasolv.dev@gmail.com",
-    icon: Mail,
-    value: "lucasolv.dev@gmail.com",
-    rel: "nofollow",
-  },
   {
     href: "https://www.linkedin.com/in/lucas-oliveira-paula",
     icon: Linkedin,
@@ -21,6 +18,18 @@ const contactMethods = [
 
 function Contact() {
   const { t } = useTranslation();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+    } catch {
+      // no-op
+    } finally {
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   return (
     <section id="contact" className={styles.section}>
@@ -28,6 +37,32 @@ function Contact() {
         <span className={styles.subtitle}>{t("contact.subtitle")}</span>
         <h2 className={styles.title}>{t("contact.title")}</h2>
         <div className={styles.contactBar}>
+          <div className={styles.contactItemWrap}>
+            <button
+              type="button"
+              className={`${styles.emailCopyButton} ${copied ? styles.emailCopyButtonActive : ""}`}
+              onClick={handleCopyEmail}
+              aria-label={`${t("contact.copyEmail")}: ${emailAddress}`}
+              title={t("contact.copyEmail")}
+            >
+              <Copy
+                className={`${styles.icon} ${copied ? styles.iconActive : ""}`}
+                aria-hidden="true"
+              />
+            </button>
+
+            <a
+              href={`mailto:${emailAddress}`}
+              rel="nofollow"
+              className={styles.contactItem}
+              draggable="false"
+            >
+              <span className={`${styles.contactValue} desktopLink`}>
+                {emailAddress}
+              </span>
+            </a>
+          </div>
+
           {contactMethods.map(({ href, icon: Icon, value, rel }) => (
             <a
               key={href}
@@ -44,6 +79,12 @@ function Contact() {
               </span>
             </a>
           ))}
+
+          {copied && (
+            <span className={styles.copyToast} role="status" aria-live="polite">
+              {t("contact.emailCopied")}
+            </span>
+          )}
         </div>
       </div>
     </section>
