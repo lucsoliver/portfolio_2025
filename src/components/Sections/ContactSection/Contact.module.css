@@ -121,9 +121,10 @@
   transform: translateX(-50%);
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  background: var(--color-ado-dark);
-  color: var(--color-white-pure);
+  background: var(--base-color);
+  color: var(--color-black-title);
   font-size: 0.75rem;
+  font-family: PoppinsMedium;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
