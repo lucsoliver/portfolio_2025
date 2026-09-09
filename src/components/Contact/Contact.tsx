@@ -6,13 +6,13 @@ const contacts = [
   {
     href: "https://github.com/lucsoliver",
     icon: Github,
-    labelKey: "home.socials.github" as const,
+    labelKey: "GitHub",
     rel: "noopener noreferrer",
   },
   {
     href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
     icon: Linkedin,
-    labelKey: "home.socials.linkedin" as const,
+    labelKey: "LinkedIn",
     rel: "noopener noreferrer",
   },
 ];
@@ -32,12 +32,11 @@ function Contact() {
             title={label}
             rel={contact.rel}
             target="_blank"
-            className={`${styles.contact} ${styles.contactUnderline}`}
+            className={styles.contact}
             aria-label={label}
             draggable="false"
           >
             <Icon className={styles.contactIcon} aria-hidden="true" />
-            <span className={styles.srOnly}>{label}</span>
           </a>
         );
       })}

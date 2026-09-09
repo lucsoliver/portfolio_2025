@@ -25,10 +25,10 @@ function Home() {
 
           <p className={styles.homeSubtitle}>{t("home.subtitle")}</p>
 
-          <div className={styles.ctaGroup}>
+          <div className={styles.btnGroup}>
             <a
               href="/cv.pdf"
-              className={styles.ctaSecondary}
+              className={styles.btnCV}
               target="_blank"
               rel="noopener noreferrer"
               draggable="false"
@@ -37,7 +37,7 @@ function Home() {
             </a>
 
             <button
-              className={styles.ctaSecondary}
+              className={styles.btnContact}
               onClick={(event) => {
                 event.preventDefault();
                 scrollToSection("contact");

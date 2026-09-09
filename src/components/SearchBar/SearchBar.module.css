@@ -46,7 +46,7 @@
 }
 
 :global(html.dark) .input:focus {
-  background-color: #5f6368;
+  background-color: var(--color-black-border);
   border: 2px solid var(--base-color);
 }
 

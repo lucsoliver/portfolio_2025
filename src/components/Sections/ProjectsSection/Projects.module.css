@@ -75,7 +75,7 @@
   background-color: #f3f4f6;
   padding: 1.5rem;
   transition: all 0.3s;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-white-border);
   border-radius: 0.4rem;
   transform: none;
   overflow-wrap: anywhere;
@@ -84,7 +84,7 @@
 :global(html.dark) .card {
   /* background-color: #303134; */
   background-color: var(--color-black-card);
-  border: 1px solid #5f6368;
+  border: 1px solid var(--color-black-border);
 }
 
 .card:hover {
@@ -139,7 +139,7 @@
   background: #f3f4f6;
   color: #404040;
   border-radius: 2rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-white-border);
   min-width: 0;
 }
 
@@ -172,7 +172,7 @@
   background-color: #f3f4f6;
   color: #404040;
   border-radius: 2rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-white-border);
   font-family: PoppinsMedium;
   min-width: 0;
 }
@@ -186,7 +186,7 @@
 .cardFooter {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--color-white-border);
 }
 
 :global(html.dark) .cardFooter {

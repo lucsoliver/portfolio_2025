@@ -116,14 +116,14 @@
   flex-direction: column;
   padding: 1.5rem;
   background-color: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-white-border);
   border-radius: 0.5rem;
   text-align: start;
 }
 
 :global(html.dark) .aboutPresent {
   background-color: var(--color-black-card);
-  border: 1px solid #5f6368;
+  border: 1px solid var(--color-black-border);
 }
 
 .aboutPresent:hover {
@@ -139,13 +139,13 @@
 .aboutPresent h2 {
   font-size: 1.25rem;
   font-family: PoppinsMedium;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-white-border);
   margin: 0 0 1rem 0;
   padding-bottom: 0.7rem;
 }
 
 :global(html.dark) .aboutPresent h2 {
-  border-bottom: 1px solid #5f6368;
+  border-bottom: 1px solid var(--color-black-border);
 }
 
 .aboutPresent span {
@@ -362,7 +362,7 @@
 
 .aboutInterests {
   background-color: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-white-border);
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -375,7 +375,7 @@
 
 :global(html.dark) .aboutInterests {
   background-color: var(--color-black-card);
-  border: 1px solid #5f6368;
+  border: 1px solid var(--color-black-border);
 }
 
 .interestsGrid {

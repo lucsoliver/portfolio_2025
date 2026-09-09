@@ -43,7 +43,7 @@
   opacity: 0.9;
 }
 
-.ctaGroup {
+.btnGroup {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -53,13 +53,13 @@
 }
 
 @media (min-width: 900px) {
-  .ctaGroup {
+  .btnGroup {
     justify-content: flex-start;
   }
 }
 
-.ctaPrimary,
-.ctaSecondary {
+.btnContact,
+.btnCV {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -75,28 +75,28 @@
     border-color 0.2s;
 }
 
-.ctaPrimary {
+.btnContact {
   background-color: var(--base-color);
   color: #1a1a1a;
   border: 2px solid var(--base-color);
 }
 
-.ctaPrimary:hover {
+.btnContact:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
 }
 
-.ctaSecondary {
+.btnCV {
   background-color: transparent;
   color: currentColor;
-  border: 2px solid #e5e7eb;
+  border: 2px solid var(--color-white-border);
 }
 
-:global(html.dark) .ctaSecondary {
-  border-color: #5f6368;
+:global(html.dark) .btnCV {
+  border-color: var(--color-black-border);
 }
 
-.ctaSecondary:hover {
+.btnCV:hover {
   border-color: var(--base-color);
   color: var(--base-color);
   transform: translateY(-2px);
@@ -161,14 +161,14 @@
 }
 
 @media (max-width: 600px) {
-  .ctaGroup {
+  .btnGroup {
     flex-direction: column;
     width: 100%;
     max-width: 18rem;
   }
 
-  .ctaPrimary,
-  .ctaSecondary {
+  .btnContact,
+  .btnCV {
     width: 100%;
     justify-content: center;
   }
@@ -179,8 +179,8 @@
     animation: none;
   }
 
-  .ctaPrimary:hover,
-  .ctaSecondary:hover {
+  .btnContact:hover,
+  .btnCV:hover {
     transform: none;
   }
 }

@@ -18,10 +18,6 @@ const resources = {
         ctaCv: "Download CV",
         links: "Links",
         contact: "Contact",
-        socials: {
-          github: "GitHub",
-          linkedin: "LinkedIn",
-        },
       },
       about: {
         about: "About",
@@ -129,10 +125,6 @@ const resources = {
         ctaCv: "Baixar CV",
         contact: "Contate-me",
         links: "Links",
-        socials: {
-          github: "GitHub",
-          linkedin: "LinkedIn",
-        },
       },
       about: {
         about: "Sobre",
