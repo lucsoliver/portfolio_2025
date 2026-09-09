@@ -1,8 +1,15 @@
 import styles from "./LinksBackground.module.css";
 
-function LinksBackground() {
+type LinksBackgroundProps = {
+  className?: string;
+};
+
+function LinksBackground({ className }: LinksBackgroundProps) {
   return (
-    <div className={styles.wrapper} aria-hidden="true">
+    <div
+      className={[styles.wrapper, className].filter(Boolean).join(" ")}
+      aria-hidden="true"
+    >
       <svg
         className={styles.svg}
         viewBox="0 0 1440 900"

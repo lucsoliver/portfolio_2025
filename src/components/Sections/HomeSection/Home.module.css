@@ -5,6 +5,11 @@
   justify-content: center;
 }
 
+.background {
+  position: absolute;
+  inset: 0;
+}
+
 .homeContainer {
   display: flex;
   justify-content: center;
@@ -71,8 +76,27 @@
   text-decoration: none;
   transition:
     background-color 0.2s,
-    transform 0.2s,
     border-color 0.2s;
+}
+
+.btnCV {
+  background-color: var(--color-white-bg);
+  color: currentColor;
+  border: 2px solid var(--color-white-border);
+}
+
+:global(html.dark) .btnCV {
+  background-color: var(--color-black-bg);
+  border-color: var(--color-black-border);
+}
+
+.btnCV:hover {
+  background-color: var(--color-white-title);
+}
+
+:global(html.dark) .btnCV:hover {
+  background-color: var(--color-black-title);
+  border-color: var(--color-black-title);
 }
 
 .btnContact {
@@ -82,24 +106,7 @@
 }
 
 .btnContact:hover {
-  transform: translateY(-2px);
   filter: brightness(1.05);
-}
-
-.btnCV {
-  background-color: transparent;
-  color: currentColor;
-  border: 2px solid var(--color-white-border);
-}
-
-:global(html.dark) .btnCV {
-  border-color: var(--color-black-border);
-}
-
-.btnCV:hover {
-  border-color: var(--base-color);
-  color: var(--base-color);
-  transform: translateY(-2px);
 }
 
 .homeContact {
@@ -131,10 +138,10 @@
   gap: 0.5rem;
   font-size: 0.9375rem;
   font-family: PoppinsMedium;
-  background-color: transparent;
+  background-color: var(--color-white-bg);
   color: currentColor;
   border-radius: 9999px;
-  border: 1px solid var(--color-white-title);
+  border: 1px solid var(--color-white-text);
   padding: 0.6rem 1.1rem;
   text-decoration: none;
   transition:
@@ -143,11 +150,12 @@
 }
 
 :global(html.dark) .linksButton {
+  background-color: var(--color-black-bg);
   border-color: var(--color-black-text);
 }
 
 .linksButton:hover {
-  background-color: var(--base-color);
+  background-color: var(--base-color) !important;
   border-color: var(--base-color);
   color: #1a1a1a;
 }
@@ -177,10 +185,5 @@
 @media (prefers-reduced-motion: reduce) {
   .animatePulse {
     animation: none;
-  }
-
-  .btnContact:hover,
-  .btnCV:hover {
-    transform: none;
   }
 }

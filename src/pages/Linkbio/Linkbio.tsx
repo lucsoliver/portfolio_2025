@@ -10,18 +10,18 @@ function Links() {
     <div className={styles.page}>
       <LinksBackground />
 
-      <main className={styles.linksSection}>
+      <main className={styles.linkSection}>
         <img
           src="https://github.com/lucsoliver.png"
           alt="Lucas Oliveira"
-          className={styles.linkAvatar}
+          className={styles.avatar}
           draggable="false"
         />
-        <h2 className={styles.linksTitle}>
+        <h2 className={styles.titleName}>
           <span className="stylizedName">Lucas Oliveira</span>
         </h2>
-        <span className={styles.linkDev}>{t("links.dev")}</span>
-        <span className={styles.linkStack}>{t("links.stack")}</span>
+        <span className={styles.dev}>{t("links.dev")}</span>
+        <span className={styles.stack}>{t("links.stack")}</span>
 
         <div className={styles.socialsContainer}>
           {socialLinks.map((project) => {
@@ -33,12 +33,12 @@ function Links() {
                 title={project.label}
                 rel={project.rel}
                 target="_blank"
-                className={styles.projectLink}
+                className={styles.linkIcon}
                 aria-label={project.label}
                 draggable="false"
               >
-                <Icon className={styles.projectIcon} aria-hidden="true" />
-                <span className={styles.projectSpan}>{project.label}</span>
+                <Icon className={styles.icon} aria-hidden="true" />
+                <span className={styles.label}>{project.label}</span>
               </a>
             );
           })}

@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Contact from "../../Contact/Contact";
+import LinksBackground from "../../illustrations/LinksBackground";
 import styles from "./Home.module.css";
 
 function scrollToSection(id: string) {
@@ -17,6 +18,8 @@ function Home() {
       className={styles.homeSection}
       aria-labelledby="home-heading"
     >
+      <LinksBackground className={styles.background} />
+
       <div className={styles.homeContainer}>
         <div className={styles.homeContent}>
           <h1 id="home-heading" className={`${styles.homeTitle} stylizedName`}>

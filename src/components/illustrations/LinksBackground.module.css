@@ -21,9 +21,9 @@
 
 .dot {
   fill: var(--base-color);
-  opacity: 0.15;
+  opacity: 0.48;
 }
 
 :global(html.dark) .dot {
-  opacity: 0.12;
+  opacity: 0.2;
 }
