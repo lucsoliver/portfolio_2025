@@ -48,6 +48,14 @@
   opacity: 0.9;
 }
 
+.homeSubtitle {
+  background: var(--color-white-bg);
+}
+
+:global(html.dark) .homeSubtitle {
+  background: var(--color-black-bg);
+}
+
 .btnGroup {
   display: flex;
   flex-wrap: wrap;

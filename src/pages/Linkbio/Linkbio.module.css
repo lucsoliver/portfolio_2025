@@ -34,8 +34,8 @@
 .dev {
   font-size: 1.125rem;
   font-family: PoppinsSemiBold;
-  margin: 0;
   color: var(--base-color);
+  margin: 0;
 }
 
 .stack {
@@ -43,6 +43,18 @@
   text-align: center;
   margin: 1rem 0 0.5rem 0;
   opacity: 0.85;
+}
+
+.titleName,
+.dev,
+.stack {
+  background: var(--color-white-bg);
+}
+
+:global(html.dark) .titleName,
+:global(html.dark) .dev,
+:global(html.dark) .stack {
+  background: var(--color-black-bg);
 }
 
 .socialsContainer {
