@@ -65,7 +65,8 @@
   margin: 1rem 0 2rem 0;
 }
 
-.linkIcon {
+.linkIcon,
+.linkIconButton {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -81,25 +82,40 @@
     border-color 0.2s;
   text-decoration: none;
   backdrop-filter: blur(8px);
+  cursor: pointer;
 }
 
-:global(html.dark) .linkIcon {
+:global(html.dark) .linkIcon,
+:global(html.dark) .linkIconButton {
   background: color-mix(in srgb, var(--color-black-title) 80%, transparent);
   border-color: color-mix(in srgb, var(--color-black-border) 25%, transparent);
 }
 
-.linkIcon:hover {
+.linkIcon:hover,
+.linkIconButton:hover {
   background: color-mix(in srgb, rgba(244, 242, 238, 0.7) 80%, transparent);
   color: var(--base-color) !important;
 }
 
-:global(html.dark) .linkIcon:hover {
+:global(html.dark) .linkIcon:hover,
+:global(html.dark) .linkIconButton:hover {
   background: color-mix(in srgb, rgba(22, 22, 22, 0.7) 80%, transparent);
+}
+
+.linkIconButton {
+  font: inherit;
 }
 
 .icon {
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.copyStatus {
+  margin-top: -0.5rem;
+  font-size: 0.875rem;
+  color: var(--base-color);
+  text-align: center;
 }
 
 .label {

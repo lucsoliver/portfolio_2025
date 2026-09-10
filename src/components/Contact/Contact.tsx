@@ -1,17 +1,18 @@
-import { Github, Linkedin } from "lucide-react";
+import { LuGithub } from "react-icons/lu";
+import { FaLinkedinIn } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import styles from "./Contact.module.css";
 
 const contacts = [
   {
     href: "https://github.com/lucsoliver",
-    icon: Github,
+    icon: LuGithub,
     labelKey: "GitHub",
     rel: "noopener noreferrer",
   },
   {
     href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
-    icon: Linkedin,
+    icon: FaLinkedinIn,
     labelKey: "LinkedIn",
     rel: "noopener noreferrer",
   },

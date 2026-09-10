@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LinksBackground from "../../components/illustrations/LinksBackground";
 import { socialLinks } from "../../data/socials";
@@ -5,6 +6,18 @@ import styles from "./Linkbio.module.css";
 
 function Links() {
   const { t } = useTranslation();
+  const [copiedName, setCopiedName] = useState<string | null>(null);
+
+  const handleCopyDiscordName = async (username: string) => {
+    try {
+      await navigator.clipboard.writeText(username);
+      setCopiedName(username);
+      window.setTimeout(() => setCopiedName(null), 2200);
+    } catch {
+      setCopiedName(username);
+      window.setTimeout(() => setCopiedName(null), 2200);
+    }
+  };
 
   return (
     <div className={styles.page}>
@@ -26,6 +39,24 @@ function Links() {
         <div className={styles.socialsContainer}>
           {socialLinks.map((project) => {
             const Icon = project.icon;
+
+            if (project.copyText) {
+              return (
+                <button
+                  key={project.label}
+                  type="button"
+                  title={project.label}
+                  className={styles.linkIconButton}
+                  aria-label={project.label}
+                  draggable="false"
+                  onClick={() => handleCopyDiscordName(project.copyText!)}
+                >
+                  <Icon className={styles.icon} aria-hidden="true" />
+                  <span className={styles.label}>{project.label}</span>
+                </button>
+              );
+            }
+
             return (
               <a
                 key={project.href}
@@ -43,6 +74,12 @@ function Links() {
             );
           })}
         </div>
+
+        {copiedName && (
+          <span className={styles.copyStatus} role="status" aria-live="polite">
+            nome de usuário copiado!
+          </span>
+        )}
 
         <div className={styles.linksList}>
           <a

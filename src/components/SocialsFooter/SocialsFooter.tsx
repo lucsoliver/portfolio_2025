@@ -1,5 +1,8 @@
 import React from "react";
-import { Mail, createLucideIcon, Github, Linkedin } from "lucide-react";
+import { Mail } from "lucide-react";
+
+import { LuGithub } from "react-icons/lu";
+import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import styles from "./SocialsFooter.module.css";
 
 interface Social {
@@ -10,17 +13,6 @@ interface Social {
   title: string;
   rel: string;
 }
-
-const XIcon = createLucideIcon("X", [
-  [
-    "path",
-    {
-      d: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
-      stroke: "none",
-      fill: "currentColor",
-    },
-  ],
-]);
 
 const socials: Social[] = [
   {
@@ -34,7 +26,7 @@ const socials: Social[] = [
   {
     id: "github",
     href: "https://github.com/lucsoliver",
-    icon: Github,
+    icon: LuGithub,
     alt: "GitHub",
     title: "GitHub",
     rel: "me noopener",
@@ -42,7 +34,7 @@ const socials: Social[] = [
   {
     id: "twitter",
     href: "https://x.com/lyunekou",
-    icon: XIcon,
+    icon: FaXTwitter,
     alt: "Twitter",
     title: "Twitter",
     rel: "me noopener",
@@ -50,7 +42,7 @@ const socials: Social[] = [
   {
     id: "linkedin",
     href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
-    icon: Linkedin,
+    icon: FaLinkedinIn,
     alt: "Linkedin",
     title: "Linkedin",
     rel: "me noopener",

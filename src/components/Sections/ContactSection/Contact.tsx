@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Copy, Linkedin } from "lucide-react";
+import { Copy } from "lucide-react";
+import { FaLinkedinIn } from "react-icons/fa6";
+
 import { useTranslation } from "react-i18next";
 
 import styles from "./Contact.module.css";
@@ -9,7 +11,7 @@ const emailAddress = "lucasolv.dev@gmail.com";
 const contactMethods = [
   {
     href: "https://www.linkedin.com/in/lucas-oliveira-paula",
-    icon: Linkedin,
+    icon: FaLinkedinIn,
     labelKey: "home.socials.linkedin" as const,
     value: "LinkedIn",
     rel: "noopener noreferrer",
