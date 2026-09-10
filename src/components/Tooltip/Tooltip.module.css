@@ -53,6 +53,7 @@
   padding: 0.5rem 0.8rem;
 }
 
+.wrapper:hover:not(.pressed):not(.manual) .tooltip,
 .visible {
   opacity: 1;
   visibility: visible;
@@ -130,18 +131,22 @@
   display: none;
 }
 
+.wrapper:hover:not(.pressed):not(.manual) .top,
 .top.visible {
   transform: translateX(-50%) translateY(0);
 }
 
+.wrapper:hover:not(.pressed):not(.manual) .bottom,
 .bottom.visible {
   transform: translateX(-50%) translateY(0);
 }
 
+.wrapper:hover:not(.pressed):not(.manual) .left,
 .left.visible {
   transform: translateY(-50%) translateX(0);
 }
 
+.wrapper:hover:not(.pressed):not(.manual) .right,
 .right.visible {
   transform: translateY(-50%) translateX(0);
 }

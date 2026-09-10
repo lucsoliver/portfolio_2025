@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import styles from "./Tooltip.module.css";
 
 type TooltipPosition = "top" | "bottom" | "left" | "right";
@@ -25,24 +25,30 @@ const Tooltip: React.FC<TooltipProps> = ({
   showArrow = true,
   visible,
 }) => {
-  const [hovered, setHovered] = useState(false);
-  const isVisible = visible ?? hovered;
+  const hideUntilNextHover = (event: MouseEvent<HTMLSpanElement>) => {
+    if (!(event.target instanceof Element) || !event.target.closest("a")) {
+      return;
+    }
+
+    event.currentTarget.classList.add(styles.pressed);
+  };
+
+  const clearPressed = (event: MouseEvent<HTMLSpanElement>) => {
+    event.currentTarget.classList.remove(styles.pressed);
+  };
+
+  const isManual = visible !== undefined;
 
   return (
-    <span className={`${styles.wrapper} ${className ?? ""}`.trim()}>
-      <span
-        className={styles.trigger}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onFocus={() => setHovered(true)}
-        onBlur={() => setHovered(false)}
-      >
-        {children}
-      </span>
-
+    <span
+      className={`${styles.wrapper} ${className ?? ""} ${isManual ? styles.manual : ""}`.trim()}
+      onMouseEnter={isManual ? undefined : clearPressed}
+      onMouseDown={isManual ? undefined : hideUntilNextHover}
+    >
+      <span className={styles.trigger}>{children}</span>
       <span
         className={`${styles.tooltip} ${styles[position]} ${styles[size]} ${
-          isVisible ? styles.visible : ""
+          visible ? styles.visible : ""
         } ${showArrow ? "" : styles.noArrow}`.trim()}
         style={
           color ? ({ "--tooltip-bg": color } as CSSProperties) : undefined
