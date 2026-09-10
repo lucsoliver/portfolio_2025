@@ -1,6 +1,7 @@
 import { LuGithub } from "react-icons/lu";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import Tooltip from "../Tooltip/Tooltip";
 import styles from "./Contact.module.css";
 
 const contacts = [
@@ -26,19 +27,25 @@ function Contact() {
       {contacts.map((contact) => {
         const Icon = contact.icon;
         const label = t(contact.labelKey);
+
         return (
-          <a
+          <Tooltip
             key={contact.href}
-            href={contact.href}
-            title={label}
-            rel={contact.rel}
-            target="_blank"
-            className={styles.contact}
-            aria-label={label}
-            draggable="false"
+            label={label}
+            position="bottom"
+            showArrow={false}
           >
-            <Icon className={styles.contactIcon} aria-hidden="true" />
-          </a>
+            <a
+              href={contact.href}
+              rel={contact.rel}
+              target="_blank"
+              className={styles.contact}
+              aria-label={label}
+              draggable="false"
+            >
+              <Icon className={styles.contactIcon} aria-hidden="true" />
+            </a>
+          </Tooltip>
         );
       })}
     </nav>

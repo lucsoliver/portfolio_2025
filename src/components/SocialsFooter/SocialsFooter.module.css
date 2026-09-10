@@ -1,4 +1,5 @@
 .socialsNav {
+  --tooltip-offset: 0.1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

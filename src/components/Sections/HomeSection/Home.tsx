@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Contact from "../../Contact/Contact";
 import LinksBackground from "../../illustrations/LinksBackground";
+
 import styles from "./Home.module.css";
 
 function scrollToSection(id: string) {

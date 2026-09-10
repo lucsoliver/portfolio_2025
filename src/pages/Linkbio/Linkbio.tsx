@@ -1,22 +1,63 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LinksBackground from "../../components/illustrations/LinksBackground";
+import Tooltip from "../../components/Tooltip/Tooltip";
 import { socialLinks } from "../../data/socials";
 import styles from "./Linkbio.module.css";
 
+const COPY_FEEDBACK_MS = 1500;
+
 function Links() {
   const { t } = useTranslation();
-  const [copiedName, setCopiedName] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [message, setMessage] = useState<"copy" | "copied">("copy");
+  const copyTimerRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) {
+        window.clearTimeout(copyTimerRef.current);
+      }
+    };
+  }, []);
+
+  const showHint = () => {
+    if (copied) {
+      return;
+    }
+
+    setMessage("copy");
+    setOpen(true);
+  };
+
+  const hideHint = () => {
+    if (copied) {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleCopyDiscordName = async (username: string) => {
     try {
       await navigator.clipboard.writeText(username);
-      setCopiedName(username);
-      window.setTimeout(() => setCopiedName(null), 2200);
     } catch {
-      setCopiedName(username);
-      window.setTimeout(() => setCopiedName(null), 2200);
+      // ignora falha do clipboard e mantém o feedback visual
     }
+
+    setCopied(true);
+    setMessage("copied");
+    setOpen(true);
+
+    if (copyTimerRef.current) {
+      window.clearTimeout(copyTimerRef.current);
+    }
+
+    copyTimerRef.current = window.setTimeout(() => {
+      setCopied(false);
+      setOpen(false);
+    }, COPY_FEEDBACK_MS);
   };
 
   return (
@@ -39,47 +80,61 @@ function Links() {
         <div className={styles.socialsContainer}>
           {socialLinks.map((project) => {
             const Icon = project.icon;
+            const socialContent = (
+              <>
+                <Icon className={styles.icon} aria-hidden="true" />
+                <span className={styles.label}>{project.label}</span>
+              </>
+            );
 
             if (project.copyText) {
               return (
-                <button
+                <Tooltip
                   key={project.label}
-                  type="button"
-                  title={project.label}
-                  className={styles.linkIconButton}
-                  aria-label={project.label}
-                  draggable="false"
-                  onClick={() => handleCopyDiscordName(project.copyText!)}
+                  label={message === "copied" ? "Copiado!" : project.label}
+                  color={message === "copied" ? "#22c55e" : undefined}
+                  position="bottom"
+                  showArrow={false}
+                  visible={open}
                 >
-                  <Icon className={styles.icon} aria-hidden="true" />
-                  <span className={styles.label}>{project.label}</span>
-                </button>
+                  <button
+                    type="button"
+                    className={styles.linkIconButton}
+                    aria-label={project.label}
+                    draggable="false"
+                    onClick={() => handleCopyDiscordName(project.copyText!)}
+                    onMouseEnter={showHint}
+                    onMouseLeave={hideHint}
+                    onFocus={showHint}
+                    onBlur={hideHint}
+                  >
+                    {socialContent}
+                  </button>
+                </Tooltip>
               );
             }
 
             return (
-              <a
+              <Tooltip
                 key={project.href}
-                href={project.href}
-                title={project.label}
-                rel={project.rel}
-                target="_blank"
-                className={styles.linkIcon}
-                aria-label={project.label}
-                draggable="false"
+                label={project.label}
+                position="bottom"
+                showArrow={false}
               >
-                <Icon className={styles.icon} aria-hidden="true" />
-                <span className={styles.label}>{project.label}</span>
-              </a>
+                <a
+                  href={project.href}
+                  rel={project.rel}
+                  target="_blank"
+                  className={styles.linkIcon}
+                  aria-label={project.label}
+                  draggable="false"
+                >
+                  {socialContent}
+                </a>
+              </Tooltip>
             );
           })}
         </div>
-
-        {copiedName && (
-          <span className={styles.copyStatus} role="status" aria-live="polite">
-            nome de usuário copiado!
-          </span>
-        )}
 
         <div className={styles.linksList}>
           <a
