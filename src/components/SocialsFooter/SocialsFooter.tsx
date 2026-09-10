@@ -3,6 +3,7 @@ import { Mail } from "lucide-react";
 
 import { LuGithub } from "react-icons/lu";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import Tooltip from "../Tooltip/Tooltip";
 import styles from "./SocialsFooter.module.css";
 
 interface Social {
@@ -56,21 +57,21 @@ const SocialsFooter: React.FC<{ onHover?: (index: number | null) => void }> = ({
     {socials.map((social, idx) => {
       const Icon = social.icon;
       return (
-        <a
-          key={social.id}
-          href={social.href}
-          title={social.title}
-          rel={social.rel}
-          target="_blank"
-          className={styles.social}
-          aria-label={social.alt}
-          onMouseEnter={() => onHover && onHover(idx)}
-          onMouseLeave={() => onHover && onHover(null)}
-          draggable="false"
-        >
-          <Icon className={styles.socialIcon} aria-hidden="true" />
-          <span className={styles.srOnly}>{social.alt}</span>
-        </a>
+        <Tooltip key={social.id} label={social.title}>
+          <a
+            href={social.href}
+            rel={social.rel}
+            target="_blank"
+            className={styles.social}
+            aria-label={social.alt}
+            onMouseEnter={() => onHover && onHover(idx)}
+            onMouseLeave={() => onHover && onHover(null)}
+            draggable="false"
+          >
+            <Icon className={styles.socialIcon} aria-hidden="true" />
+            <span className={styles.srOnly}>{social.alt}</span>
+          </a>
+        </Tooltip>
       );
     })}
   </nav>

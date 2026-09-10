@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Copy } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa6";
 
 import { useTranslation } from "react-i18next";
 
+import Tooltip from "../../Tooltip/Tooltip";
 import styles from "./Contact.module.css";
 
 const emailAddress = "lucasolv.dev@gmail.com";
+const COPY_FEEDBACK_MS = 1500;
 
 const contactMethods = [
   {
     href: "https://www.linkedin.com/in/lucas-oliveira-paula",
     icon: FaLinkedinIn,
-    labelKey: "home.socials.linkedin" as const,
     value: "LinkedIn",
     rel: "noopener noreferrer",
   },
@@ -20,17 +21,50 @@ const contactMethods = [
 
 function Contact() {
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [message, setMessage] = useState<"copy" | "copied">("copy");
+  const copyTimerRef = useRef<number | undefined>(undefined);
 
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(emailAddress);
-    } catch {
-      // no-op
-    } finally {
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) {
+        window.clearTimeout(copyTimerRef.current);
+      }
+    };
+  }, []);
+
+  const showHint = () => {
+    if (copied) {
+      return;
     }
+
+    setMessage("copy");
+    setOpen(true);
+  };
+
+  const hideHint = () => {
+    if (copied) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const handleCopyEmail = () => {
+    void navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
+    setMessage("copied");
+    setOpen(true);
+
+    if (copyTimerRef.current) {
+      window.clearTimeout(copyTimerRef.current);
+    }
+
+    copyTimerRef.current = window.setTimeout(() => {
+      setCopied(false);
+      setOpen(false);
+    }, COPY_FEEDBACK_MS);
   };
 
   return (
@@ -40,18 +74,35 @@ function Contact() {
         <h2 className={styles.title}>{t("contact.title")}</h2>
         <div className={styles.contactBar}>
           <div className={styles.contactItemWrap}>
-            <button
-              type="button"
-              className={`${styles.emailCopyButton} ${copied ? styles.emailCopyButtonActive : ""}`}
-              onClick={handleCopyEmail}
-              aria-label={`${t("contact.copyEmail")}: ${emailAddress}`}
-              title={t("contact.copyEmail")}
+            <Tooltip
+              label={
+                message === "copied"
+                  ? t("contact.emailCopied")
+                  : t("contact.copyEmail")
+              }
+              position="top"
+              size="md"
+              variant="dark"
+              color={message === "copied" ? "#22c55e" : "dark"}
+              showArrow={message !== "copied"}
+              visible={open}
             >
-              <Copy
-                className={`${styles.icon} ${copied ? styles.iconActive : ""}`}
-                aria-hidden="true"
-              />
-            </button>
+              <button
+                type="button"
+                className={`${styles.emailCopyButton} ${copied ? styles.emailCopyButtonActive : ""}`}
+                onClick={handleCopyEmail}
+                onMouseEnter={showHint}
+                onMouseLeave={hideHint}
+                onFocus={showHint}
+                onBlur={hideHint}
+                aria-label={`${t("contact.copyEmail")}: ${emailAddress}`}
+              >
+                <Copy
+                  className={`${styles.icon} ${copied ? styles.iconActive : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+            </Tooltip>
 
             <a
               href={`mailto:${emailAddress}`}
@@ -81,12 +132,6 @@ function Contact() {
               </span>
             </a>
           ))}
-
-          {copied && (
-            <span className={styles.copyToast} role="status" aria-live="polite">
-              {t("contact.emailCopied")}
-            </span>
-          )}
         </div>
       </div>
     </section>
