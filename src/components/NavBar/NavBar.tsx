@@ -4,7 +4,7 @@ import { Sun, Moon, Menu, X, ArrowUp } from "lucide-react";
 import { useTheme } from "../ThemeContext/ThemeContext";
 import styles from "./NavBar.module.css";
 import LogoBlack from "../../assets/images/logo/logo-black.svg";
-import LogoWhite from "../../assets//images/logo/logo-white.svg";
+import LogoWhite from "../../assets/images/logo/logo-white.svg";
 import {
   applyHighlightColor,
   initHighlightColor,

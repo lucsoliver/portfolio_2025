@@ -80,11 +80,7 @@ function Contact() {
                   ? t("contact.emailCopied")
                   : t("contact.copyEmail")
               }
-              position="top"
-              size="md"
-              variant="dark"
-              color={message === "copied" ? "#22c55e" : "dark"}
-              showArrow={message !== "copied"}
+              color={message === "copied" ? "#22c55e" : undefined}
               visible={open}
             >
               <button

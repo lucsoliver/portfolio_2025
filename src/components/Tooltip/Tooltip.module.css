@@ -12,6 +12,9 @@
 }
 
 .tooltip {
+  --tooltip-bg: rgba(24, 25, 28, 0.96);
+  --tooltip-color: #f2f3f5;
+  --tooltip-border: rgba(255, 255, 255, 0.08);
   position: absolute;
   z-index: 10;
   display: inline-flex;
@@ -48,18 +51,6 @@
 .lg {
   font-size: 0.82rem;
   padding: 0.5rem 0.8rem;
-}
-
-.dark {
-  --tooltip-bg: rgba(24, 25, 28, 0.96);
-  --tooltip-color: #f2f3f5;
-  --tooltip-border: rgba(255, 255, 255, 0.08);
-}
-
-.light {
-  --tooltip-bg: #f8fafc;
-  --tooltip-color: #1f2328;
-  --tooltip-border: rgba(15, 23, 42, 0.08);
 }
 
 .visible {
