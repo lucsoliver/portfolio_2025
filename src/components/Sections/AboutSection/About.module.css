@@ -21,6 +21,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .aboutTitle {
+    max-width: none !important;
+    text-align: center !important;
+  }
+}
+
 .aboutFlex {
   display: flex;
   flex-direction: column;
@@ -51,6 +58,7 @@
   }
 
   .aboutText {
+    order: 2;
     text-align: center;
   }
 

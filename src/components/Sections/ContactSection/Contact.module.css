@@ -134,7 +134,7 @@
 
 @media (max-width: 520px) {
   .contactBar {
-    flex-direction: column;
+    gap: 0.2rem;
     padding: 0.75rem;
   }
 
