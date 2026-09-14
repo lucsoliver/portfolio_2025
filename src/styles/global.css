@@ -254,7 +254,7 @@ html.dark .stylizedName:hover {
   }
 }
 
-.desktopLink {
+.desktopNavBar {
   cursor: pointer;
   color-scheme: light dark;
   color: currentColor;
@@ -266,12 +266,12 @@ html.dark .stylizedName:hover {
   position: relative;
 }
 
-.desktopLink:hover {
+.desktopNavBar:hover {
   color-scheme: light dark;
   color: var(--base-color);
 }
 
-.desktopLink::after {
+.desktopNavBar::after {
   content: "";
   position: absolute;
   width: 0;
@@ -282,6 +282,6 @@ html.dark .stylizedName:hover {
   transition: width 0.3s ease-in-out;
 }
 
-.desktopLink:hover::after {
+.desktopNavBar:hover::after {
   width: 100%;
 }

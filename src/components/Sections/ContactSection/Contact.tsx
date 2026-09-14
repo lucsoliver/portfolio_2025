@@ -106,7 +106,7 @@ function Contact() {
               className={styles.contactItem}
               draggable="false"
             >
-              <span className={`${styles.contactValue} desktopLink`}>
+              <span className={`${styles.contactValue} desktopNavBar`}>
                 {emailAddress}
               </span>
             </a>
@@ -123,7 +123,7 @@ function Contact() {
             >
               <Icon className={styles.icon} aria-hidden="true" />
 
-              <span className={`${styles.contactValue} desktopLink`}>
+              <span className={`${styles.contactValue} desktopNavBar`}>
                 {value}
               </span>
             </a>

@@ -196,7 +196,7 @@ function NavBar() {
                   e.preventDefault();
                   scrollToSection(section.id);
                 }}
-                className={`desktopLink ${
+                className={`desktopNavBar ${
                   activeSection === section.id ? styles.desktopActive : ""
                 }`}
                 aria-current={activeSection === section.id ? "page" : undefined}
