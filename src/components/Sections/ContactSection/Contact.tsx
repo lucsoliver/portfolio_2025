@@ -118,7 +118,7 @@ function Contact() {
               href={href}
               rel={rel}
               target="_blank"
-              className={styles.contactItem}
+              className={`${styles.contactItem} ${styles.hiddenMobile}`}
               draggable="false"
             >
               <Icon className={styles.icon} aria-hidden="true" />

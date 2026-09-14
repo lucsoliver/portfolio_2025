@@ -135,7 +135,8 @@
 @media (max-width: 480px) {
   .homeContact {
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 1rem;
   }
 }
 
@@ -179,6 +180,7 @@
 @media (max-width: 600px) {
   .btnGroup {
     flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 18rem;
   }

@@ -493,6 +493,9 @@
 }
 
 @media (max-width: 480px) {
+  .modalContent {
+    width: 80%;
+  }
   .aboutTitle {
     max-width: none;
     text-align: center;

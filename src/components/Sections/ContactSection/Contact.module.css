@@ -133,6 +133,10 @@
 }
 
 @media (max-width: 520px) {
+  .container {
+    width: auto;
+  }
+
   .contactBar {
     gap: 0.2rem;
     padding: 0.75rem;
@@ -140,6 +144,10 @@
 
   .contactItem {
     width: auto;
+  }
+
+  .hiddenMobile {
+    display: none;
   }
 }
 
