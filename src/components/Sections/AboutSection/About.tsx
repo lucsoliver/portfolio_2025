@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Setembro2026.pdf";
 import styles from "./About.module.css";
 
 function About() {
@@ -88,7 +89,7 @@ function About() {
                   <div className={styles.modalButtons}>
                     <a
                       className={styles.modalButton}
-                      href="/cv.pdf"
+                      href={cvPdf}
                       target="_blank"
                       rel="noopener noreferrer"
                       draggable="false"
@@ -97,7 +98,7 @@ function About() {
                     </a>
                     <a
                       className={styles.modalButton}
-                      href="/cv.pdf"
+                      href={cvPdf}
                       target="_blank"
                       rel="noopener noreferrer"
                       draggable="false"

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import cvPdf from "../../assets/docs/CV_Lucas_Oliveira_Setembro2026.pdf";
 import LinksBackground from "../../components/illustrations/LinksBackground";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import { socialLinks } from "../../data/socials";
@@ -148,7 +149,7 @@ function Links() {
             </div>
           </a>
           <a
-            href="/cv.pdf"
+            href={cvPdf}
             target="_blank"
             rel="me noopener"
             className={styles.linkItem}
@@ -159,7 +160,7 @@ function Links() {
             </div>
           </a>
           <a
-            href="/cv.pdf"
+            href={cvPdf}
             target="_blank"
             rel="me noopener"
             className={styles.linkItem}
