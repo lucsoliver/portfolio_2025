@@ -21,9 +21,7 @@ const contactMethods = [
 
 function Contact() {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [message, setMessage] = useState<"copy" | "copied">("copy");
   const copyTimerRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
@@ -34,28 +32,14 @@ function Contact() {
     };
   }, []);
 
-  const showHint = () => {
-    if (copied) {
-      return;
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+    } catch {
+      // ignora falha do clipboard e mantém o feedback visual
     }
 
-    setMessage("copy");
-    setOpen(true);
-  };
-
-  const hideHint = () => {
-    if (copied) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  const handleCopyEmail = () => {
-    void navigator.clipboard.writeText(emailAddress);
     setCopied(true);
-    setMessage("copied");
-    setOpen(true);
 
     if (copyTimerRef.current) {
       window.clearTimeout(copyTimerRef.current);
@@ -63,7 +47,6 @@ function Contact() {
 
     copyTimerRef.current = window.setTimeout(() => {
       setCopied(false);
-      setOpen(false);
     }, COPY_FEEDBACK_MS);
   };
 
@@ -75,22 +58,15 @@ function Contact() {
         <div className={styles.contactBar}>
           <div className={styles.contactItemWrap}>
             <Tooltip
-              label={
-                message === "copied"
-                  ? t("contact.emailCopied")
-                  : t("contact.copyEmail")
-              }
-              color={message === "copied" ? "#22c55e" : undefined}
-              visible={open}
+              label={copied ? t("contact.emailCopied") : t("contact.copyEmail")}
+              background={copied ? "#22c55e" : undefined}
+              size="md"
+              open={copied ? true : undefined}
             >
               <button
                 type="button"
                 className={`${styles.emailCopyButton} ${copied ? styles.emailCopyButtonActive : ""}`}
                 onClick={handleCopyEmail}
-                onMouseEnter={showHint}
-                onMouseLeave={hideHint}
-                onFocus={showHint}
-                onBlur={hideHint}
                 aria-label={`${t("contact.copyEmail")}: ${emailAddress}`}
               >
                 <Copy

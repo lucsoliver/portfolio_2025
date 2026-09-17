@@ -10,9 +10,7 @@ const COPY_FEEDBACK_MS = 1500;
 
 function Links() {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [message, setMessage] = useState<"copy" | "copied">("copy");
   const copyTimerRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
@@ -23,23 +21,6 @@ function Links() {
     };
   }, []);
 
-  const showHint = () => {
-    if (copied) {
-      return;
-    }
-
-    setMessage("copy");
-    setOpen(true);
-  };
-
-  const hideHint = () => {
-    if (copied) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
   const handleCopyDiscordName = async (username: string) => {
     try {
       await navigator.clipboard.writeText(username);
@@ -48,8 +29,6 @@ function Links() {
     }
 
     setCopied(true);
-    setMessage("copied");
-    setOpen(true);
 
     if (copyTimerRef.current) {
       window.clearTimeout(copyTimerRef.current);
@@ -57,7 +36,6 @@ function Links() {
 
     copyTimerRef.current = window.setTimeout(() => {
       setCopied(false);
-      setOpen(false);
     }, COPY_FEEDBACK_MS);
   };
 
@@ -92,11 +70,11 @@ function Links() {
               return (
                 <Tooltip
                   key={project.label}
-                  label={message === "copied" ? "Copiado!" : project.label}
-                  color={message === "copied" ? "#22c55e" : undefined}
+                  label={copied ? "Copiado!" : project.label}
+                  background={copied ? "#22c55e" : undefined}
+                  open={copied ? true : undefined}
                   position="bottom"
                   showArrow={false}
-                  visible={open}
                 >
                   <button
                     type="button"
@@ -104,10 +82,6 @@ function Links() {
                     aria-label={project.label}
                     draggable="false"
                     onClick={() => handleCopyDiscordName(project.copyText!)}
-                    onMouseEnter={showHint}
-                    onMouseLeave={hideHint}
-                    onFocus={showHint}
-                    onBlur={hideHint}
                   >
                     {socialContent}
                   </button>
