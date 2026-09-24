@@ -36,6 +36,7 @@
   flex: 1;
   min-width: 0;
   overflow: hidden;
+  padding: 0.5rem;
 }
 
 .track {
@@ -52,6 +53,7 @@
   gap: 1.5rem;
   flex: 0 0 auto;
   width: 100%;
+  justify-items: center;
 }
 
 .skills {
@@ -113,17 +115,17 @@
 
 .kebabItem {
   width: 4px;
-  height: 0.7rem;
+  height: 2rem;
   padding: 0;
   border: 0;
   border-radius: 999px;
   background: rgba(148, 163, 184, 0.75);
   cursor: pointer;
   transition:
-    height 0.25s ease,
     width 0.25s ease,
     background-color 0.25s ease,
-    opacity 0.25s ease;
+    opacity 0.25s ease,
+    transform 0.25s ease;
   opacity: 0.8;
 }
 
@@ -132,7 +134,8 @@
 }
 
 .kebabItemActive {
-  height: 2.1rem;
+  width: 4px;
+  height: 2rem;
   background: var(--base-color);
   opacity: 1;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
@@ -186,7 +189,6 @@
 
   .track {
     flex-direction: row;
-    gap: 0;
     transform: none !important;
   }
 
@@ -206,6 +208,7 @@
   }
 
   .skills {
+    width: 80%;
     min-height: 4.75rem;
     padding: 0.65rem 0.2rem;
     border-radius: 0.45rem;
@@ -236,7 +239,7 @@
   }
 
   .kebabItemActive {
-    width: 2.2rem;
+    width: 0.75rem;
     height: 4px;
     box-shadow: none;
   }
