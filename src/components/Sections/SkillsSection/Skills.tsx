@@ -27,13 +27,20 @@ import {
   SiPhp,
   SiJavascript,
   SiTypescript,
+  SiNodedotjs,
+  SiMysql,
+  SiPostgresql,
 } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 
 import styles from "./Skills.module.css";
 
-const PAGE_SIZE = 10;
 const MOBILE_QUERY = "(max-width: 768px)";
+
+type SkillGroup = {
+  title: string;
+  skills: string[];
+};
 
 const isMobileViewport = () =>
   typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches;
@@ -50,6 +57,10 @@ const iconMap: Record<string, ReactNode> = {
   expo: <SiExpo size={40} color="#080827" />,
   php: <SiPhp size={40} color="#7B7FB5" />,
   laravel: <FaLaravel size={40} color="#FF3427" />,
+  nodejs: <SiNodedotjs size={40} color="#5FA04E" />,
+  express: <SiNodedotjs size={40} color="#5FA04E" />,
+  mysql: <SiMysql size={40} color="#00758F" />,
+  postgresql: <SiPostgresql size={40} color="#336791" />,
   git: <FaGitAlt size={40} color="#F05639" />,
   github: <FaGithub size={40} color="#080808" />,
   tailwindcss: <RiTailwindCssFill size={40} color="#08B7D3" />,
@@ -74,17 +85,24 @@ function Skills() {
   const trackRef = useRef<HTMLDivElement>(null);
   const pageRef = useRef(0);
 
-  const skills = t("skills.skillsList", { returnObjects: true }) as string[];
+  const groups = useMemo(() => {
+    const skillGroups = t("skills.groups", {
+      returnObjects: true,
+    }) as SkillGroup[];
 
-  const pages = useMemo(() => {
-    const chunks: string[][] = [];
-    for (let i = 0; i < skills.length; i += PAGE_SIZE) {
-      chunks.push(skills.slice(i, i + PAGE_SIZE));
+    if (!Array.isArray(skillGroups)) {
+      return [{ title: "", skills: [] }];
     }
-    return chunks.length ? chunks : [[]];
-  }, [skills]);
 
-  const pageCount = pages.length;
+    const validGroups = skillGroups.filter(
+      (group) =>
+        group && Array.isArray(group.skills) && group.skills.length > 0,
+    );
+
+    return validGroups.length ? validGroups : [{ title: "", skills: [] }];
+  }, [t]);
+
+  const pageCount = groups.length;
   const currentPage = Math.min(page, pageCount - 1);
   pageRef.current = currentPage;
 
@@ -132,7 +150,7 @@ function Skills() {
       media.removeEventListener("change", update);
       window.removeEventListener("resize", update);
     };
-  }, [currentPage, pageCount, skills.length]);
+  }, [currentPage, pageCount]);
 
   useEffect(() => {
     const board = boardRef.current;
@@ -223,18 +241,23 @@ function Skills() {
         <div className={styles.skillsBoard} ref={boardRef}>
           <div className={styles.viewport} ref={viewportRef}>
             <div className={styles.track} ref={trackRef}>
-              {pages.map((pageSkills, pageIndex) => (
+              {groups.map((group, pageIndex) => (
                 <div
-                  key={pageIndex}
-                  className={styles.skillsList}
+                  key={`${group.title}-${pageIndex}`}
+                  className={styles.skillGroup}
                   aria-hidden={pageIndex !== currentPage}
                 >
-                  {pageSkills.map((skill, index) => (
-                    <span key={`${skill}-${index}`} className={styles.skills}>
-                      {renderSkillIcon(skill)}
-                      <p className={styles.skillLabel}>{skill}</p>
-                    </span>
-                  ))}
+                  {group.title && (
+                    <h3 className={styles.groupTitle}>{group.title}</h3>
+                  )}
+                  <div className={styles.skillsList}>
+                    {group.skills.map((skill, index) => (
+                      <span key={`${skill}-${index}`} className={styles.skills}>
+                        {renderSkillIcon(skill)}
+                        <p className={styles.skillLabel}>{skill}</p>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -247,7 +270,7 @@ function Skills() {
               tabIndex={0}
               onKeyDown={handleKebabKeyDown}
             >
-              {pages.map((_, pageIndex) => (
+              {groups.map((_, pageIndex) => (
                 <button
                   key={pageIndex}
                   type="button"
