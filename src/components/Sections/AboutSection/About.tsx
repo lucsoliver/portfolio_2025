@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
-import cvPdfEN from "../../../assets/docs/CV_Lucas_Oliveira_October2026.pdf";
 import styles from "./About.module.css";
+
+const cvPdf = "/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
+const cvPdfEN = "/docs/CV_Lucas_Oliveira_October2026.pdf";
 
 function About() {
   const { t } = useTranslation();

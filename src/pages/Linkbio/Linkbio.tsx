@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import cvPdf from "../../assets/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
-import cvPdfEN from "../../assets/docs/CV_Lucas_Oliveira_October2026.pdf";
 import LinksBackground from "../../components/illustrations/LinksBackground";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import { socialLinks } from "../../data/socials";
 import styles from "./Linkbio.module.css";
+
+const cvPdf = "/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
+const cvPdfEN = "/docs/CV_Lucas_Oliveira_October2026.pdf";
 
 const COPY_FEEDBACK_MS = 1500;
 
@@ -49,6 +50,10 @@ function Links() {
           src="https://github.com/lucsoliver.png"
           alt="Lucas Oliveira"
           className={styles.avatar}
+          width={192}
+          height={192}
+          loading="lazy"
+          decoding="async"
           draggable="false"
         />
         <h2 className={styles.titleName}>

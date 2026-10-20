@@ -161,9 +161,17 @@ function NavBar() {
             aria-label="Toggle menu"
           >
             {!isMenuOpen ? (
-              <Menu className={styles.iconMd} aria-hidden="true" />
+              <Menu
+                className={styles.iconMd}
+                aria-hidden="true"
+                focusable="false"
+              />
             ) : (
-              <X className={styles.iconMd} aria-hidden="true" />
+              <X
+                className={styles.iconMd}
+                aria-hidden="true"
+                focusable="false"
+              />
             )}
           </button>
 
@@ -277,9 +285,17 @@ function NavBar() {
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
-                <Moon className={styles.iconSm} aria-hidden="true" />
+                <Moon
+                  className={styles.iconSm}
+                  aria-hidden="true"
+                  focusable="false"
+                />
               ) : (
-                <Sun className={styles.iconSm} aria-hidden="true" />
+                <Sun
+                  className={styles.iconSm}
+                  aria-hidden="true"
+                  focusable="false"
+                />
               )}
             </button>
           </div>
@@ -340,7 +356,11 @@ function NavBar() {
           className={styles.scrollTopBtn}
           aria-label="Voltar ao topo"
         >
-          <ArrowUp className={styles.iconSm} />
+          <ArrowUp
+            className={styles.iconSm}
+            aria-hidden="true"
+            focusable="false"
+          />
         </button>
       )}
     </>

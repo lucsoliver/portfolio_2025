@@ -81,10 +81,19 @@
   }
 }
 
-@media (max-width: 769px) {
-  .sidebarNav,
+@media (max-width: 1024px) {
   .desktopNav,
   .logoContainer {
+    display: none !important;
+  }
+
+  .menuButton {
+    display: block;
+  }
+}
+
+@media (max-width: 769px) {
+  .sidebarNav {
     display: none !important;
   }
 }
@@ -172,7 +181,8 @@
 
 .langInactive,
 .langDivisor {
-  opacity: 0.5;
+  opacity: 0.8;
+  color: inherit;
 }
 
 .langInactive:hover {
@@ -383,13 +393,13 @@
   height: 1.25rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .menuButton {
     display: none;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .mobileOverlay {
     display: none;
   }

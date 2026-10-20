@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import Contact from "../../Contact/Contact";
 import LinksBackground from "../../illustrations/LinksBackground";
-import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
 
 import styles from "./Home.module.css";
+
+const cvPdf = "/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
 
 function scrollToSection(id: string) {
   document
