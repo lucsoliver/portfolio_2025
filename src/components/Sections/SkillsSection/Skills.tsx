@@ -17,6 +17,7 @@ import {
   FaLaravel,
   FaGitAlt,
   FaGithub,
+  FaFigma,
 } from "react-icons/fa";
 
 import {
@@ -27,9 +28,7 @@ import {
   SiPhp,
   SiJavascript,
   SiTypescript,
-  SiNodedotjs,
   SiMysql,
-  SiPostgresql,
 } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 
@@ -57,12 +56,10 @@ const iconMap: Record<string, ReactNode> = {
   expo: <SiExpo size={40} color="#080827" />,
   php: <SiPhp size={40} color="#7B7FB5" />,
   laravel: <FaLaravel size={40} color="#FF3427" />,
-  nodejs: <SiNodedotjs size={40} color="#5FA04E" />,
-  express: <SiNodedotjs size={40} color="#5FA04E" />,
   mysql: <SiMysql size={40} color="#00758F" />,
-  postgresql: <SiPostgresql size={40} color="#336791" />,
   git: <FaGitAlt size={40} color="#F05639" />,
   github: <FaGithub size={40} color="#080808" />,
+  figma: <FaFigma size={40} color="#fff" />,
   tailwindcss: <RiTailwindCssFill size={40} color="#08B7D3" />,
   webpack: <SiWebpack size={40} color="#93D6FB" />,
   styledcomponents: <SiStyledcomponents size={40} color="#F7E025" />,

@@ -24,8 +24,9 @@ const resources = {
         title: "Lucas Oliveira",
         subtitle: "Front-end Developer",
         present: "Currently",
+        past: "Previously",
         pos: "🎓 Post-graduation in Software Engineering",
-        job: "🏢 Working at ALFA Software AutoPeças",
+        job: "🏢 Worked at ALFA Software AutoPeças",
         description:
           "With 5 years of development experience, I use my creativity and technical expertise to create solutions that simplify and solve everyday challenges and result in modern, accessible interfaces focused on the best user experience.",
         interests: "Interests",
@@ -84,16 +85,8 @@ const resources = {
             ],
           },
           {
-            title: "Back-end",
-            skills: [
-              "PHP",
-              "Laravel",
-              "Node.js",
-              "Express",
-              "MySQL",
-              "PostgreSQL",
-              "REST APIs",
-            ],
+            title: "Back-end & Database",
+            skills: ["PHP", "Laravel", "REST APIs", "MySQL"],
           },
           {
             title: "Mobile",
@@ -101,7 +94,7 @@ const resources = {
           },
           {
             title: "Dev Tools & Engineering",
-            skills: ["Git", "GitHub", "Figma", "Docker", "NPM"],
+            skills: ["Git", "GitHub", "Figma"],
           },
         ],
       },
@@ -150,8 +143,9 @@ const resources = {
         title: "Lucas Oliveira",
         subtitle: "Desenvolvedor Front-end",
         present: "Atualmente",
+        past: "Anteriormente",
         pos: "🎓 Pós-graduação em Engenharia de Software",
-        job: "🏢 Trabalhando na ALFA Software AutoPeças",
+        job: "🏢 Trabalhei na ALFA Software AutoPeças",
         description:
           "Com 5 anos de experiência em desenvolvimento, utilizo minha criatividade e expertise técnica para criar soluções que simplificam e resolvem desafios do dia a dia e resultam em interfaces modernas, acessíveis e focadas na melhor experiência do usuário.",
         interests: "Interesses",
@@ -210,16 +204,8 @@ const resources = {
             ],
           },
           {
-            title: "Back-end",
-            skills: [
-              "PHP",
-              "Laravel",
-              "Node.js",
-              "Express",
-              "MySQL",
-              "PostgreSQL",
-              "REST APIs",
-            ],
+            title: "Back-end & Banco de Dados",
+            skills: ["PHP", "Laravel", "REST APIs", "MySQL"],
           },
           {
             title: "Mobile",
@@ -227,7 +213,7 @@ const resources = {
           },
           {
             title: "Ferramentas e Engenharia",
-            skills: ["Git", "GitHub", "Figma", "Docker", "NPM"],
+            skills: ["Git", "GitHub", "Figma"],
           },
         ],
       },

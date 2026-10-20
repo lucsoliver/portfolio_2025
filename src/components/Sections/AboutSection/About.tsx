@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Setembro2026.pdf";
+import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
+import cvPdfEN from "../../../assets/docs/CV_Lucas_Oliveira_October2026.pdf";
 import styles from "./About.module.css";
 
 function About() {
@@ -31,7 +32,7 @@ function About() {
             <span className={styles.aboutSubtitle}>{t("about.subtitle")}</span>
             <p className={styles.aboutDescription}>{t("about.description")}</p>
             <div className={styles.aboutPresent}>
-              <h2>{t("about.present")}</h2>
+              <h2>{t("about.past")}</h2>
               <span>{t("about.job")}</span>
               <span>{t("about.pos")}</span>
             </div>
@@ -98,7 +99,7 @@ function About() {
                     </a>
                     <a
                       className={styles.modalButton}
-                      href={cvPdf}
+                      href={cvPdfEN}
                       target="_blank"
                       rel="noopener noreferrer"
                       draggable="false"

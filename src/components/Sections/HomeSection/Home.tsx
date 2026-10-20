@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Contact from "../../Contact/Contact";
 import LinksBackground from "../../illustrations/LinksBackground";
-import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Setembro2026.pdf";
+import cvPdf from "../../../assets/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
 
 import styles from "./Home.module.css";
 
