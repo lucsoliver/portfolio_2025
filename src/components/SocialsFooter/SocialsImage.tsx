@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./SocialsFooter.module.css";
 
-import cat1 from "../../assets/images/white-cat.png";
-import cat6 from "../../assets/images/black-cat.png";
-import cat4 from "../../assets/images/orange-cat.png";
-import cat5 from "../../assets/images/siamese-cat.png";
+import cat1 from "../../assets/images/white-cat.webp";
+import cat6 from "../../assets/images/black-cat.webp";
+import cat4 from "../../assets/images/orange-cat.webp";
+import cat5 from "../../assets/images/siamese-cat.webp";
 
 const images = [cat1, cat6, cat4, cat5];
 
