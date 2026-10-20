@@ -194,6 +194,9 @@
   }
 
   .viewport {
+    flex: auto;
+    height: auto;
+    min-height: clamp(40rem, 48vw, 37.5rem);
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;

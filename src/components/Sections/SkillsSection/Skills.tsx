@@ -119,17 +119,23 @@ function Skills() {
       const mobile = isMobileViewport();
       const first = track.children[0] as HTMLElement | undefined;
       const active = track.children[currentPage] as HTMLElement | undefined;
-      if (first) viewport.style.height = `${first.offsetHeight}px`;
-
-      if (!active) return;
 
       if (mobile) {
+        viewport.style.height = "auto";
+
+        if (!active) return;
         track.style.transform = "";
         if (Math.abs(viewport.scrollLeft - active.offsetLeft) > 4) {
           viewport.scrollTo({ left: active.offsetLeft, behavior: "smooth" });
         }
         return;
       }
+
+      if (first) {
+        viewport.style.height = `${first.offsetHeight}px`;
+      }
+
+      if (!active) return;
 
       viewport.scrollLeft = 0;
       track.style.transform = `translateY(-${active.offsetTop}px)`;
