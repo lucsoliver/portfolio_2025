@@ -18,7 +18,7 @@ export const socialLinks: SocialLink[] = [
     rel: "nofollow",
   },
   {
-    href: "https://x.com/lyunekou",
+    href: "https://x.com/lyuneko",
     icon: FaXTwitter,
     label: "Twitter",
     rel: "me noopener",
@@ -30,7 +30,7 @@ export const socialLinks: SocialLink[] = [
     rel: "me noopener",
   },
   {
-    copyText: "lyunekou",
+    copyText: "lyuneko",
     icon: FaDiscord,
     label: "Discord - Copiar nome de usuário",
     rel: "me noopener",

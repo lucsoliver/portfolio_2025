@@ -34,7 +34,7 @@ const socials: Social[] = [
   },
   {
     id: "twitter",
-    href: "https://x.com/lyunekou",
+    href: "https://x.com/lyuneko",
     icon: FaXTwitter,
     alt: "Twitter",
     title: "Twitter",
@@ -57,7 +57,12 @@ const SocialsFooter: React.FC<{ onHover?: (index: number | null) => void }> = ({
     {socials.map((social, idx) => {
       const Icon = social.icon;
       return (
-        <Tooltip key={social.id} label={social.title} position="bottom" showArrow={false}>
+        <Tooltip
+          key={social.id}
+          label={social.title}
+          position="bottom"
+          showArrow={false}
+        >
           <a
             href={social.href}
             rel={social.rel}
