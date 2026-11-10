@@ -40,6 +40,15 @@
   align-items: flex-start;
 }
 
+.withDivider {
+  padding-bottom: 2.1rem;
+  border-bottom: 1px solid rgba(60, 64, 67, 0.12);
+}
+
+:global(html.dark) .withDivider {
+  border-bottom-color: rgba(232, 232, 232, 0.18);
+}
+
 .period {
   font-size: 0.72rem;
   line-height: 1.5;
@@ -58,29 +67,30 @@
 
 .headerRow {
   display: flex;
+  flex-direction: column;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 0.45rem;
   margin-bottom: 0.5rem;
 }
 
-.role {
+.company {
   font-size: 1.08rem;
   font-family: "PoppinsSemiBold", sans-serif;
   color: var(--color-black-title);
 }
 
-:global(html.dark) .role {
+:global(html.dark) .company {
   color: var(--color-white-title);
 }
 
-.company {
+.role {
   font-size: 0.78rem;
   color: rgba(60, 64, 67, 0.7);
   font-family: "PoppinsRegular", sans-serif;
 }
 
-:global(html.dark) .company {
+:global(html.dark) .role {
   color: rgba(232, 232, 232, 0.7);
 }
 

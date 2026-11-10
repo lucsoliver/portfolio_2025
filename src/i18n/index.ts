@@ -123,7 +123,7 @@ const resources = {
           {
             period: "Dec. 2025 - Sep. 2026",
             company: "Dadus — Fábrica de Software",
-            role: "Front-end Developer",
+            role: "Front-end Developer · Remote",
             items: [
               "Developed and modernized an internal management platform for the auto parts sector, focusing on user experience, front-end architecture, performance, and scalability.",
               "Rebuilt the platform using Vue 3 and TypeScript, migrating from Vue 2 while modernizing the architecture and codebase.",
@@ -136,7 +136,7 @@ const resources = {
           {
             period: "Feb. 2022 - Mar. 2025",
             company: "Culte - Crédito Privado para Agricultura Familiar",
-            role: "Front-end Developer",
+            role: "Front-end Developer · Remote",
             items: [
               "Development and maintenance of digital solutions for the credit and agriculture sectors, with a focus on user experience, responsiveness, accessibility, and performance.",
               "Contributed to the platform's redesign—built using PHP and Laravel—by modernizing interfaces and enhancing both usability and accessibility.",
@@ -150,7 +150,7 @@ const resources = {
           {
             period: "Mar. 2020 - May 2021",
             company: "VIRTUS",
-            role: "Junior Front-end Developer",
+            role: "Junior Front-end Developer · Remote",
             items: [
               "Developed Android, iOS, and web back-office applications for a loyalty platform, focusing on service integration, component reusability, and interface consistency.",
               "Developed web and mobile interfaces using React, React Native, and TypeScript.",
@@ -162,7 +162,7 @@ const resources = {
           {
             period: "Oct. 2019 – Mar. 2020",
             company: "VIRTUS",
-            role: "Mobile Development Intern",
+            role: "Mobile Development Intern · On-site",
             items: [
               "Development of white-label mobile applications for various clients, with a focus on code reusability, interface customization, and integration with payment services.",
               "Developed applications using React Native and Expo, adaptable to the needs of different clients.",
@@ -172,7 +172,7 @@ const resources = {
           {
             period: "Dec. 2018 - Jun. 2019",
             company: "My Ava Tecnologia e Educação Ltda",
-            role: "IT Support Intern",
+            role: "IT Support Intern · On-site",
             items: [
               "Provided technical and operational support, contributing to the functioning of the IT infrastructure and user assistance.",
               "Offered technical support to users, assisting in the identification and resolution of issues.",
@@ -306,7 +306,7 @@ const resources = {
           {
             period: "dez. 2025 - set. 2026",
             company: "Dadus — Fábrica de Software",
-            role: "Desenvolvedor Front-end",
+            role: "Desenvolvedor Front-end · Remoto",
             items: [
               "Desenvolvimento e modernização de uma plataforma interna de gestão para o setor de autopeças, com foco em experiência do usuário, arquitetura front-end, performance e escalabilidade.",
               "Reconstruí a plataforma utilizando Vue 3 e TypeScript, migrando de Vue 2 e modernizando a arquitetura e a base de código.",
@@ -319,7 +319,7 @@ const resources = {
           {
             period: "fev. 2022 - mar. 2025",
             company: "Culte - Crédito Privado para Agricultura Familiar",
-            role: "Desenvolvedor Front-end",
+            role: "Desenvolvedor Front-end · Remoto",
             items: [
               "Desenvolvimento e manutenção de soluções digitais para o setor de crédito e agricultura, com foco em experiência do usuário, responsividade, acessibilidade e desempenho.",
               "Contribuí para o redesign da plataforma, desenvolvida em PHP e Laravel, modernizando interfaces e aprimorando a usabilidade e a acessibilidade.",
@@ -333,7 +333,7 @@ const resources = {
           {
             period: "mar. 2020 - mai. 2021",
             company: "VIRTUS",
-            role: "Desenvolvedor Front-end Júnior",
+            role: "Desenvolvedor Front-end Júnior · Remoto",
             items: [
               "Desenvolvimento de aplicações Android, iOS e Web Backoffice para uma plataforma de fidelidade, com foco em integração de serviços, reutilização de componentes e consistência entre interfaces.",
               "Desenvolvi interfaces web e mobile utilizando React, React Native e TypeScript.",
@@ -345,7 +345,7 @@ const resources = {
           {
             period: "out. 2019 - mar. 2020",
             company: "VIRTUS",
-            role: "Estagiário em Desenvolvimento Mobile",
+            role: "Estagiário em Desenvolvimento Mobile · Presencial",
             items: [
               "Desenvolvimento de aplicações mobile white-label para diferentes clientes, com foco em reutilização de código, personalização de interfaces e integração com serviços de pagamento.",
               "Desenvolvi aplicações utilizando React Native e Expo, adaptáveis às necessidades de diferentes clientes.",
@@ -355,7 +355,7 @@ const resources = {
           {
             period: "dez. 2018 - jun. 2019",
             company: "My Ava Tecnologia e Educação Ltda",
-            role: "Estagiário em Suporte de TI",
+            role: "Estagiário em Suporte de TI · Presencial",
             items: [
               "Atuação no suporte técnico e operacional, contribuindo para o funcionamento da infraestrutura de TI e o atendimento aos usuários.",
               "Prestei suporte técnico aos usuários, auxiliando na identificação e resolução de problemas.",
