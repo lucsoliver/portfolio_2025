@@ -3,8 +3,9 @@ import Contact from "../../Contact/Contact";
 import LinksBackground from "../../illustrations/LinksBackground";
 
 import styles from "./Home.module.css";
+import { useNavigate } from "react-router-dom";
 
-const cvPdf = "/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
+const cvPdf = "/docs/CV_Lucas_Oliveira_Novembro2026.pdf";
 
 function scrollToSection(id: string) {
   document
@@ -14,6 +15,7 @@ function scrollToSection(id: string) {
 
 function Home() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <section
@@ -55,10 +57,15 @@ function Home() {
 
           <div className={styles.homeContact}>
             <Contact />
-            <a href="/links" className={styles.linksButton} draggable="false">
+            <button
+              type="button"
+              onClick={() => navigate("/links")}
+              className={styles.linksButton}
+              draggable="false"
+            >
               <span className={styles.animatePulse} aria-hidden="true" />
               {t("home.links")}
-            </a>
+            </button>
           </div>
         </div>
       </div>

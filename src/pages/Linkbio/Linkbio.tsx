@@ -1,17 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import LinksBackground from "../../components/illustrations/LinksBackground";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import { socialLinks } from "../../data/socials";
 import styles from "./Linkbio.module.css";
 
-const cvPdf = "/docs/CV_Lucas_Oliveira_Outubro2026.pdf";
+const cvPdf = "/docs/CV_Lucas_Oliveira_Novembro2026.pdf";
 const cvPdfEN = "/docs/CV_Lucas_Oliveira_October2026.pdf";
 
 const COPY_FEEDBACK_MS = 1500;
 
 function Links() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   const [copied, setCopied] = useState(false);
   const copyTimerRef = useRef<number | undefined>(undefined);
 
@@ -118,16 +121,16 @@ function Links() {
         </div>
 
         <div className={styles.linksList}>
-          <a
-            href="/"
-            rel="me noopener"
-            className={styles.linkItem}
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className={`${styles.linkItem} ${styles.linkItemWebsite}`}
             draggable="false"
           >
             <div className={styles.linkBox}>
               <span className={styles.linkTitle}>{t("links.website")}</span>
             </div>
-          </a>
+          </button>
           <a
             href={cvPdf}
             target="_blank"
