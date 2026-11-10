@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import NavBar from "../components/NavBar/NavBar";
@@ -8,6 +8,7 @@ import Skills from "../components/Sections/SkillsSection/Skills";
 import Contact from "../components/Sections/ContactSection/Contact";
 import Footer from "../components/Footer/Footer";
 import Links from "../pages/Linkbio/Linkbio";
+import Work from "../pages/Work/Work";
 import { ThemeProvider } from "../components/ThemeContext/ThemeContext";
 
 const Projects = lazy(
@@ -24,13 +25,8 @@ function ProjectsFallback() {
 }
 
 function HomeWebsite() {
-  const { t } = useTranslation();
-
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        {t("nav.skipToContent")}
-      </a>
       <main id="main-content">
         <Home />
         <About />
@@ -46,18 +42,38 @@ function HomeWebsite() {
 
 function AppContent() {
   const location = useLocation();
-  const hideNavAndFooter = location.pathname === "/links";
+  const { i18n } = useTranslation();
+  const hideNav = location.pathname === "/links";
+  const hideFooter = ["/links", "/work"].includes(location.pathname);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const nextTitle =
+      location.pathname === "/links"
+        ? "Links | Lucas Oliveira"
+        : location.pathname === "/work"
+          ? i18n.language === "pt"
+            ? "Trabalho | Lucas Oliveira"
+            : "Work | Lucas Oliveira"
+          : "Lucas Oliveira | Desenvolvedor Front-end";
+
+    document.title = nextTitle;
+  }, [location.pathname, i18n.language]);
 
   return (
     <>
-      {!hideNavAndFooter && <NavBar />}
+      {!hideNav && <NavBar />}
       <Routes>
         <Route path="/" element={<HomeWebsite />} />
         <Route path="/links" element={<Links />} />
+        <Route path="/work" element={<Work />} />
         <Route path="/cv-ptbr" />
         <Route path="/cv-en" />
       </Routes>
-      {!hideNavAndFooter && <Footer />}
+      {!hideFooter && <Footer />}
     </>
   );
 }

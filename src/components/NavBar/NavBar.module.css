@@ -38,6 +38,12 @@
   z-index: 51;
 }
 
+.logoButton {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
 .logo {
   width: 40px;
   height: 40px;
@@ -136,7 +142,7 @@
   font-family: PoppinsSemiBold;
 }
 
-.toggles {
+.toggleWarapper {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -146,6 +152,15 @@
   z-index: 1001;
 }
 
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color-scheme: light dark;
+  color: currentColor;
+}
+
+.toggle,
 .langToggle {
   display: flex;
   align-items: center;
@@ -154,6 +169,7 @@
   color: currentColor;
 }
 
+.navToggle,
 .langBtn {
   padding: 0.5rem 0.5rem;
   transition:
@@ -165,6 +181,16 @@
   text-decoration: underline transparent;
   color-scheme: light dark;
   color: currentColor;
+}
+
+.navToggle {
+  font-family: PoppinsMedium;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.navToggle:hover {
+  color: var(--base-color);
 }
 
 .langActive {
@@ -180,7 +206,7 @@
 }
 
 .langInactive,
-.langDivisor {
+.divisor {
   opacity: 0.8;
   color: inherit;
 }
@@ -189,7 +215,7 @@
   color: var(--base-color);
 }
 
-.langDivisor {
+.divisor {
   cursor: default;
 }
 
@@ -339,12 +365,15 @@
   cursor: pointer;
   font-family: PoppinsMedium;
   font-size: 1.5rem;
-  font-family: PoppinsMedium;
   color: var(--color-black-text);
   transition:
     color 0.2s,
     text-decoration 0.2s;
   text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
 }
 
 :global(html.dark) .mobileLink {
@@ -355,6 +384,84 @@
   color-scheme: light dark;
   color: currentColor;
   text-decoration: underline;
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+:global(html.dark) .mobileControls {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.mobileControlButton,
+.mobileColorDropdownButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  color: currentColor;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.mobileControlButton {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mobileColorDropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.mobileColorDropdownButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+.mobileColorDropdownButton:hover,
+.mobileControlButton:hover {
+  transform: translateY(-1px);
+  border-color: var(--base-color);
+  color: var(--base-color);
+}
+
+.mobileColorDropdownMenu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.55rem);
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 0.2rem;
+  padding: 0.65rem 0.7rem;
+  background-color: var(--color-white-title);
+  border: 1px solid var(--color-white-text);
+  border-radius: 0.5rem;
+  z-index: 1002;
+}
+
+:global(html.dark) .mobileColorDropdownMenu {
+  background-color: var(--color-black-title);
+  border-color: var(--color-black-text);
 }
 
 .scrollTopBtn {

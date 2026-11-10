@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon, Menu, X, ArrowUp } from "lucide-react";
 import { useTheme } from "../ThemeContext/ThemeContext";
 import styles from "./NavBar.module.css";
@@ -29,12 +30,17 @@ const highlightColors = [
 
 function NavBar() {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isColorMenuOpen, setIsColorMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [isSidebar, setIsSidebar] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 1024 : false,
+  );
   const [activeSection, setActiveSection] = useState<string>("home");
   const [highlightColor, setHighlightColor] = useState<string>(
     DEFAULT_HIGHLIGHT_COLOR,
@@ -59,6 +65,16 @@ function NavBar() {
   useEffect(() => {
     const saved = initHighlightColor();
     setHighlightColor(saved);
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => mediaQuery.removeEventListener("change", updateIsMobile);
   }, []);
 
   const setHighlight = (color: string) => {
@@ -147,37 +163,62 @@ function NavBar() {
     setIsMenuOpen(false);
   };
 
+  const isWorkPage = location.pathname === "/work";
+  const showSectionNav = !isWorkPage;
+
+  useEffect(() => {
+    if (!showSectionNav) {
+      setActiveSection("home");
+    }
+  }, [showSectionNav]);
+
+  const cvPdfHref =
+    i18n.language === "pt"
+      ? "/docs/CV_Lucas_Oliveira_Novembro2026.pdf"
+      : "/docs/CV_Lucas_Oliveira_October2026.pdf";
+  const cvDownloadName =
+    i18n.language === "pt"
+      ? "lucas-oliveira-cv-ptbr.pdf"
+      : "lucas-oliveira-cv-en.pdf";
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const homeLabel = i18n.language === "pt" ? "Início" : "Home";
   const navClass = isSidebar ? styles.sidebarNav : styles.stickyNav;
 
   return (
     <>
       {isInitialized && (
         <nav className={styles.stickyNav} aria-label="Main navigation">
-          {/* mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen((v) => !v)}
-            className={styles.menuButton}
-            aria-label="Toggle menu"
-          >
-            {!isMenuOpen ? (
-              <Menu
-                className={styles.iconMd}
-                aria-hidden="true"
-                focusable="false"
-              />
-            ) : (
-              <X
-                className={styles.iconMd}
-                aria-hidden="true"
-                focusable="false"
-              />
-            )}
-          </button>
+          {!isWorkPage && (
+            <button
+              onClick={() => setIsMenuOpen((v) => !v)}
+              className={styles.menuButton}
+              aria-label="Toggle menu"
+            >
+              {!isMenuOpen ? (
+                <Menu
+                  className={styles.iconMd}
+                  aria-hidden="true"
+                  focusable="false"
+                />
+              ) : (
+                <X
+                  className={styles.iconMd}
+                  aria-hidden="true"
+                  focusable="false"
+                />
+              )}
+            </button>
+          )}
 
           {/* desktop nav */}
           <div className={styles.logoContainer}>
-            <a href="/" aria-label="Home" draggable="false">
+            <button
+              onClick={() => navigate("/")}
+              aria-label="Home"
+              draggable="false"
+              className={styles.logoButton}
+            >
               {theme === "dark" ? (
                 <img
                   src={LogoWhite}
@@ -193,29 +234,97 @@ function NavBar() {
                   draggable="false"
                 />
               )}
-            </a>
+            </button>
           </div>
-          <div className={`${navClass} ${styles.desktopNav}`}>
-            {sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(section.id);
-                }}
-                className={`desktopNavBar ${
-                  activeSection === section.id ? styles.desktopActive : ""
-                }`}
-                aria-current={activeSection === section.id ? "page" : undefined}
-                draggable="false"
-              >
-                {t(section.label)}
-              </a>
-            ))}
-          </div>
+          {showSectionNav && (
+            <div className={`${navClass} ${styles.desktopNav}`}>
+              {sections.map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(section.id);
+                  }}
+                  className={`desktopNavBar ${
+                    activeSection === section.id ? styles.desktopActive : ""
+                  }`}
+                  aria-current={
+                    activeSection === section.id ? "page" : undefined
+                  }
+                  draggable="false"
+                >
+                  {t(section.label)}
+                </a>
+              ))}
+            </div>
+          )}
 
-          <div className={styles.toggles}>
+          <div className={styles.toggleWarapper}>
+            {!isMobile && (
+              <div className={styles.toggle}>
+                {isWorkPage ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => navigate("/")}
+                      className={styles.navToggle}
+                    >
+                      {homeLabel}
+                    </button>
+                    <span className={styles.divisor}>/</span>
+                    <button
+                      type="button"
+                      onClick={() => navigate("/work")}
+                      className={styles.navToggle}
+                    >
+                      {t("nav.work")}
+                    </button>
+                    <span className={styles.divisor}>/</span>
+                    <a
+                      href={cvPdfHref}
+                      download={cvDownloadName}
+                      className={styles.navToggle}
+                      aria-label={t("nav.cv")}
+                    >
+                      {t("nav.cv")}
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => navigate("/work")}
+                      className={styles.navToggle}
+                    >
+                      {t("nav.work")}
+                    </button>
+                    <span className={styles.divisor}>/</span>
+                    <a
+                      href={cvPdfHref}
+                      download={cvDownloadName}
+                      className={styles.navToggle}
+                      aria-label={t("nav.cv")}
+                    >
+                      {t("nav.cv")}
+                    </a>
+                  </>
+                )}
+              </div>
+            )}
+
+            {isMobile && isWorkPage && (
+              <div className={styles.toggle}>
+                <button
+                  type="button"
+                  onClick={() => navigate("/")}
+                  className={styles.navToggle}
+                >
+                  {homeLabel}
+                </button>
+              </div>
+            )}
+
             {/* language toggle */}
             <div className={styles.langToggle}>
               <button
@@ -228,7 +337,7 @@ function NavBar() {
               >
                 PT
               </button>
-              <span className={styles.langDivisor}>/</span>
+              <span className={styles.divisor}>/</span>
               <button
                 onClick={() => setLanguage("en")}
                 className={`${styles.langBtn} ${
@@ -303,52 +412,80 @@ function NavBar() {
       )}
 
       {/* mobile menu */}
-      {isMenuOpen && (
+      {showSectionNav && isMenuOpen && (
         <div
           className={styles.mobileOverlay}
           onClick={() => setIsMenuOpen(false)}
         />
       )}
-      <div
-        className={[
-          styles.mobileMenu,
-          isMenuOpen ? styles.mobileMenuOpen : "",
-        ].join(" ")}
-      >
-        <div className={styles.mobileMenuContent}>
-          <div className={styles.logoContainerMobile}>
-            {theme === "dark" ? (
-              <img
-                src={LogoWhite}
-                className={styles.logo}
-                alt="Logo"
+      {showSectionNav && (
+        <div
+          className={[
+            styles.mobileMenu,
+            isMenuOpen ? styles.mobileMenuOpen : "",
+          ].join(" ")}
+        >
+          <div className={styles.mobileMenuContent}>
+            <div className={styles.logoContainerMobile}>
+              {theme === "dark" ? (
+                <img
+                  src={LogoWhite}
+                  className={styles.logo}
+                  alt="Logo"
+                  draggable="false"
+                />
+              ) : (
+                <img
+                  src={LogoBlack}
+                  className={styles.logo}
+                  alt="Logo"
+                  draggable="false"
+                />
+              )}
+            </div>
+            {sections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(section.id);
+                }}
+                className={styles.mobileLink}
                 draggable="false"
-              />
-            ) : (
-              <img
-                src={LogoBlack}
-                className={styles.logo}
-                alt="Logo"
-                draggable="false"
-              />
-            )}
+              >
+                {t(section.label)}
+              </a>
+            ))}
+
+            <div className={styles.mobileControls}>
+              <div className={styles.mobileActions}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    navigate("/work");
+                    setIsMenuOpen(false);
+                  }}
+                  className={styles.mobileLink}
+                  draggable="false"
+                >
+                  {t("nav.work")}
+                </button>
+
+                <a
+                  href={cvPdfHref}
+                  download={cvDownloadName}
+                  className={styles.mobileLink}
+                  draggable="false"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t("nav.cv")}
+                </a>
+              </div>
+            </div>
           </div>
-          {sections.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(section.id);
-              }}
-              className={styles.mobileLink}
-              draggable="false"
-            >
-              {t(section.label)}
-            </a>
-          ))}
         </div>
-      </div>
+      )}
 
       {showScrollTop && (
         <button
