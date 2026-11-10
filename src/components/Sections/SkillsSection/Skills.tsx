@@ -125,8 +125,17 @@ function Skills() {
 
         if (!active) return;
         track.style.transform = "";
-        if (Math.abs(viewport.scrollLeft - active.offsetLeft) > 4) {
-          viewport.scrollTo({ left: active.offsetLeft, behavior: "smooth" });
+
+        const targetLeft = active.offsetLeft;
+        const isNearTarget = Math.abs(viewport.scrollLeft - targetLeft) <= 4;
+
+        if (!isNearTarget) {
+          requestAnimationFrame(() => {
+            viewport.scrollTo({
+              left: targetLeft,
+              behavior: "smooth",
+            });
+          });
         }
         return;
       }
@@ -197,10 +206,16 @@ function Skills() {
 
     const onScroll = () => {
       if (!isMobileViewport()) return;
+
       const width = viewport.clientWidth;
       if (!width) return;
+
       const next = Math.round(viewport.scrollLeft / width);
-      goToPage(next);
+      const clamped = Math.max(0, Math.min(pageCount - 1, next));
+
+      if (clamped !== pageRef.current) {
+        goToPage(clamped);
+      }
     };
 
     viewport.addEventListener("scroll", onScroll, { passive: true });

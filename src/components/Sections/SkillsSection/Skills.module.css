@@ -37,13 +37,14 @@
   min-width: 0;
   overflow: hidden;
   padding: 0.5rem;
+  scroll-behavior: smooth;
 }
 
 .track {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  transition: transform 0.45s ease;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
@@ -200,9 +201,11 @@
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    touch-action: pan-x;
   }
 
   .viewport::-webkit-scrollbar {
@@ -212,6 +215,7 @@
   .track {
     flex-direction: row;
     transform: none !important;
+    transition: transform 0.32s ease-out;
   }
 
   .skillGroup {
@@ -246,6 +250,11 @@
     max-height: 6.75rem;
     padding: 0.65rem 0.2rem;
     border-radius: 0.45rem;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      opacity 0.25s ease;
+    will-change: transform;
   }
 
   .skillIcon {
