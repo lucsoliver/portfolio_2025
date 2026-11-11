@@ -71,8 +71,7 @@
   }
 }
 
-.btnContact,
-.btnCV {
+.btnContact {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -85,26 +84,6 @@
   transition:
     background-color 0.2s,
     border-color 0.2s;
-}
-
-.btnCV {
-  background-color: var(--color-white-bg);
-  color: currentColor;
-  border: 2px solid var(--color-white-border);
-}
-
-:global(html.dark) .btnCV {
-  background-color: var(--color-black-bg);
-  border-color: var(--color-black-border);
-}
-
-.btnCV:hover {
-  background-color: var(--color-white-title);
-}
-
-:global(html.dark) .btnCV:hover {
-  background-color: var(--color-black-title);
-  border-color: var(--color-black-title);
 }
 
 .btnContact {
@@ -185,8 +164,7 @@
     max-width: 18rem;
   }
 
-  .btnContact,
-  .btnCV {
+  .btnContact {
     width: 100%;
     justify-content: center;
   }

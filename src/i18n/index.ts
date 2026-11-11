@@ -16,7 +16,6 @@ const resources = {
       home: {
         title: "Lucas Oliveira",
         subtitle: "Front-end Developer",
-        ctaCv: "Download CV",
         links: "Links",
         contact: "Contact",
       },
@@ -200,7 +199,6 @@ const resources = {
       home: {
         title: "Lucas Oliveira",
         subtitle: "Desenvolvedor Front-end",
-        ctaCv: "Baixar CV",
         contact: "Contate-me",
         links: "Links",
       },

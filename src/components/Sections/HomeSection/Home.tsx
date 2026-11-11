@@ -5,8 +5,6 @@ import LinksBackground from "../../illustrations/LinksBackground";
 import styles from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
 
-const cvPdf = "/docs/CV_Lucas_Oliveira_Novembro2026.pdf";
-
 function scrollToSection(id: string) {
   document
     .getElementById(id)
@@ -34,16 +32,6 @@ function Home() {
           <p className={styles.homeSubtitle}>{t("home.subtitle")}</p>
 
           <div className={styles.btnGroup}>
-            <a
-              href={cvPdf}
-              className={styles.btnCV}
-              target="_blank"
-              rel="noopener noreferrer"
-              draggable="false"
-            >
-              {t("home.ctaCv")}
-            </a>
-
             <button
               className={styles.btnContact}
               onClick={(event) => {
