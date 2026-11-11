@@ -133,12 +133,6 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animatePulse {
-    animation: none;
-  }
-}
-
 @media (min-width: 900px) {
   .homeContact {
     justify-content: flex-end;

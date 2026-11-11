@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon, Menu, X, ArrowUp } from "lucide-react";
-import { useTheme } from "../ThemeContext/ThemeContext";
+import { useTheme } from "../ThemeContext/useTheme";
 import styles from "./NavBar.module.css";
 import LogoBlack from "../../assets/images/logo/logo-black.svg";
 import LogoWhite from "../../assets/images/logo/logo-white.svg";

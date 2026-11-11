@@ -70,8 +70,6 @@ function AppContent() {
         <Route path="/" element={<HomeWebsite />} />
         <Route path="/links" element={<Links />} />
         <Route path="/work" element={<Work />} />
-        <Route path="/cv-ptbr" />
-        <Route path="/cv-en" />
       </Routes>
       {!hideFooter && <Footer />}
     </>

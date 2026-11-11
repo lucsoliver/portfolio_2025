@@ -1,21 +1,11 @@
 import React from "react";
 import { Mail } from "lucide-react";
 
-import { LuGithub } from "react-icons/lu";
-import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { socialLinks } from "../../data/socials";
 import Tooltip from "../Tooltip/Tooltip";
 import styles from "./SocialsFooter.module.css";
 
-interface Social {
-  id: string;
-  href: string;
-  icon: React.ElementType;
-  alt: string;
-  title: string;
-  rel: string;
-}
-
-const socials: Social[] = [
+const footerSocials = [
   {
     id: "email",
     href: "mailto:lucasolv.dev@gmail.com",
@@ -24,37 +14,23 @@ const socials: Social[] = [
     title: "E-mail",
     rel: "nofollow",
   },
-  {
-    id: "github",
-    href: "https://github.com/lucsoliver",
-    icon: LuGithub,
-    alt: "GitHub",
-    title: "GitHub",
-    rel: "me noopener",
-  },
-  {
-    id: "twitter",
-    href: "https://x.com/lyuneko",
-    icon: FaXTwitter,
-    alt: "Twitter",
-    title: "Twitter",
-    rel: "me noopener",
-  },
-  {
-    id: "linkedin",
-    href: "https://www.linkedin.com/in/lucas-oliveira-paula/",
-    icon: FaLinkedinIn,
-    alt: "Linkedin",
-    title: "Linkedin",
-    rel: "me noopener",
-  },
+  ...socialLinks
+    .filter((link) => typeof link.href === "string")
+    .map((link) => ({
+      id: link.label.toLowerCase().replace(/\s+/g, "-"),
+      href: link.href as string,
+      icon: link.icon,
+      alt: link.label,
+      title: link.label,
+      rel: link.rel ?? "noopener noreferrer",
+    })),
 ];
 
 const SocialsFooter: React.FC<{ onHover?: (index: number | null) => void }> = ({
   onHover,
 }) => (
   <nav className={styles.socialsNav} aria-label="socials de redes sociais">
-    {socials.map((social, idx) => {
+    {footerSocials.map((social, idx) => {
       const Icon = social.icon;
       return (
         <Tooltip
