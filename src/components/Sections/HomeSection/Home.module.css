@@ -96,7 +96,7 @@
 .socialRailLine {
   width: 1px;
   height: 8rem;
-  background: rgba(93, 157, 254, 0.7);
+  background: var(--base-color);
 }
 
 .socialLinks {
