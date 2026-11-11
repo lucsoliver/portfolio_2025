@@ -203,9 +203,3 @@
     justify-content: center;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .animatePulse {
-    animation: none;
-  }
-}
