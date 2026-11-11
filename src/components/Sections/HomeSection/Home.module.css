@@ -88,15 +88,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.9rem;
   padding-bottom: 2rem;
 }
 
 .socialRailLine {
   width: 1px;
-  height: 8rem;
+  min-height: 0;
   background: var(--base-color);
+}
+
+.socialRailLine:first-child {
+  height: 22rem;
+}
+
+.socialRailLine:last-child {
+  height: 4rem;
 }
 
 .socialLinks {
