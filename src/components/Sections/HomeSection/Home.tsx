@@ -5,12 +5,6 @@ import LinksBackground from "../../illustrations/LinksBackground";
 import styles from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
 
-function scrollToSection(id: string) {
-  document
-    .getElementById(id)
-    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
 function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -31,20 +25,9 @@ function Home() {
 
           <p className={styles.homeSubtitle}>{t("home.subtitle")}</p>
 
-          <div className={styles.btnGroup}>
-            <button
-              className={styles.btnContact}
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection("contact");
-              }}
-            >
-              {t("home.contact")}
-            </button>
-          </div>
+          <div className={styles.homeActions}>
+            <Contact className={styles.mobileSocialLinks} />
 
-          <div className={styles.homeContact}>
-            <Contact />
             <button
               type="button"
               onClick={() => navigate("/links")}
@@ -56,6 +39,12 @@ function Home() {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className={styles.socialRail} aria-label="Social links">
+        <div className={styles.socialRailLine} aria-hidden="true" />
+        <Contact className={styles.socialLinks} />
+        <div className={styles.socialRailLine} aria-hidden="true" />
       </div>
     </section>
   );

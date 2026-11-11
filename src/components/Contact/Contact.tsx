@@ -19,11 +19,14 @@ const contacts = [
   },
 ];
 
-function Contact() {
+function Contact({ className }: { className?: string }) {
   const { t } = useTranslation();
 
   return (
-    <nav className={styles.contactNav} aria-label="Social links">
+    <nav
+      className={[styles.contactNav, className].filter(Boolean).join(" ")}
+      aria-label="Social links"
+    >
       {contacts.map((contact) => {
         const Icon = contact.icon;
         const label = t(contact.labelKey);
@@ -32,7 +35,7 @@ function Contact() {
           <Tooltip
             key={contact.href}
             label={label}
-            position="bottom"
+            position="left"
             showArrow={false}
           >
             <a
