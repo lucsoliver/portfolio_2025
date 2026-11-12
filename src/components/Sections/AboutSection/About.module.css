@@ -220,6 +220,10 @@
   width: 100%;
   background-color: var(--color-white-title);
   color: #404040;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   transition: background-color 0.3s ease;
   margin: 1.8rem 0 1.5em 0;
 }
@@ -401,6 +405,10 @@
   margin: 0.5rem;
   max-width: fit-content;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 :global(html.dark) .interestsCard {

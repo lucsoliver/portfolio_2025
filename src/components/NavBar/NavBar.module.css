@@ -127,6 +127,10 @@
   gap: 1.5rem;
   justify-content: center;
   max-width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .desktopActive {
@@ -181,6 +185,10 @@
   text-decoration: underline transparent;
   color-scheme: light dark;
   color: currentColor;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .navToggle {
@@ -217,6 +225,10 @@
 
 .divisor {
   cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .themeBtn {
