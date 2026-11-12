@@ -74,6 +74,7 @@
   .aboutSide {
     width: 100% !important;
     max-width: 24rem;
+    /* gap: 0; */
   }
 }
 
@@ -214,6 +215,7 @@
   align-items: center;
   justify-content: center;
   width: 36%;
+  gap: 2rem;
 }
 
 .aboutCV {
@@ -507,5 +509,58 @@
   .aboutTitle {
     max-width: none;
     text-align: center;
+  }
+}
+
+.aboutCV {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .aboutFlex {
+    gap: 0;
+    align-items: center;
+  }
+
+  .aboutText,
+  .aboutSide {
+    display: contents;
+  }
+
+  .aboutAvatar {
+    order: 1;
+    margin-bottom: 1rem;
+  }
+
+  .aboutTitle {
+    order: 2;
+  }
+
+  .aboutSubtitle {
+    order: 3;
+  }
+
+  .aboutCV {
+    display: block;
+    order: 4;
+    width: 100%;
+    max-width: 24rem;
+    margin: 1.5rem 0;
+  }
+
+  .aboutDescription {
+    order: 5;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutPresent {
+    order: 6;
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutInterests {
+    order: 7;
+    max-width: 24rem;
   }
 }
