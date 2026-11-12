@@ -37,7 +37,6 @@
   min-width: 0;
   overflow: hidden;
   padding: 0.5rem;
-  scroll-behavior: smooth;
 }
 
 .track {
@@ -93,8 +92,10 @@
   transition: transform 0.2s ease;
 }
 
-.skills:hover {
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .skills:hover {
+    transform: translateY(-4px);
+  }
 }
 
 :global(html.dark) .skills {
@@ -201,7 +202,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    scroll-padding-inline: 0.5rem;
     overscroll-behavior-x: contain;
     overscroll-behavior-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -216,7 +217,8 @@
   .track {
     flex-direction: row;
     transform: none !important;
-    transition: transform 0.32s ease-out;
+    transition: none;
+    will-change: auto;
   }
 
   .skillGroup {
@@ -224,7 +226,6 @@
     min-width: 100%;
     max-width: 100%;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 
   .skillsList {
@@ -251,11 +252,6 @@
     max-height: 6.75rem;
     padding: 0.65rem 0.2rem;
     border-radius: 0.45rem;
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      opacity 0.25s ease;
-    will-change: transform;
   }
 
   .skillIcon {

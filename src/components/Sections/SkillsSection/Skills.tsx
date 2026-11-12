@@ -103,11 +103,33 @@ function Skills() {
   const currentPage = Math.min(page, pageCount - 1);
   pageRef.current = currentPage;
 
+  const scrollToPage = useCallback(
+    (index: number, behavior: ScrollBehavior = "smooth") => {
+      const viewport = viewportRef.current;
+      const target = trackRef.current?.children[index] as
+        | HTMLElement
+        | undefined;
+      if (!viewport || !target) return;
+
+      const padLeft = parseFloat(getComputedStyle(viewport).paddingLeft) || 0;
+      const left =
+        viewport.scrollLeft +
+        target.getBoundingClientRect().left -
+        viewport.getBoundingClientRect().left -
+        padLeft;
+
+      viewport.scrollTo({ left, behavior });
+    },
+    [],
+  );
+
   const goToPage = useCallback(
     (next: number) => {
-      setPage(Math.max(0, Math.min(pageCount - 1, next)));
+      const clamped = Math.max(0, Math.min(pageCount - 1, next));
+      setPage(clamped);
+      if (isMobileViewport()) scrollToPage(clamped);
     },
-    [pageCount],
+    [pageCount, scrollToPage],
   );
 
   useLayoutEffect(() => {
@@ -116,29 +138,14 @@ function Skills() {
     if (!viewport || !track) return;
 
     const update = () => {
-      const mobile = isMobileViewport();
-      const first = track.children[0] as HTMLElement | undefined;
-      const active = track.children[currentPage] as HTMLElement | undefined;
-
-      if (mobile) {
+      if (isMobileViewport()) {
         viewport.style.height = "auto";
-
-        if (!active) return;
         track.style.transform = "";
-
-        const targetLeft = active.offsetLeft;
-        const isNearTarget = Math.abs(viewport.scrollLeft - targetLeft) <= 4;
-
-        if (!isNearTarget) {
-          requestAnimationFrame(() => {
-            viewport.scrollTo({
-              left: targetLeft,
-              behavior: "smooth",
-            });
-          });
-        }
         return;
       }
+
+      const first = track.children[0] as HTMLElement | undefined;
+      const active = track.children[currentPage] as HTMLElement | undefined;
 
       if (first) {
         viewport.style.height = `${first.offsetHeight}px`;
@@ -163,6 +170,17 @@ function Skills() {
       window.removeEventListener("resize", update);
     };
   }, [currentPage, pageCount]);
+
+  useEffect(() => {
+    const media = window.matchMedia(MOBILE_QUERY);
+
+    const onChange = () => {
+      if (media.matches) scrollToPage(pageRef.current, "auto");
+    };
+
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [scrollToPage]);
 
   useEffect(() => {
     const board = boardRef.current;
@@ -202,25 +220,26 @@ function Skills() {
 
   useEffect(() => {
     const viewport = viewportRef.current;
-    if (!viewport || pageCount <= 1) return;
+    const track = trackRef.current;
+    if (!viewport || !track || pageCount <= 1) return;
 
-    const onScroll = () => {
-      if (!isMobileViewport()) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!isMobileViewport()) return;
 
-      const width = viewport.clientWidth;
-      if (!width) return;
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (!visible) return;
 
-      const next = Math.round(viewport.scrollLeft / width);
-      const clamped = Math.max(0, Math.min(pageCount - 1, next));
+        const index = Array.from(track.children).indexOf(visible.target);
+        if (index >= 0 && index !== pageRef.current) setPage(index);
+      },
+      { root: viewport, threshold: 0.6 },
+    );
 
-      if (clamped !== pageRef.current) {
-        goToPage(clamped);
-      }
-    };
+    Array.from(track.children).forEach((child) => observer.observe(child));
 
-    viewport.addEventListener("scroll", onScroll, { passive: true });
-    return () => viewport.removeEventListener("scroll", onScroll);
-  }, [goToPage, pageCount]);
+    return () => observer.disconnect();
+  }, [pageCount]);
 
   const handleKebabKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (
